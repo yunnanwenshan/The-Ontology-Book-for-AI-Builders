@@ -5,6 +5,35 @@
 
 ---
 
+## 完整章节路径（备查）
+
+> 这是 BOOK.md 章节映射的副本，方便一次性看完整本书结构。
+
+| 章节 | 中文 | 目录 |
+|------|------|------|
+| 第 0 章 | 写在前面 | [00-overview/00-overview.md](00-overview/00-overview.md) |
+| 第 1 章 | 哲学源流 | [01-history/01-ontology-philosophy.md](01-history/01-ontology-philosophy.md) |
+| 第 2 章 | 知识表示 | [01-history/02-knowledge-representation.md](01-history/02-knowledge-representation.md) |
+| 第 3 章 | AI 时代为什么需要本体 | [01-history/03-ai-ontology-why.md](01-history/03-ai-ontology-why.md) |
+| 第 4 章 | RDF | [02-specs/01-rdf.md](02-specs/01-rdf.md) |
+| 第 5 章 | RDFS/OWL | [02-specs/02-rdfs-owl.md](02-specs/02-rdfs-owl.md) |
+| 第 6 章 | SPARQL | [02-specs/03-sparql.md](02-specs/03-sparql.md) |
+| 第 7 章 | SHACL | [02-specs/04-shacl.md](02-specs/04-shacl.md) |
+| 第 8 章 | 5 分钟跑通 | [04-zero-install-demo/](04-zero-install-demo/) |
+| 第 9 章 | 7 个真实业务案例 | [05-real-cases/](05-real-cases/) |
+| 第 10 章 | Palantir Foundry 风格平台 | [05-real-cases/foundry-platform/](05-real-cases/foundry-platform/) |
+| 第 11 章 | AIP / MCP | [05-real-cases/foundry-platform/mcp_server.py](05-real-cases/foundry-platform/mcp_server.py) |
+| 第 12 章 | 工程化进阶 | [05-real-cases/foundry-platform/](05-real-cases/foundry-platform/) |
+| 第 13 章 | 30 道作业 | [06-exercises/](06-exercises/) |
+| 附录 A | 资源与工具速查 | [99-references/01-resources.md](99-references/01-resources.md) |
+| 附录 B | 常见陷阱与最佳实践 | [99-references/02-pitfalls-best-practices.md](99-references/02-pitfalls-best-practices.md) |
+| 附录 C | 术语表 | [99-references/08-glossary.md](99-references/08-glossary.md) |
+
+---
+
+
+---
+
 ## 第一部分 · 本书背景
 
 **这是什么**
@@ -322,32 +351,6 @@ cat 06-exercises/README.md
 | **架构师** | 阶段 0+1+3+5+7 | 3-5 天 |
 | **老板 / PM** | 阶段 0+1+4（看 1 案例）+5（只看 README） | 半天到 1 天 |
 | **学生** | 全部顺序 | 3-4 周 |
-
----
-
-## 完整章节路径（备查）
-
-> 这是 BOOK.md 章节映射的副本，方便一次性看完整本书结构。
-
-| 章节 | 中文 | 目录 |
-|------|------|------|
-| 第 0 章 | 写在前面 | `00-overview/00-overview.md` |
-| 第 1 章 | 哲学源流 | `01-history/01-ontology-philosophy.md` |
-| 第 2 章 | 知识表示 | `01-history/02-knowledge-representation.md` |
-| 第 3 章 | AI 时代为什么需要本体 | `01-history/03-ai-ontology-why.md` |
-| 第 4 章 | RDF | `02-specs/01-rdf.md` |
-| 第 5 章 | RDFS/OWL | `02-specs/02-rdfs-owl.md` |
-| 第 6 章 | SPARQL | `02-specs/03-sparql.md` |
-| 第 7 章 | SHACL | `02-specs/04-shacl.md` |
-| 第 8 章 | 5 分钟跑通 | `04-zero-install-demo/` |
-| 第 9 章 | 7 个真实业务案例 | `05-real-cases/` |
-| 第 10 章 | Palantir Foundry 风格平台 | `05-real-cases/foundry-platform/` |
-| 第 11 章 | AIP / MCP | `05-real-cases/foundry-platform/mcp_server.py` |
-| 第 12 章 | 工程化进阶 | `05-real-cases/foundry-platform/` |
-| 第 13 章 | 30 道作业 | `06-exercises/` |
-| 附录 A | 资源与工具速查 | `99-references/01-resources.md` |
-| 附录 B | 常见陷阱与最佳实践 | `99-references/02-pitfalls-best-practices.md` |
-| 附录 C | 术语表 | [99-references/08-glossary.md](99-references/08-glossary.md) |
 
 ---
 
