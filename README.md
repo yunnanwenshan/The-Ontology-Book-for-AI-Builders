@@ -26,12 +26,13 @@ python3 examples/1-first-rdf.py
 
 | 想知道什么 | 看哪里 |
 |------------|--------|
+| 7 类读者定制路径 | [00-overview/READER-MAP.md](00-overview/READER-MAP.md) |
 | 完整书名 / 副标题 / 章节映射 | [00-overview/BOOK.md](00-overview/BOOK.md) |
 | 7 案例 + Foundry 平台怎么选 | [05-real-cases/00-场景对比总表.md](05-real-cases/00-场景对比总表.md) |
 | 作者踩过什么坑、推荐学多久 | [00-overview/AUTHOR-NOTES.md](00-overview/AUTHOR-NOTES.md) |
 | Review 报告 + 修复记录 | [00-overview/REVIEW-REPORT.md](00-overview/REVIEW-REPORT.md) |
 | 版本变更 | [CHANGELOG.md](CHANGELOG.md) |
-| PDF 教程 | [99-references/The-LLM-Grounding-Playbook.pdf](99-references/) (463 KB) |
+| PDF 教程 | [99-references/The-LLM-Grounding-Playbook.pdf](99-references/The-LLM-Grounding-Playbook.pdf) (463 KB) |
 
 ## 反馈
 

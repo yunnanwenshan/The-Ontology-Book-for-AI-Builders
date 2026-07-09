@@ -112,10 +112,10 @@ print('SPARQLWrapper OK')
 
 | 你想... | 跳到 |
 |--------|------|
-| 学更多语法 | [02-specs/](../../02-specs/)（RDF / SPARQL / SHACL 速查）|
-| 边学边做 | [02-实战指南/](../../02-实战指南/)（手把手）|
-| 看真实案例 | [05-real-cases/](../../05-real-cases/)（7 业务 + Foundry 平台）|
-| 做企业级 | [05-real-cases/foundry-platform/](../../05-real-cases/foundry-platform/) |
+| 学更多语法 | [02-specs/](../02-specs/)（RDF / SPARQL / SHACL 速查）|
+| 边学边做 | [02-实战指南/](../02-实战指南/)（手把手）|
+| 看真实案例 | [05-real-cases/](../05-real-cases/)（7 业务 + Foundry 平台）|
+| 做企业级 | [05-real-cases/foundry-platform/](../05-real-cases/foundry-platform/) |
 
 ## 7. 文件清单
 
