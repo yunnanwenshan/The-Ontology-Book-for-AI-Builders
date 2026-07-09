@@ -26,10 +26,10 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 |  | 5 分钟 | LLM 的 3 个病，本体能治 |
-| 2 |  | 10 分钟 | 本体 vs RAG 成本对比 |
-| 3 |  | 5 分钟 | 8 个业务场景 1 张表 |
-| 4 |  | 10 分钟 | 企业级本体平台长啥样 |
+| 1 | [01-history/03-ai-ontology-why.md](../01-history/03-ai-ontology-why.md) | 5 分钟 | LLM 的 3 个病，本体能治 |
+| 2 | [03-engineering/03-comparison.md](../03-engineering/03-comparison.md) | 10 分钟 | 本体 vs RAG 成本对比 |
+| 3 | [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) | 5 分钟 | 8 个业务场景 1 张表 |
+| 4 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md) | 10 分钟 | 企业级本体平台长啥样 |
 
 ### 推荐读（2 篇 · 15 分钟）
 
@@ -59,9 +59,9 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 |  | 10 分钟 | 8 场景对照表 |
-| 2 |  | 10 分钟 | "我能用在哪"决策树 |
-| 3 |  | 10 分钟 | AI 业务方看啥 |
+| 1 | [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) | 10 分钟 | 8 场景对照表 |
+| 2 | [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md#业务问题反查表) | 10 分钟 | "我能用在哪"决策树 |
+| 3 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md#端到端工程流程) | 10 分钟 | AI 业务方看啥 |
 
 ### 推荐读（选 2 个最像你业务的案例 · 1-2 小时）
 
@@ -100,10 +100,11 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 |  | 30 分钟 | 跑通第一个 RDF |
-| 2 |  | 30 分钟 | 写自己的 RDF |
-| 3 |  | 1 小时 | 写 SPARQL 查询 |
-| 4 |  | 1 小时 | 写业务规则 |
+| 1 | [04-zero-install-demo/README.md](../04-zero-install-demo/README.md) | 30 分钟 | 跑通第一个 RDF |
+| 2 | [02-实战指南/2.1-rdf-hands-on.md](../02-实战指南/2.1-rdf-hands-on.md) | 30 分钟 | 写自己的 RDF |
+| 3 | [02-实战指南/2.3-sparql-hands-on.md](../02-实战指南/2.3-sparql-hands-on.md) | 1 小时 | 写 SPARQL 查询 |
+| 4 | [02-实战指南/2.4-shacl-hands-on.md](../02-实战指南/2.4-shacl-hands-on.md) | 1 小时 | 写业务规则 |
+| 5 | [05-real-cases/hr/README.md](../05-real-cases/hr/README.md) | 2 小时 | 看真实数据查询 |
 | 5 | 1 个最像你业务的案例（推荐 ） | 2 小时 | 看真实数据查询 |
 
 ### 推荐读（继续深入 · 半天）
@@ -143,21 +144,26 @@
 
 **Week 1: 理论 + 跑通**
 
+| 1 | [01-history/01-ontology-philosophy.md](../01-history/01-ontology-philosophy.md) | 10 分钟（1 屏速读） | 哲学 1 屏速读 |
+| 2 | [04-zero-install-demo/](../04-zero-install-demo/) | 半天 | 全部 demo |
+| 3 | [02-specs/01-rdf.md](../02-specs/01-rdf.md) | 1 小时 | RDF 速查 |
+| 4 | [02-specs/02-rdfs-owl.md](../02-specs/02-rdfs-owl.md) | 1.5 小时 | RDFS/OWL |
+| 5 | [02-specs/03-sparql.md](../02-specs/03-sparql.md) | 1.5 小时 | SPARQL |
+| 6 | [02-specs/04-shacl.md](../02-specs/04-shacl.md) | 1.5 小时 | SHACL |
+| 7 | 7 案例全跑一遍 | 1 天 | 7 案例 |
+| 7 | 7 案例全跑一遍 | 1 天 | 7 案例 |
+
+**Week 1: 理论 + 跑通**
+
 | # | 文档 | 时间 |
 |---|------|------|
-| 1 |  | 10 分钟（1 屏速读）|
 | 2 |  全部 demo | 半天 |
-| 3 |  | 1 小时 |
-| 4 |  | 1.5 小时 |
-| 5 |  | 1.5 小时 |
-| 6 |  | 1.5 小时 |
 | 7 | 7 案例全跑一遍 | 1 天 |
 
 **Week 2: Foundry 平台**
 
 | # | 文档/脚本 | 时间 |
 |---|---------|------|
-| 1 |  | 30 分钟 |
 | 2 | `run_platform.py` | 10 分钟（跑）|
 | 3 | `mcp_server.py` | 30 分钟（跑 + 改）|
 | 4 | `r2rml_materialize.py` | 1 小时（跑 + 改 SQL）|
@@ -200,14 +206,19 @@
 
 | # | 文档 | 时间 |
 |---|------|------|
+| 1 | [01-history/](../01-history/) | 30 分钟 | 3 篇历史 |
+| 2 | [02-specs/](../02-specs/) | 6 小时 | 4 篇规范 |
+| 3 | [03-engineering/02-architecture.md](../03-engineering/02-architecture.md) | 1 小时 | 架构 |
+| 4 | [03-engineering/03-comparison.md](../03-engineering/03-comparison.md) | 30 分钟 | 方案对比 |
+| 5 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md) | 1 小时 | Foundry 概览 |
+| 6 | [05-real-cases/foundry-platform/run_platform.py](../05-real-cases/foundry-platform/run_platform.py) | 1 小时 | 看代码 |
+| 7 | [99-references/01-resources.md](../99-references/01-resources.md) | 1 小时 | 资源 |
+| 8 | [99-references/02-pitfalls-best-practices.md](../99-references/02-pitfalls-best-practices.md) | 1 小时 | 最佳实践 |
+
+| # | 文档 | 时间 |
+|---|------|------|
 | 1 |  全部 3 篇 | 30 分钟 |
 | 2 |  全部 4 篇 | 6 小时 |
-| 3 |  | 1 小时 |
-| 4 |  | 30 分钟 |
-| 5 |  | 1 小时 |
-| 6 |  | 1 小时（看代码）|
-| 7 |  | 1 小时 |
-| 8 |  | 1 小时 |
 
 ### 推荐读
 
@@ -294,10 +305,11 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 |  | 5 分钟 | 为什么 AI 会胡说 |
+| 1 | [01-history/03-ai-ontology-why.md](../01-history/03-ai-ontology-why.md) | 5 分钟 | 为什么 AI 会胡说 |
+| 2 | 1-2 个业务场景 README（你所在的行业） | 30 分钟 | 看 AI 能给啥 |
+| 3 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md#端到端工程流程) | 10 分钟 | 看 1 个完整工作流 |
+| 4 | [99-references/07-FAQ.md](../99-references/07-FAQ.md) | 15 分钟 | 业务方常见问题 |
 | 2 | 1-2 个业务场景 README（你所在的行业）| 30 分钟 | 看 AI 能给啥 |
-| 3 |  | 10 分钟 | 看 1 个完整工作流 |
-| 4 |  | 15 分钟 | 业务方常见问题 |
 
 ### 推荐读
 

@@ -156,13 +156,13 @@ python3 examples/1-first-rdf.py
 
 | 难度 | 案例 | 时间 |
 |------|------|------|
-| ⭐ 入门 |  | 30 分钟 |
-| ⭐ 入门 |  | 30 分钟 |
-| ⭐⭐ 中级 |  | 1 小时 |
-| ⭐⭐ 中级 |  | 1 小时 |
-| ⭐⭐⭐ 高级 |  | 1.5 小时 |
-| ⭐⭐⭐ 高级 |  | 1.5 小时 |
-| ⭐⭐⭐ 高级 |  | 1.5 小时 |
-| 🏆 集成 |  | 2-3 小时 |
+| ⭐ 入门 | [HR 招聘](../05-real-cases/hr/README.md) | 30 分钟 |
+| ⭐ 入门 | [客服](../05-real-cases/customer-service/README.md) | 30 分钟 |
+| ⭐⭐ 中级 | [商品](../05-real-cases/product/README.md) | 1 小时 |
+| ⭐⭐ 中级 | [财务](../05-real-cases/finance/README.md) | 1 小时 |
+| ⭐⭐⭐ 高级 | [物流](../05-real-cases/logistics/README.md) | 1.5 小时 |
+| ⭐⭐⭐ 高级 | [CRM](../05-real-cases/crm/README.md) | 1.5 小时 |
+| ⭐⭐⭐ 高级 | [医疗](../05-real-cases/medical/README.md) | 1.5 小时 |
+| 🏆 集成 | [Foundry 平台](../05-real-cases/foundry-platform/README.md) | 2-3 小时 |
 
 **不知道选哪个？** 看  的业务问题反查表。

@@ -65,12 +65,12 @@ ex:act-aip-152615161986 a ex:AssignCustomer,
     ex:actionResult "美的 → E0001" ;
     ex:actionTime "2026-07-09T15:26:15.162036"^^xsd:dateTime .
 
-ex:act-new-194930 a ex:ApproveOrder,
+ex:act-new-195456 a ex:ApproveOrder,
         ex:action ;
     ex:actionBy ex:emp-001 ;
     ex:actionOnOrder ex:ord-004 ;
     ex:actionResult "Approved" ;
-    ex:actionTime "2026-07-09T19:49:30.600032"^^xsd:dateTime .
+    ex:actionTime "2026-07-09T19:54:56.897290"^^xsd:dateTime .
 
 ex:actionBy rdfs:domain ex:action ;
     rdfs:range ex:Employee .

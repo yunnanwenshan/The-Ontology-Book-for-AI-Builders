@@ -422,13 +422,13 @@ python3 examples/1-first-rdf.py
 
 | 案例 | 路径 | 适合 |
 |---|---|---|
-| **HR 招聘** |  | HR/招聘经理 |
-| **客服** |  | 客服主管 |
-| **财务** |  | 财务总监/会计 |
-| **商品** |  | 电商运营/采购 |
-| **医疗** |  | 医院 IT/医生 |
-| **物流** |  | 物流经理/客服 |
-| **CRM** |  | 销售总监/VP |
+| **HR 招聘** | [05-real-cases/hr/](../05-real-cases/hr/README.md) | HR/招聘经理 |
+| **客服** | [05-real-cases/customer-service/](../05-real-cases/customer-service/README.md) | 客服主管 |
+| **财务** | [05-real-cases/finance/](../05-real-cases/finance/README.md) | 财务总监/会计 |
+| **商品** | [05-real-cases/product/](../05-real-cases/product/README.md) | 电商运营/采购 |
+| **医疗** | [05-real-cases/medical/](../05-real-cases/medical/README.md) | 医院 IT/医生 |
+| **物流** | [05-real-cases/logistics/](../05-real-cases/logistics/README.md) | 物流经理/客服 |
+| **CRM** | [05-real-cases/crm/](../05-real-cases/crm/README.md) | 销售总监/VP |
 
 ### 9.2 每个案例的结构
 

@@ -115,7 +115,7 @@ print('SPARQLWrapper OK')
 | 学更多语法 | （RDF / SPARQL / SHACL 速查）|
 | 边学边做 | （手把手）|
 | 看真实案例 | （7 业务 + Foundry 平台）|
-| 做企业级 |  |
+| 做企业级 | [05-real-cases/foundry-platform/](../05-real-cases/foundry-platform/) |
 
 ## 7. 文件清单
 
