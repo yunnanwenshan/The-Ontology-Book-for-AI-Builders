@@ -29,20 +29,20 @@
 
 | 英文 | 中文 | 目录 |
 |------|------|------|
-| Chapter 0 · Before You Read | 写在前面 | 00-overview |
-| Chapter 1 · The Philosophy | 哲学源流 | 01-history |
-| Chapter 2 · The Specs | 技术规范 | 02-specs |
-| Chapter 3 · Why AI Needs It | AI 时代为什么需要本体 | 01-history/03 |
-| Chapter 4 · RDF | 知识表示基础 | 02-specs/01 |
-| Chapter 5 · RDFS / OWL | 让机器"懂" | 02-specs/02 |
-| Chapter 6 · SPARQL | 本体的 SQL | 02-specs/03 |
-| Chapter 7 · SHACL | 业务规则守门员 | 02-specs/04 |
-| Chapter 8 · Hello World | 5 分钟跑通 | 04-zero-install-demo |
-| Chapter 9 · 7 Real Cases | 7 个真实业务案例 | 05-real-cases |
-| Chapter 10 · The Foundry Platform | Palantir Foundry 风格平台 | 05-real-cases/foundry-platform |
-| Chapter 11 · AIP & MCP | 让 LLM 调本体 | 05-real-cases/foundry-platform |
-| Chapter 12 · Production-Grade | 工程化进阶 | 05-real-cases/foundry-platform |
-| Chapter 13 · 30 Practice Tasks | 30 道作业 | 06-exercises |
+| Chapter 0 · Before You Read | 写在前面 | [00-overview](00-overview.md) |
+| Chapter 1 · The Philosophy | 哲学源流 | [01-history](../01-history/) |
+| Chapter 2 · The Specs | 技术规范 | [02-specs](../02-specs/) |
+| Chapter 3 · Why AI Needs It | AI 时代为什么需要本体 | [01-history/03](../01-history/03-ai-ontology-why.md) |
+| Chapter 4 · RDF | 知识表示基础 | [02-specs/01](../02-specs/01-rdf.md) |
+| Chapter 5 · RDFS / OWL | 让机器"懂" | [02-specs/02](../02-specs/02-rdfs-owl.md) |
+| Chapter 6 · SPARQL | 本体的 SQL | [02-specs/03](../02-specs/03-sparql.md) |
+| Chapter 7 · SHACL | 业务规则守门员 | [02-specs/04](../02-specs/04-shacl.md) |
+| Chapter 8 · Hello World | 5 分钟跑通 | [04-zero-install-demo](../04-zero-install-demo/) |
+| Chapter 9 · 7 Real Cases | 7 个真实业务案例 | [05-real-cases](../05-real-cases/) |
+| Chapter 10 · The Foundry Platform | Palantir Foundry 风格平台 | [foundry-platform](../05-real-cases/foundry-platform/README.md) |
+| Chapter 11 · AIP & MCP | 让 LLM 调本体 | [MCP 脚本](../05-real-cases/foundry-platform/mcp_server.py) |
+| Chapter 12 · Production-Grade | 工程化进阶 | [ABAC + CDC](../05-real-cases/foundry-platform/abac_security.py) |
+| Chapter 13 · 30 Practice Tasks | 30 道作业 | [06-exercises](../06-exercises/) |
 
 ## 副标题候选
 
