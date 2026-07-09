@@ -7,27 +7,27 @@
 
 ## 完整章节路径（备查）
 
-> 这是 BOOK.md 章节映射的副本，方便一次性看完整本书结构。
+> 这是 [BOOK.md](00-overview/BOOK.md) 章节映射的副本，方便一次性看完整本书结构。
 
 | 章节 | 中文 | 目录 |
 |------|------|------|
-| 第 0 章 | 写在前面 | [00-overview/00-overview.md](00-overview/00-overview.md) |
-| 第 1 章 | 哲学源流 | [01-history/01-ontology-philosophy.md](01-history/01-ontology-philosophy.md) |
-| 第 2 章 | 知识表示 | [01-history/02-knowledge-representation.md](01-history/02-knowledge-representation.md) |
-| 第 3 章 | AI 时代为什么需要本体 | [01-history/03-ai-ontology-why.md](01-history/03-ai-ontology-why.md) |
-| 第 4 章 | RDF | [02-specs/01-rdf.md](02-specs/01-rdf.md) |
-| 第 5 章 | RDFS/OWL | [02-specs/02-rdfs-owl.md](02-specs/02-rdfs-owl.md) |
-| 第 6 章 | SPARQL | [02-specs/03-sparql.md](02-specs/03-sparql.md) |
-| 第 7 章 | SHACL | [02-specs/04-shacl.md](02-specs/04-shacl.md) |
-| 第 8 章 | 5 分钟跑通 | [04-zero-install-demo/](04-zero-install-demo/) |
-| 第 9 章 | 7 个真实业务案例 | [05-real-cases/](05-real-cases/) |
-| 第 10 章 | Palantir Foundry 风格平台 | [05-real-cases/foundry-platform/](05-real-cases/foundry-platform/) |
-| 第 11 章 | AIP / MCP | [05-real-cases/foundry-platform/mcp_server.py](05-real-cases/foundry-platform/mcp_server.py) |
-| 第 12 章 | 工程化进阶 | [05-real-cases/foundry-platform/](05-real-cases/foundry-platform/) |
-| 第 13 章 | 30 道作业 | [06-exercises/](06-exercises/) |
-| 附录 A | 资源与工具速查 | [99-references/01-resources.md](99-references/01-resources.md) |
-| 附录 B | 常见陷阱与最佳实践 | [99-references/02-pitfalls-best-practices.md](99-references/02-pitfalls-best-practices.md) |
-| 附录 C | 术语表 | [99-references/08-glossary.md](99-references/08-glossary.md) |
+| 第 0 章 | 写在前面 |  |
+| 第 1 章 | 哲学源流 |  |
+| 第 2 章 | 知识表示 |  |
+| 第 3 章 | AI 时代为什么需要本体 |  |
+| 第 4 章 | RDF |  |
+| 第 5 章 | RDFS/OWL |  |
+| 第 6 章 | SPARQL |  |
+| 第 7 章 | SHACL |  |
+| 第 8 章 | 5 分钟跑通 |  |
+| 第 9 章 | 7 个真实业务案例 |  |
+| 第 10 章 | Palantir Foundry 风格平台 |  |
+| 第 11 章 | AIP / MCP |  |
+| 第 12 章 | 工程化进阶 |  |
+| 第 13 章 | 30 道作业 |  |
+| 附录 A | 资源与工具速查 |  |
+| 附录 B | 常见陷阱与最佳实践 |  |
+| 附录 C | 术语表 |  |
 
 ---
 
@@ -142,7 +142,7 @@ python3 examples/1-first-rdf.py
 **你应该看到**：4 条三元组 + Turtle 输出
 
 **文件**：
-- 读 [04-zero-install-demo/README.md](04-zero-install-demo/README.md)（5 分钟）
+- 读 （5 分钟）
 
 **卡住了**：看 `04-zero-install-demo/README.md` 末尾的"故障排查"（5 个最常见错误 + 修法）
 
@@ -156,9 +156,9 @@ python3 examples/1-first-rdf.py
 
 | # | 文件 | 你会得到什么 |
 |---|------|-------------|
-| 1 | [01-history/01-ontology-philosophy.md](01-history/01-ontology-philosophy.md) | 本体 2400 年哲学（速读版） |
-| 2 | [01-history/02-knowledge-representation.md](01-history/02-knowledge-representation.md) | 60 年知识表示演变 |
-| 3 | [01-history/03-ai-ontology-why.md](01-history/03-ai-ontology-why.md) | LLM 的 3 个病，本体怎么治 |
+| 1 |  | 本体 2400 年哲学（速读版） |
+| 2 |  | 60 年知识表示演变 |
+| 3 |  | LLM 的 3 个病，本体怎么治 |
 
 **可选**：不想读哲学 → 跳到阶段 2
 
@@ -190,7 +190,7 @@ python3 examples/9-promo-demo.py
 ```
 
 **文件**：
-- 读 [04-zero-install-demo/README.md](04-zero-install-demo/README.md) 全文
+- 读  全文
 - 看代码：`04-zero-install-demo/examples/*.py`（每个 20-50 行）
 
 **练一下**：
@@ -208,10 +208,10 @@ python3 examples/9-promo-demo.py
 
 | # | 文件 | 时间 | 你会学到 |
 |---|------|------|----------|
-| 1 | [02-specs/01-rdf.md](02-specs/01-rdf.md) | 1 小时 | RDF 三元组 / Turtle / rdflib |
-| 2 | [02-specs/02-rdfs-owl.md](02-specs/02-rdfs-owl.md) | 1.5 小时 | RDFS subClassOf / OWL 推理 |
-| 3 | [02-specs/03-sparql.md](02-specs/03-sparql.md) | 1.5 小时 | SPARQL 查询（5 个核心模式）|
-| 4 | [02-specs/04-shacl.md](02-specs/04-shacl.md) | 1.5 小时 | SHACL 业务规则校验 |
+| 1 |  | 1 小时 | RDF 三元组 / Turtle / rdflib |
+| 2 |  | 1.5 小时 | RDFS subClassOf / OWL 推理 |
+| 3 |  | 1.5 小时 | SPARQL 查询（5 个核心模式）|
+| 4 |  | 1.5 小时 | SHACL 业务规则校验 |
 
 **配套手把手**（跟跑）：
 
@@ -233,13 +233,13 @@ python3 examples/9-promo-demo.py
 
 | 你的行业 | 推荐案例 | 时间 |
 |----------|----------|------|
-| HR / 招聘 | [05-real-cases/hr/](05-real-cases/hr/README.md) | 2 小时（最简单）|
-| 客服 | [05-real-cases/customer-service/](05-real-cases/customer-service/README.md) | 2 小时 |
-| 电商运营 / 采购 | [05-real-cases/product/](05-real-cases/product/README.md) | 4 小时 |
-| 财务 / 会计 | [05-real-cases/finance/](05-real-cases/finance/README.md) | 4 小时 |
-| 物流 / 快递 | [05-real-cases/logistics/](05-real-cases/logistics/README.md) | 6 小时 |
-| B2B 销售 | [05-real-cases/crm/](05-real-cases/crm/README.md) | 6 小时 |
-| 医院 / 诊所 | [05-real-cases/medical/](05-real-cases/medical/README.md) | 6 小时 |
+| HR / 招聘 |  | 2 小时（最简单）|
+| 客服 |  | 2 小时 |
+| 电商运营 / 采购 |  | 4 小时 |
+| 财务 / 会计 |  | 4 小时 |
+| 物流 / 快递 |  | 6 小时 |
+| B2B 销售 |  | 6 小时 |
+| 医院 / 诊所 |  | 6 小时 |
 
 **操作**（以 HR 为例）：
 
@@ -251,7 +251,7 @@ python3 hr-query.py
 **你应该看到**：数据校验 ✅ 通过 + 6 个查询结果
 
 **文件**：
-- 读 [05-real-cases/hr/README.md](05-real-cases/hr/README.md) 全文
+- 读  全文
 - 看代码：`hr-query.py`（106 行）
 - 看本体：`data/hr-ont.ttl`
 - 看数据：`data/hr-data.ttl`
@@ -295,7 +295,7 @@ python3 cdc_demo.py
 ```
 
 **文件**：
-- 读 [05-real-cases/foundry-platform/README.md](05-real-cases/foundry-platform/README.md)（理解 6 大能力）
+- 读 （理解 6 大能力）
 - 看代码：6 个 .py（每个 100-300 行）
 
 **接 Claude Desktop**（可选）：
@@ -332,14 +332,14 @@ cat 06-exercises/README.md
 
 | 想知道什么 | 看哪里 |
 |------------|--------|
-| W3C 规范 / 论文 / 工具 | [99-references/01-resources.md](99-references/01-resources.md) |
-| 7 个常见陷阱 + 10 个最佳实践 | [99-references/02-pitfalls-best-practices.md](99-references/02-pitfalls-best-practices.md) |
-| 7 天 / 30 天 / 90 天学习计划 | [99-references/03-study-plan.md](99-references/03-study-plan.md) |
-| 环境检查 + Python 库版本 | [99-references/04-env-checklist.md](99-references/04-env-checklist.md) |
-| 速查表（5 大规范 + 命令）| [99-references/06-cheatsheet.md](99-references/06-cheatsheet.md) |
-| 业务方常见问题 | [99-references/07-FAQ.md](99-references/07-FAQ.md) |
-| 术语表 | [99-references/08-glossary.md](99-references/08-glossary.md) |
-| 完整 PDF 教程 | [99-references/The-LLM-Grounding-Playbook.pdf](99-references/The-LLM-Grounding-Playbook.pdf) |
+| W3C 规范 / 论文 / 工具 |  |
+| 7 个常见陷阱 + 10 个最佳实践 |  |
+| 7 天 / 30 天 / 90 天学习计划 |  |
+| 环境检查 + Python 库版本 |  |
+| 速查表（5 大规范 + 命令）|  |
+| 业务方常见问题 |  |
+| 术语表 |  |
+| 完整 PDF 教程 |  |
 
 ---
 

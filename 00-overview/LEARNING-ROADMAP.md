@@ -134,5 +134,5 @@
 ## 6. 读完这页
 
 - 知道下一步该做啥了？→ **去 04-zero-install-demo 跑第一个 demo**
-- 还是不确定？→ 读 [AUTHOR-NOTES.md](AUTHOR-NOTES.md) 的"我推荐的学习顺序"
-- 想看作者踩了什么坑？→ [AUTHOR-NOTES.md](AUTHOR-NOTES.md) 的"我踩过的 5 个坑"
+- 还是不确定？→ 读  的"我推荐的学习顺序"
+- 想看作者踩了什么坑？→  的"我踩过的 5 个坑"

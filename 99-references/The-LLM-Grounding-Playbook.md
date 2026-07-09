@@ -12,28 +12,28 @@
 
 ## 前言
 
-> **作者建议**：先读 [](../../00-overview/AUTHOR-NOTES.md) 了解踩过的坑。
-> **遇到错误**：查 [04-zero-install-demo/README.md](../../04-zero-install-demo/README.md) 的故障排查节。
+> **作者建议**：先读  了解踩过的坑。
+> **遇到错误**：查  的故障排查节。
 
 ## 目录
 
-- [第 0 章 · 写在前面](#第-0-章--写在前面)
-- [第 1 章 · 哲学源流（2400 年）](#第-1-章--哲学源流)
-- [第 2 章 · 知识表示（60 年演变）](#第-2-章--知识表示)
-- [第 3 章 · AI 时代为什么需要本体](#第-3-章--ai-时代为什么需要本体)
-- [第 4 章 · RDF：所有事实的最小单元](#第-4-章--rdf所有事实的最小单元)
-- [第 5 章 · RDFS/OWL：让机器"懂"](#第-5-章--rdfsowl让机器懂)
-- [第 6 章 · SPARQL：本体的 SQL](#第-6-章--sparql本体的-sql)
-- [第 7 章 · SHACL：业务规则守门员](#第-7-章--shacl业务规则守门员)
-- [第 8 章 · 5 分钟跑通第一个 demo](#第-8-章--5-分钟跑通第一个-demo)
-- [第 9 章 · 7 个真实业务案例](#第-9-章--7-个真实业务案例)
-- [第 10 章 · Palantir Foundry 风格平台](#第-10-章--palantir-foundry-风格平台)
-- [第 11 章 · AIP / MCP：让 LLM 调本体](#第-11-章--aip--mcp让-llm-调本体)
-- [第 12 章 · 工程化进阶（ABAC / CDC / 仪表盘）](#第-12-章--工程化进阶)
-- [第 13 章 · 30 道实战作业](#第-13-章--30-道实战作业)
-- [附录 A · 资源与工具速查](#附录-a--资源与工具速查)
-- [附录 B · 常见陷阱与最佳实践](#附录-b--常见陷阱与最佳实践)
-- [附录 C · 术语表](#附录-c--术语表)
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 
 ---
 
@@ -422,13 +422,13 @@ python3 examples/1-first-rdf.py
 
 | 案例 | 路径 | 适合 |
 |---|---|---|
-| **HR 招聘** | [05-real-cases/hr/](../05-real-cases/hr/README.md) | HR/招聘经理 |
-| **客服** | [05-real-cases/customer-service/](../05-real-cases/customer-service/README.md) | 客服主管 |
-| **财务** | [05-real-cases/finance/](../05-real-cases/finance/README.md) | 财务总监/会计 |
-| **商品** | [05-real-cases/product/](../05-real-cases/product/README.md) | 电商运营/采购 |
-| **医疗** | [05-real-cases/medical/](../05-real-cases/medical/README.md) | 医院 IT/医生 |
-| **物流** | [05-real-cases/logistics/](../05-real-cases/logistics/README.md) | 物流经理/客服 |
-| **CRM** | [05-real-cases/crm/](../05-real-cases/crm/README.md) | 销售总监/VP |
+| **HR 招聘** |  | HR/招聘经理 |
+| **客服** |  | 客服主管 |
+| **财务** |  | 财务总监/会计 |
+| **商品** |  | 电商运营/采购 |
+| **医疗** |  | 医院 IT/医生 |
+| **物流** |  | 物流经理/客服 |
+| **CRM** |  | 销售总监/VP |
 
 ### 9.2 每个案例的结构
 

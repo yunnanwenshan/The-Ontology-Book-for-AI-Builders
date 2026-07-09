@@ -27,7 +27,7 @@ SHACL   = 菜必须有的条件（必须热、必须有菜名）
 
 ### 3.1 装 Docker
 
-- **macOS**：[Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
+- **macOS**：
 - **Windows**：装 WSL2 后再装 Docker Desktop
 - **Linux**：直接 `sudo apt install docker.io`
 

@@ -36,7 +36,7 @@ python3 -m pip --version
 
 ### Step 3 · Docker
 
-- **macOS**：[Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
+- **macOS**：
 - **Windows**：装 WSL2 后再装 Docker Desktop
 - **Linux**：`sudo apt install docker.io && sudo usermod -aG docker $USER`
 

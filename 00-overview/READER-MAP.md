@@ -1,7 +1,7 @@
 # 读者地图 · 7 类读者 × 定制阅读路径
 
-> **找不到你？** 直接看 [通用入口](#0-通用入口推荐先看)
-> **PDF 一本全包**：[The-LLM-Grounding-Playbook.pdf](../99-references/The-LLM-Grounding-Playbook.pdf) (463 KB)
+> **找不到你？** 直接看 
+> **PDF 一本全包**： (463 KB)
 > **全套资源**：43 个 .md + 21 个 .py + 35 个 .ttl + 1 个 PDF ≈ 1.2 MB
 
 ---
@@ -10,9 +10,9 @@
 
 所有读者都应先读这 3 个：
 
-1. **[README.md](../README.md)**（30 行 · 1 分钟）—— 5 分钟上手 + 三条路径
-2. **[00-overview/00-overview.md](00-overview.md)**（6.8 KB · 5 分钟）—— 项目总览 + 案例梯度
-3. **[00-overview/BOOK.md](BOOK.md)**（3 KB · 2 分钟）—— 书名 + 副标题 + 章节映射
+1. ****（30 行 · 1 分钟）—— 5 分钟上手 + 三条路径
+2. ****（6.8 KB · 5 分钟）—— 项目总览 + 案例梯度
+3. ****（3 KB · 2 分钟）—— 书名 + 副标题 + 章节映射
 
 ---
 
@@ -26,15 +26,15 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 | [01-history/03-ai-ontology-why.md](../01-history/03-ai-ontology-why.md) | 5 分钟 | LLM 的 3 个病，本体能治 |
-| 2 | [03-engineering/03-comparison.md](../03-engineering/03-comparison.md) | 10 分钟 | 本体 vs RAG 成本对比 |
-| 3 | [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) | 5 分钟 | 8 个业务场景 1 张表 |
-| 4 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md) | 10 分钟 | 企业级本体平台长啥样 |
+| 1 |  | 5 分钟 | LLM 的 3 个病，本体能治 |
+| 2 |  | 10 分钟 | 本体 vs RAG 成本对比 |
+| 3 |  | 5 分钟 | 8 个业务场景 1 张表 |
+| 4 |  | 10 分钟 | 企业级本体平台长啥样 |
 
 ### 推荐读（2 篇 · 15 分钟）
 
-- [00-overview/AUTHOR-NOTES.md](AUTHOR-NOTES.md) — 哪些场景不要用本体
-- [99-references/07-FAQ.md](../99-references/07-FAQ.md) — 业务方常见问题
+-  — 哪些场景不要用本体
+-  — 业务方常见问题
 
 ### 不必读
 
@@ -59,23 +59,23 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 | [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) | 10 分钟 | 8 场景对照表 |
-| 2 | [05-real-cases/00-场景对比总表.md § 业务问题反查表](../05-real-cases/00-场景对比总表.md) | 10 分钟 | "我能用在哪"决策树 |
-| 3 | [05-real-cases/foundry-platform/README.md § 端到端流程](../05-real-cases/foundry-platform/README.md) | 10 分钟 | AI 业务方看啥 |
+| 1 |  | 10 分钟 | 8 场景对照表 |
+| 2 |  | 10 分钟 | "我能用在哪"决策树 |
+| 3 |  | 10 分钟 | AI 业务方看啥 |
 
 ### 推荐读（选 2 个最像你业务的案例 · 1-2 小时）
 
-- [05-real-cases/customer-service/README.md](../05-real-cases/customer-service/README.md) —— 客服
-- [05-real-cases/finance/README.md](../05-real-cases/finance/README.md) —— 财务
-- [05-real-cases/product/README.md](../05-real-cases/product/README.md) —— 电商
-- [05-real-cases/logistics/README.md](../05-real-cases/logistics/README.md) —— 物流
-- [05-real-cases/crm/README.md](../05-real-cases/crm/README.md) —— 销售
-- [05-real-cases/medical/README.md](../05-real-cases/medical/README.md) —— 医院
-- [05-real-cases/hr/README.md](../05-real-cases/hr/README.md) —— HR
+-  —— 客服
+-  —— 财务
+-  —— 电商
+-  —— 物流
+-  —— 销售
+-  —— 医院
+-  —— HR
 
 ### 可选读
 
-- [00-overview/LEARNING-ROADMAP.md](LEARNING-ROADMAP.md) § 按目标
+-  § 按目标
 
 ### 不必读
 
@@ -100,23 +100,23 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 | [04-zero-install-demo/README.md](../04-zero-install-demo/README.md) | 30 分钟 | 跑通第一个 RDF |
-| 2 | [02-实战指南/2.1-rdf-hands-on.md](../02-实战指南/2.1-rdf-hands-on.md) | 30 分钟 | 写自己的 RDF |
-| 3 | [02-实战指南/2.3-sparql-hands-on.md](../02-实战指南/2.3-sparql-hands-on.md) | 1 小时 | 写 SPARQL 查询 |
-| 4 | [02-实战指南/2.4-shacl-hands-on.md](../02-实战指南/2.4-shacl-hands-on.md) | 1 小时 | 写业务规则 |
-| 5 | 1 个最像你业务的案例（推荐 [HR](../05-real-cases/hr/README.md)） | 2 小时 | 看真实数据查询 |
+| 1 |  | 30 分钟 | 跑通第一个 RDF |
+| 2 |  | 30 分钟 | 写自己的 RDF |
+| 3 |  | 1 小时 | 写 SPARQL 查询 |
+| 4 |  | 1 小时 | 写业务规则 |
+| 5 | 1 个最像你业务的案例（推荐 ） | 2 小时 | 看真实数据查询 |
 
 ### 推荐读（继续深入 · 半天）
 
-- [02-specs/01-rdf.md](../02-specs/01-rdf.md) — RDF 速查手册
-- [02-specs/03-sparql.md](../02-specs/03-sparql.md) — SPARQL 速查手册
-- [02-specs/04-shacl.md](../02-specs/04-shacl.md) — SHACL 速查手册
-- [05-real-cases/foundry-platform/mcp_server.py](../05-real-cases/foundry-platform/mcp_server.py) — 让 Claude Desktop 调本体
+-  — RDF 速查手册
+-  — SPARQL 速查手册
+-  — SHACL 速查手册
+-  — 让 Claude Desktop 调本体
 
 ### 可选读
 
-- [99-references/04-env-checklist.md](../99-references/04-env-checklist.md) — 环境检查
-- [99-references/06-cheatsheet.md](../99-references/06-cheatsheet.md) — 速查表
+-  — 环境检查
+-  — 速查表
 
 ### 不必读
 
@@ -145,19 +145,19 @@
 
 | # | 文档 | 时间 |
 |---|------|------|
-| 1 | [01-history/01-ontology-philosophy.md](../01-history/01-ontology-philosophy.md) | 10 分钟（1 屏速读）|
-| 2 | [04-zero-install-demo/](../04-zero-install-demo/) 全部 demo | 半天 |
-| 3 | [02-specs/01-rdf.md](../02-specs/01-rdf.md) | 1 小时 |
-| 4 | [02-specs/02-rdfs-owl.md](../02-specs/02-rdfs-owl.md) | 1.5 小时 |
-| 5 | [02-specs/03-sparql.md](../02-specs/03-sparql.md) | 1.5 小时 |
-| 6 | [02-specs/04-shacl.md](../02-specs/04-shacl.md) | 1.5 小时 |
+| 1 |  | 10 分钟（1 屏速读）|
+| 2 |  全部 demo | 半天 |
+| 3 |  | 1 小时 |
+| 4 |  | 1.5 小时 |
+| 5 |  | 1.5 小时 |
+| 6 |  | 1.5 小时 |
 | 7 | 7 案例全跑一遍 | 1 天 |
 
 **Week 2: Foundry 平台**
 
 | # | 文档/脚本 | 时间 |
 |---|---------|------|
-| 1 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md) | 30 分钟 |
+| 1 |  | 30 分钟 |
 | 2 | `run_platform.py` | 10 分钟（跑）|
 | 3 | `mcp_server.py` | 30 分钟（跑 + 改）|
 | 4 | `r2rml_materialize.py` | 1 小时（跑 + 改 SQL）|
@@ -167,10 +167,10 @@
 
 ### 推荐读
 
-- [00-overview/AUTHOR-NOTES.md](AUTHOR-NOTES.md) — 5 个坑
-- [99-references/02-pitfalls-best-practices.md](../99-references/02-pitfalls-best-practices.md) — 最佳实践
-- [06-exercises/README.md](../06-exercises/README.md) — 30 道作业
-- [03-engineering/](../03-engineering/) — Docker 版（如果要部署）
+-  — 5 个坑
+-  — 最佳实践
+-  — 30 道作业
+-  — Docker 版（如果要部署）
 
 ### 不必读
 
@@ -186,7 +186,7 @@
 - [ ] 接 MCP / Claude Desktop
 - [ ] 加 CDC 同步
 - [ ] 写 HTML 仪表盘
-- [ ] 部署到生产（考虑 [03-engineering/01-hello-world.md](../03-engineering/01-hello-world.md) Docker 版）
+- [ ] 部署到生产（考虑  Docker 版）
 
 ---
 
@@ -200,20 +200,20 @@
 
 | # | 文档 | 时间 |
 |---|------|------|
-| 1 | [01-history/](../01-history/) 全部 3 篇 | 30 分钟 |
-| 2 | [02-specs/](../02-specs/) 全部 4 篇 | 6 小时 |
-| 3 | [03-engineering/02-architecture.md](../03-engineering/02-architecture.md) | 1 小时 |
-| 4 | [03-engineering/03-comparison.md](../03-engineering/03-comparison.md) | 30 分钟 |
-| 5 | [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md) | 1 小时 |
-| 6 | [05-real-cases/foundry-platform/run_platform.py](../05-real-cases/foundry-platform/run_platform.py) | 1 小时（看代码）|
-| 7 | [99-references/01-resources.md](../99-references/01-resources.md) | 1 小时 |
-| 8 | [99-references/02-pitfalls-best-practices.md](../99-references/02-pitfalls-best-practices.md) | 1 小时 |
+| 1 |  全部 3 篇 | 30 分钟 |
+| 2 |  全部 4 篇 | 6 小时 |
+| 3 |  | 1 小时 |
+| 4 |  | 30 分钟 |
+| 5 |  | 1 小时 |
+| 6 |  | 1 小时（看代码）|
+| 7 |  | 1 小时 |
+| 8 |  | 1 小时 |
 
 ### 推荐读
 
-- [00-overview/REVIEW-REPORT.md](REVIEW-REPORT.md) — 我们做这套时踩的坑
-- [99-references/04-env-checklist.md](../99-references/04-env-checklist.md) — 生产环境
-- [03-engineering/04-case-ecommerce.md](../03-engineering/04-case-ecommerce.md) — 完整电商案例
+-  — 我们做这套时踩的坑
+-  — 生产环境
+-  — 完整电商案例
 
 ### 不必读
 
@@ -244,22 +244,22 @@
 
 | # | 文档 | 时间 |
 |---|------|------|
-| 1 | [01-history/](../01-history/) 全部 | 1 小时 |
-| 2 | [02-specs/](../02-specs/) 全部 | 8 小时 |
-| 3 | [04-zero-install-demo/](../04-zero-install-demo/) 全部 | 4 小时 |
+| 1 |  全部 | 1 小时 |
+| 2 |  全部 | 8 小时 |
+| 3 |  全部 | 4 小时 |
 
 **Week 2: 工程 + 案例**
 
 | # | 文档 | 时间 |
 |---|------|------|
-| 1 | [03-engineering/](../03-engineering/) 全部 | 8 小时 |
+| 1 |  全部 | 8 小时 |
 | 2 | 5 个最难的案例（物流 / CRM / 医疗 / Foundry / 财务）| 16 小时 |
 
 **Week 3: 作业 + 论文素材**
 
 | # | 文档 | 时间 |
 |---|------|------|
-| 1 | [06-exercises/](../06-exercises/) 30 道作业 | 16 小时 |
+| 1 |  30 道作业 | 16 小时 |
 | 2 | 跑 Foundry 全部 6 脚本 | 4 小时 |
 | 3 | 写 1 个自己的小本体 | 8 小时 |
 
@@ -270,9 +270,9 @@
 
 ### 推荐读
 
-- [99-references/01-resources.md](../99-references/01-resources.md) — 论文 / 规范索引
-- [99-references/08-glossary.md](../99-references/08-glossary.md) — 术语表
-- [00-overview/AUTHOR-NOTES.md](AUTHOR-NOTES.md) — 踩坑心得
+-  — 论文 / 规范索引
+-  — 术语表
+-  — 踩坑心得
 
 ### 论文素材方向
 
@@ -294,15 +294,15 @@
 
 | # | 文档 | 时间 | 你会得到什么 |
 |---|------|------|-------------|
-| 1 | [01-history/03-ai-ontology-why.md](../01-history/03-ai-ontology-why.md) | 5 分钟 | 为什么 AI 会胡说 |
+| 1 |  | 5 分钟 | 为什么 AI 会胡说 |
 | 2 | 1-2 个业务场景 README（你所在的行业）| 30 分钟 | 看 AI 能给啥 |
-| 3 | [05-real-cases/foundry-platform/README.md § 端到端流程](../05-real-cases/foundry-platform/README.md) | 10 分钟 | 看 1 个完整工作流 |
-| 4 | [99-references/07-FAQ.md](../99-references/07-FAQ.md) | 15 分钟 | 业务方常见问题 |
+| 3 |  | 10 分钟 | 看 1 个完整工作流 |
+| 4 |  | 15 分钟 | 业务方常见问题 |
 
 ### 推荐读
 
-- [00-overview/AUTHOR-NOTES.md § 哪些场景必须用本体](AUTHOR-NOTES.md)
-- [00-overview/REVIEW-REPORT.md](REVIEW-REPORT.md) — 看修复记录（知道项目成熟度）
+- 
+-  — 看修复记录（知道项目成熟度）
 
 ### 不必读
 
@@ -329,48 +329,48 @@
 
 | 文档 | 老板 | PM | 开发者 | 工程师 | 架构师 | 学生 | 业务方 |
 |------|------|----|--------|--------|--------|------|--------|
-| README.md | ☆ | ☆ | ★ | ★ | ★ | ★ | ☆ |
-| 00-overview/00-overview.md | ☆ | ☆ | ★ | ★ | ★ | ★ | · |
-| 00-overview/BOOK.md | · | · | · | · | · | ☆ | · |
-| 00-overview/AUTHOR-NOTES.md | ☆ | · | · | ☆ | ☆ | ☆ | ☆ |
-| 00-overview/LEARNING-ROADMAP.md | · | ☆ | ☆ | · | · | · | · |
-| 00-overview/REVIEW-REPORT.md | · | · | · | · | ☆ | · | · |
-| 01-history/01-ontology-philosophy.md | · | · | · | · | ★ | ★ | · |
-| 01-history/02-knowledge-representation.md | · | · | · | · | ★ | ★ | · |
-| 01-history/03-ai-ontology-why.md | ★ | ☆ | ☆ | ☆ | ★ | ★ | ★ |
-| 02-specs/01-rdf.md | × | × | ★ | ★ | ★ | ★ | × |
-| 02-specs/02-rdfs-owl.md | × | × | ☆ | ★ | ★ | ★ | × |
-| 02-specs/03-sparql.md | × | × | ★ | ★ | ★ | ★ | × |
-| 02-specs/04-shacl.md | × | × | ★ | ★ | ★ | ★ | × |
-| 02-实战指南/2.1-rdf-hands-on.md | × | × | ★ | ★ | ☆ | ★ | × |
-| 02-实战指南/2.3-sparql-hands-on.md | × | × | ★ | ★ | ☆ | ★ | × |
-| 02-实战指南/2.4-shacl-hands-on.md | × | × | ★ | ★ | ☆ | ★ | × |
-| 03-engineering/01-hello-world.md | × | · | ☆ | ★ | ★ | ★ | × |
-| 03-engineering/02-architecture.md | × | · | ☆ | ★ | ★ | ★ | × |
-| 03-engineering/03-comparison.md | ★ | ☆ | ☆ | ★ | ★ | ★ | · |
-| 03-engineering/04-case-ecommerce.md | × | · | ☆ | ★ | ★ | ★ | × |
+| [README.md](../README.md) | ☆ | ☆ | ★ | ★ | ★ | ★ | ☆ |
+| [00-overview/00-overview.md](00-overview.md) | ☆ | ☆ | ★ | ★ | ★ | ★ | · |
+| [00-overview/BOOK.md](BOOK.md) | · | · | · | · | · | ☆ | · |
+| [00-overview/AUTHOR-NOTES.md](AUTHOR-NOTES.md) | ☆ | · | · | ☆ | ☆ | ☆ | ☆ |
+| [00-overview/LEARNING-ROADMAP.md](LEARNING-ROADMAP.md) | · | ☆ | ☆ | · | · | · | · |
+| [00-overview/REVIEW-REPORT.md](REVIEW-REPORT.md) | · | · | · | · | ☆ | · | · |
+| [01-history/01-ontology-philosophy.md](../01-history/01-ontology-philosophy.md) | · | · | · | · | ★ | ★ | · |
+| [01-history/02-knowledge-representation.md](../01-history/02-knowledge-representation.md) | · | · | · | · | ★ | ★ | · |
+| [01-history/03-ai-ontology-why.md](../01-history/03-ai-ontology-why.md) | ★ | ☆ | ☆ | ☆ | ★ | ★ | ★ |
+| [02-specs/01-rdf.md](../02-specs/01-rdf.md) | × | × | ★ | ★ | ★ | ★ | × |
+| [02-specs/02-rdfs-owl.md](../02-specs/02-rdfs-owl.md) | × | × | ☆ | ★ | ★ | ★ | × |
+| [02-specs/03-sparql.md](../02-specs/03-sparql.md) | × | × | ★ | ★ | ★ | ★ | × |
+| [02-specs/04-shacl.md](../02-specs/04-shacl.md) | × | × | ★ | ★ | ★ | ★ | × |
+| [02-实战指南/2.1-rdf-hands-on.md](../02-实战指南/2.1-rdf-hands-on.md) | × | × | ★ | ★ | ☆ | ★ | × |
+| [02-实战指南/2.3-sparql-hands-on.md](../02-实战指南/2.3-sparql-hands-on.md) | × | × | ★ | ★ | ☆ | ★ | × |
+| [02-实战指南/2.4-shacl-hands-on.md](../02-实战指南/2.4-shacl-hands-on.md) | × | × | ★ | ★ | ☆ | ★ | × |
+| [03-engineering/01-hello-world.md](../03-engineering/01-hello-world.md) | × | · | ☆ | ★ | ★ | ★ | × |
+| [03-engineering/02-architecture.md](../03-engineering/02-architecture.md) | × | · | ☆ | ★ | ★ | ★ | × |
+| [03-engineering/03-comparison.md](../03-engineering/03-comparison.md) | ★ | ☆ | ☆ | ★ | ★ | ★ | · |
+| [03-engineering/04-case-ecommerce.md](../03-engineering/04-case-ecommerce.md) | × | · | ☆ | ★ | ★ | ★ | × |
 | 04-zero-install-demo/ | × | × | ★ | ★ | ★ | ★ | × |
-| 05-real-cases/00-场景对比总表.md | ★ | ★ | ☆ | ☆ | ☆ | ☆ | ★ |
-| 05-real-cases/hr/README.md | · | · | ★ | ★ | · | ★ | · |
-| 05-real-cases/customer-service/README.md | · | · | ★ | ★ | · | ★ | · |
-| 05-real-cases/finance/README.md | · | · | ★ | ★ | · | ★ | · |
-| 05-real-cases/product/README.md | · | · | ★ | ★ | · | ★ | · |
-| 05-real-cases/logistics/README.md | · | · | ☆ | ★ | · | ★ | · |
-| 05-real-cases/crm/README.md | · | · | ☆ | ★ | · | ★ | · |
-| 05-real-cases/medical/README.md | · | · | ☆ | ★ | · | ★ | · |
-| 05-real-cases/foundry-platform/README.md | ★ | ★ | ★ | ★ | ★ | ★ | ★ |
+| [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) | ★ | ★ | ☆ | ☆ | ☆ | ☆ | ★ |
+| [05-real-cases/hr/README.md](../05-real-cases/hr/README.md) | · | · | ★ | ★ | · | ★ | · |
+| [05-real-cases/customer-service/README.md](../05-real-cases/customer-service/README.md) | · | · | ★ | ★ | · | ★ | · |
+| [05-real-cases/finance/README.md](../05-real-cases/finance/README.md) | · | · | ★ | ★ | · | ★ | · |
+| [05-real-cases/product/README.md](../05-real-cases/product/README.md) | · | · | ★ | ★ | · | ★ | · |
+| [05-real-cases/logistics/README.md](../05-real-cases/logistics/README.md) | · | · | ☆ | ★ | · | ★ | · |
+| [05-real-cases/crm/README.md](../05-real-cases/crm/README.md) | · | · | ☆ | ★ | · | ★ | · |
+| [05-real-cases/medical/README.md](../05-real-cases/medical/README.md) | · | · | ☆ | ★ | · | ★ | · |
+| [05-real-cases/foundry-platform/README.md](../05-real-cases/foundry-platform/README.md) | ★ | ★ | ★ | ★ | ★ | ★ | ★ |
 | 06-exercises/ | × | × | ☆ | ★ | · | ★ | × |
-| 99-references/01-resources.md | · | · | ☆ | ☆ | ★ | ★ | · |
-| 99-references/02-pitfalls-best-practices.md | · | · | ☆ | ★ | ★ | ☆ | · |
-| 99-references/03-study-plan.md | · | · | · | · | · | ★ | · |
-| 99-references/04-env-checklist.md | × | × | ☆ | ★ | ☆ | ☆ | × |
-| 99-references/05-demo-script.md | × | × | ☆ | ☆ | · | ☆ | × |
-| 99-references/06-cheatsheet.md | × | × | ★ | ★ | ☆ | ★ | × |
-| 99-references/07-FAQ.md | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ★ |
-| 99-references/08-glossary.md | · | · | ☆ | ☆ | ☆ | ★ | · |
-| 99-references/09-pdf-tutorial.md | · | · | · | · | · | · | · |
+| [99-references/01-resources.md](../99-references/01-resources.md) | · | · | ☆ | ☆ | ★ | ★ | · |
+| [99-references/02-pitfalls-best-practices.md](../99-references/02-pitfalls-best-practices.md) | · | · | ☆ | ★ | ★ | ☆ | · |
+| [99-references/03-study-plan.md](../99-references/03-study-plan.md) | · | · | · | · | · | ★ | · |
+| [99-references/04-env-checklist.md](../99-references/04-env-checklist.md) | × | × | ☆ | ★ | ☆ | ☆ | × |
+| [99-references/05-demo-script.md](../99-references/05-demo-script.md) | × | × | ☆ | ☆ | · | ☆ | × |
+| [99-references/06-cheatsheet.md](../99-references/06-cheatsheet.md) | × | × | ★ | ★ | ☆ | ★ | × |
+| [99-references/07-FAQ.md](../99-references/07-FAQ.md) | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ★ |
+| [99-references/08-glossary.md](../99-references/08-glossary.md) | · | · | ☆ | ☆ | ☆ | ★ | · |
+| [99-references/09-pdf-tutorial.md](../99-references/09-pdf-tutorial.md) | · | · | · | · | · | · | · |
 | 99-references/The-LLM-Grounding-Playbook.pdf | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ |
-| CHANGELOG.md | · | · | · | · | · | · | · |
+| [CHANGELOG.md](../CHANGELOG.md) | · | · | · | · | · | · | · |
 
 ---
 

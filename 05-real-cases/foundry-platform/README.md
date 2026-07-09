@@ -143,7 +143,7 @@ python3 cdc_demo.py              # 6. 看 CDC
 
 ## 故障排查
 
-跟 [04-zero-install-demo](../../04-zero-install-demo/README.md#故障排查) 一样的 5 个错误。
+跟  一样的 5 个错误。
 **额外注意**：
 - 别把脚本命名 `platform.py`（跟 stdlib 冲突）
 - `mcp_server.py` 需要 `pip install mcp` 才能用 MCP 模式

@@ -48,7 +48,7 @@
 
 ### 路径 A · 周末突击（4 小时）
 
-- 只看：**04-zero-install-demo/** + **02-实战指南/2.3-sparql-hands-on.md**
+- 只看：**04-zero-install-demo/** + **[02-实战指南/2.3-sparql-hands-on.md](../02-实战指南/2.3-sparql-hands-on.md)**
 - 产出：能跑通 5 个脚本 + 写出 5 个查询
 - 适合：想 30 分钟判断"这玩意对我有没有用"
 
@@ -156,13 +156,13 @@ python3 examples/1-first-rdf.py
 
 | 难度 | 案例 | 时间 |
 |------|------|------|
-| ⭐ 入门 | [HR 招聘](../05-real-cases/hr/README.md) | 30 分钟 |
-| ⭐ 入门 | [客服](../05-real-cases/customer-service/README.md) | 30 分钟 |
-| ⭐⭐ 中级 | [商品](../05-real-cases/product/README.md) | 1 小时 |
-| ⭐⭐ 中级 | [财务](../05-real-cases/finance/README.md) | 1 小时 |
-| ⭐⭐⭐ 高级 | [物流](../05-real-cases/logistics/README.md) | 1.5 小时 |
-| ⭐⭐⭐ 高级 | [CRM](../05-real-cases/crm/README.md) | 1.5 小时 |
-| ⭐⭐⭐ 高级 | [医疗](../05-real-cases/medical/README.md) | 1.5 小时 |
-| 🏆 集成 | [Foundry 平台](../05-real-cases/foundry-platform/README.md) | 2-3 小时 |
+| ⭐ 入门 |  | 30 分钟 |
+| ⭐ 入门 |  | 30 分钟 |
+| ⭐⭐ 中级 |  | 1 小时 |
+| ⭐⭐ 中级 |  | 1 小时 |
+| ⭐⭐⭐ 高级 |  | 1.5 小时 |
+| ⭐⭐⭐ 高级 |  | 1.5 小时 |
+| ⭐⭐⭐ 高级 |  | 1.5 小时 |
+| 🏆 集成 |  | 2-3 小时 |
 
-**不知道选哪个？** 看 [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) 的业务问题反查表。
+**不知道选哪个？** 看  的业务问题反查表。
