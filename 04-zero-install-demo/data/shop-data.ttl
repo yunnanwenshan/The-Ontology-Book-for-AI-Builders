@@ -1,0 +1,15 @@
+@prefix ex: <http://example.com/shop#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Alice a ex:Customer ; ex:name "Alice" .
+ex:Bob   a ex:Customer ; ex:name "Bob" .
+
+ex:iPhone a ex:Product ; ex:name "iPhone 15" ; ex:price 6999.00 .
+ex:iPad   a ex:Product ; ex:name "iPad Pro"  ; ex:price 8999.00 .
+
+ex:o1 a ex:Order ;
+    ex:customer ex:Alice ; ex:item ex:iPhone ; ex:amount 6999.00 .
+ex:o2 a ex:Order ;
+    ex:customer ex:Alice ; ex:item ex:iPad   ; ex:amount 8999.00 .
+ex:o3 a ex:Order ;
+    ex:customer ex:Bob   ; ex:item ex:iPhone ; ex:amount 6999.00 .

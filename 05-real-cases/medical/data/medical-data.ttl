@@ -1,0 +1,110 @@
+@prefix ex: <http://hospital.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 3 个科室 ===
+ex:dept-cardio a ex:Department ; ex:deptName "心血管内科" .
+ex:dept-resp   a ex:Department ; ex:deptName "呼吸内科" .
+ex:dept-peds   a ex:Department ; ex:deptName "儿科" .
+
+# === 4 个医生 ===
+ex:doc-001 a ex:Doctor ; ex:doctorName "李华" ; ex:licenseNo "110108197801011234" ; ex:department ex:dept-cardio ; ex:doctorTitle "主任医师" .
+ex:doc-002 a ex:Doctor ; ex:doctorName "王芳" ; ex:licenseNo "110108198503056789" ; ex:department ex:dept-resp   ; ex:doctorTitle "副主任医师" .
+ex:doc-003 a ex:Doctor ; ex:doctorName "张明" ; ex:licenseNo "110108199002028765" ; ex:department ex:dept-peds   ; ex:doctorTitle "主治医师" .
+
+# === 5 个患者 ===
+ex:p-001 a ex:Patient ; ex:patientId "P000001" ; ex:patientName "张三" ; ex:patientGender "M" ; ex:patientDOB "1965-03-15"^^xsd:date .
+ex:p-002 a ex:Patient ; ex:patientId "P000002" ; ex:patientName "李四" ; ex:patientGender "F" ; ex:patientDOB "1980-08-22"^^xsd:date .
+ex:p-003 a ex:Patient ; ex:patientId "P000003" ; ex:patientName "王五" ; ex:patientGender "M" ; ex:patientDOB "2018-11-30"^^xsd:date .
+ex:p-004 a ex:Patient ; ex:patientId "P000004" ; ex:patientName "赵六" ; ex:patientGender "F" ; ex:patientDOB "1972-06-10"^^xsd:date .
+ex:p-005 a ex:Patient ; ex:patientId "P000005" ; ex:patientName "孙七" ; ex:patientGender "M" ; ex:patientDOB "1990-01-05"^^xsd:date .
+
+# === 6 个药品 ===
+ex:d-001 a ex:Drug ; ex:drugName "阿司匹林肠溶片" ; ex:drugCode "国药准字H20123456" ; ex:drugCategory "抗血小板" .
+ex:d-002 a ex:Drug ; ex:drugName "美托洛尔缓释片" ; ex:drugCode "国药准字H20987654" ; ex:drugCategory "β受体阻滞剂" .
+ex:d-003 a ex:Drug ; ex:drugName "阿莫西林胶囊"   ; ex:drugCode "国药准字H20456789" ; ex:drugCategory "抗生素" .
+ex:d-004 a ex:Drug ; ex:drugName "布洛芬混悬液"   ; ex:drugCode "国药准字H20345678" ; ex:drugCategory "解热镇痛" .
+ex:d-005 a ex:Drug ; ex:drugName "盐酸氨溴索口服液" ; ex:drugCode "国药准字H20789012" ; ex:drugCategory "祛痰" .
+
+# === 6 次就诊 ===
+ex:v-001 a ex:OutpatientVisit ;
+    ex:visitOf ex:p-001 ; ex:visitDoctor ex:doc-001 ;
+    ex:visitDate "2026-06-15T09:30:00"^^xsd:dateTime ;
+    ex:visitType "门诊" ;
+    ex:chiefComplaint "胸闷气短 1 周" .
+
+ex:v-002 a ex:OutpatientVisit ;
+    ex:visitOf ex:p-001 ; ex:visitDoctor ex:doc-001 ;
+    ex:visitDate "2026-07-01T10:00:00"^^xsd:dateTime ;
+    ex:visitType "复诊" ;
+    ex:chiefComplaint "胸闷缓解，咨询用药" .
+
+ex:v-003 a ex:OutpatientVisit ;
+    ex:visitOf ex:p-002 ; ex:visitDoctor ex:doc-002 ;
+    ex:visitDate "2026-07-05T14:20:00"^^xsd:dateTime ;
+    ex:visitType "门诊" ;
+    ex:chiefComplaint "咳嗽 3 天，伴发热" .
+
+ex:v-004 a ex:EmergencyVisit ;
+    ex:visitOf ex:p-003 ; ex:visitDoctor ex:doc-003 ;
+    ex:visitDate "2026-07-08T22:15:00"^^xsd:dateTime ;
+    ex:visitType "急诊" ;
+    ex:chiefComplaint "高热 40℃" .
+
+ex:v-005 a ex:OutpatientVisit ;
+    ex:visitOf ex:p-004 ; ex:visitDoctor ex:doc-001 ;
+    ex:visitDate "2026-07-07T11:00:00"^^xsd:dateTime ;
+    ex:visitType "门诊" ;
+    ex:chiefComplaint "心悸、乏力" .
+
+ex:v-006 a ex:OutpatientVisit ;
+    ex:visitOf ex:p-005 ; ex:visitDoctor ex:doc-002 ;
+    ex:visitDate "2026-07-08T15:30:00"^^xsd:dateTime ;
+    ex:visitType "门诊" ;
+    ex:chiefComplaint "咽痛 2 天" .
+
+# === 7 个诊断 ===
+ex:dx-001 a ex:Diagnosis ; ex:diagnosisOf ex:v-001 ;
+    ex:icdCode "I25.10" ; ex:diagnosisName "冠状动脉粥样硬化性心脏病" ; ex:severity "Moderate" .
+
+ex:dx-002 a ex:Diagnosis ; ex:diagnosisOf ex:v-002 ;
+    ex:icdCode "I10" ; ex:diagnosisName "原发性高血压" ; ex:severity "Mild" .
+
+ex:dx-003 a ex:Diagnosis ; ex:diagnosisOf ex:v-003 ;
+    ex:icdCode "J18.9" ; ex:diagnosisName "肺炎" ; ex:severity "Moderate" .
+
+ex:dx-004 a ex:Diagnosis ; ex:diagnosisOf ex:v-004 ;
+    ex:icdCode "R50.9" ; ex:diagnosisName "发热" ; ex:severity "Severe" .
+
+ex:dx-005 a ex:Diagnosis ; ex:diagnosisOf ex:v-004 ;
+    ex:icdCode "J45.909" ; ex:diagnosisName "哮喘" ; ex:severity "Moderate" .
+
+ex:dx-006 a ex:Diagnosis ; ex:diagnosisOf ex:v-005 ;
+    ex:icdCode "I48.91" ; ex:diagnosisName "心房颤动" ; ex:severity "Severe" .
+
+ex:dx-007 a ex:Diagnosis ; ex:diagnosisOf ex:v-006 ;
+    ex:icdCode "J02.9" ; ex:diagnosisName "急性咽炎" ; ex:severity "Mild" .
+
+# === 8 个处方 ===
+ex:rx-001 a ex:Prescription ; ex:prescribedTo ex:v-001 ;
+    ex:drug ex:d-001 ; ex:dosage "100mg" ; ex:frequency "每日1次" ; ex:duration "30天" .
+
+ex:rx-002 a ex:Prescription ; ex:prescribedTo ex:v-001 ;
+    ex:drug ex:d-002 ; ex:dosage "47.5mg" ; ex:frequency "每日1次" ; ex:duration "30天" .
+
+ex:rx-003 a ex:Prescription ; ex:prescribedTo ex:v-002 ;
+    ex:drug ex:d-001 ; ex:dosage "100mg" ; ex:frequency "每日1次" ; ex:duration "30天" .
+
+ex:rx-004 a ex:Prescription ; ex:prescribedTo ex:v-003 ;
+    ex:drug ex:d-003 ; ex:dosage "500mg" ; ex:frequency "每日3次" ; ex:duration "7天" .
+
+ex:rx-005 a ex:Prescription ; ex:prescribedTo ex:v-003 ;
+    ex:drug ex:d-005 ; ex:dosage "30mg" ; ex:frequency "每日3次" ; ex:duration "7天" .
+
+ex:rx-006 a ex:Prescription ; ex:prescribedTo ex:v-004 ;
+    ex:drug ex:d-004 ; ex:dosage "5ml" ; ex:frequency "每6小时" ; ex:duration "3天" .
+
+ex:rx-007 a ex:Prescription ; ex:prescribedTo ex:v-005 ;
+    ex:drug ex:d-001 ; ex:dosage "100mg" ; ex:frequency "每日1次" ; ex:duration "90天" .
+
+ex:rx-008 a ex:Prescription ; ex:prescribedTo ex:v-006 ;
+    ex:drug ex:d-003 ; ex:dosage "500mg" ; ex:frequency "每日3次" ; ex:duration "5天" .

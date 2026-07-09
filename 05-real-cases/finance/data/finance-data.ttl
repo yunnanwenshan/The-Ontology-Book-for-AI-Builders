@@ -1,0 +1,107 @@
+@prefix ex: <http://finance.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 4 个科目 ===
+ex:acc-001 a ex:Account ; ex:accountCode "6601" ; ex:accountName "管理费用" ; ex:accountType "Expense" .
+ex:acc-002 a ex:Account ; ex:accountCode "6602" ; ex:accountName "销售费用" ; ex:accountType "Expense" .
+ex:acc-003 a ex:Account ; ex:accountCode "1002" ; ex:accountName "银行存款" ; ex:accountType "Asset" .
+ex:acc-004 a ex:Account ; ex:accountCode "2202" ; ex:accountName "应付账款" ; ex:accountType "Liability" .
+
+# === 3 个供应商 ===
+ex:ven-001 a ex:Vendor ; ex:vendorName "上海物流有限公司" ; ex:taxId "9131000077777777XX" .
+ex:ven-002 a ex:Vendor ; ex:vendorName "北京广告公司"     ; ex:taxId "9111000055555555YY" .
+ex:ven-003 a ex:Vendor ; ex:vendorName "深圳软件服务商"   ; ex:taxId "9144030099999999ZZ" .
+
+# === 4 个合同 ===
+ex:c-001 a ex:PurchaseContract ;
+    ex:contractNo "C-2026-001" ; ex:vendor ex:ven-001 ;
+    ex:contractAmt 50000.00 ;
+    ex:signDate   "2026-01-15"^^xsd:date ;
+    ex:expiryDate "2026-12-31"^^xsd:date ;
+    ex:status "Active" .
+
+ex:c-002 a ex:ServiceContract ;
+    ex:contractNo "C-2026-002" ; ex:vendor ex:ven-002 ;
+    ex:contractAmt 120000.00 ;
+    ex:signDate   "2026-03-01"^^xsd:date ;
+    ex:expiryDate "2026-08-31"^^xsd:date ;
+    ex:status "Active" .
+
+ex:c-003 a ex:PurchaseContract ;
+    ex:contractNo "C-2026-003" ; ex:vendor ex:ven-003 ;
+    ex:contractAmt 30000.00 ;
+    ex:signDate   "2026-05-01"^^xsd:date ;
+    ex:expiryDate "2027-04-30"^^xsd:date ;
+    ex:status "Active" .
+
+ex:c-004 a ex:ServiceContract ;
+    ex:contractNo "C-2025-099" ; ex:vendor ex:ven-002 ;
+    ex:contractAmt 80000.00 ;
+    ex:signDate   "2025-06-01"^^xsd:date ;
+    ex:expiryDate "2026-05-31"^^xsd:date ;
+    ex:status "Expired" .
+
+# === 5 张发票 ===
+ex:inv-001 a ex:Invoice ; ex:invoiceNo "INV-2026-001" ;
+    ex:invoiceOf ex:c-001 ;
+    ex:invoiceDate "2026-05-10"^^xsd:date ;
+    ex:invoiceAmt 15000.00 ;
+    ex:invoiceStatus "Paid" ;
+    ex:debitsTo ex:acc-002 .
+
+ex:inv-002 a ex:Invoice ; ex:invoiceNo "INV-2026-002" ;
+    ex:invoiceOf ex:c-001 ;
+    ex:invoiceDate "2026-06-10"^^xsd:date ;
+    ex:invoiceAmt 20000.00 ;
+    ex:invoiceStatus "Approved" ;
+    ex:debitsTo ex:acc-002 .
+
+ex:inv-003 a ex:Invoice ; ex:invoiceNo "INV-2026-003" ;
+    ex:invoiceOf ex:c-002 ;
+    ex:invoiceDate "2026-05-20"^^xsd:date ;
+    ex:invoiceAmt 40000.00 ;
+    ex:invoiceStatus "Paid" ;
+    ex:debitsTo ex:acc-001 .
+
+ex:inv-004 a ex:Invoice ; ex:invoiceNo "INV-2026-004" ;
+    ex:invoiceOf ex:c-002 ;
+    ex:invoiceDate "2026-06-15"^^xsd:date ;
+    ex:invoiceAmt 30000.00 ;
+    ex:invoiceStatus "Verified" ;
+    ex:debitsTo ex:acc-001 .
+
+ex:inv-005 a ex:Invoice ; ex:invoiceNo "INV-2026-005" ;
+    ex:invoiceOf ex:c-003 ;
+    ex:invoiceDate "2026-06-20"^^xsd:date ;
+    ex:invoiceAmt 10000.00 ;
+    ex:invoiceStatus "Received" ;
+    ex:debitsTo ex:acc-001 .
+
+# === 4 笔付款 ===
+ex:pay-001 a ex:Payment ;
+    ex:paymentOf ex:inv-001 ;
+    ex:paymentDate "2026-05-15"^^xsd:date ;
+    ex:paymentAmt 15000.00 ;
+    ex:paymentMethod "Bank" ;
+    ex:postedTo ex:acc-003 .
+
+ex:pay-002 a ex:Payment ;
+    ex:paymentOf ex:inv-003 ;
+    ex:paymentDate "2026-05-25"^^xsd:date ;
+    ex:paymentAmt 40000.00 ;
+    ex:paymentMethod "Wire" ;
+    ex:postedTo ex:acc-003 .
+
+ex:pay-003 a ex:Payment ;
+    ex:paymentOf ex:inv-002 ;
+    ex:paymentDate "2026-06-12"^^xsd:date ;
+    ex:paymentAmt 20000.00 ;
+    ex:paymentMethod "Bank" ;
+    ex:postedTo ex:acc-003 .
+
+ex:pay-004 a ex:Payment ;
+    ex:paymentOf ex:inv-005 ;
+    ex:paymentDate "2026-06-22"^^xsd:date ;
+    ex:paymentAmt 10000.00 ;
+    ex:paymentMethod "Check" ;
+    ex:postedTo ex:acc-003 .

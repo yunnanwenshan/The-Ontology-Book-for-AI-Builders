@@ -1,0 +1,5 @@
+@prefix ex: <http://example.com/shop#> .
+
+ex:order-001 a ex:Order ;
+    ex:amount 299.00 .
+    # 故意不写 ex:customer，触发 SHACL 报错

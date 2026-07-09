@@ -1,0 +1,63 @@
+@prefix ex: <http://logistics.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 核心类 ===
+ex:Order         a owl:Class ; rdfs:label "订单"@zh .
+ex:Warehouse     a owl:Class ; rdfs:label "仓库"@zh .
+ex:Carrier       a owl:Class ; rdfs:label "承运商"@zh .
+ex:Shipment      a owl:Class ; rdfs:label "运单"@zh .
+ex:TrackingEvent a owl:Class ; rdfs:label "轨迹事件"@zh .
+ex:Exception     a owl:Class ; rdfs:label "异常"@zh .
+ex:Customer      a owl:Class ; rdfs:label "客户"@zh .
+
+# === 关系 ===
+ex:orderNo        rdfs:domain ex:Order ; rdfs:range xsd:string .
+ex:orderCustomer  rdfs:domain ex:Order ; rdfs:range ex:Customer .
+ex:orderWarehouse rdfs:domain ex:Order ; rdfs:range ex:Warehouse .
+ex:orderWeight    rdfs:domain ex:Order ; rdfs:range xsd:decimal .
+ex:orderDate      rdfs:domain ex:Order ; rdfs:range xsd:dateTime .
+ex:orderStatus    rdfs:domain ex:Order ; rdfs:range xsd:string .
+
+ex:warehouseCode  rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+ex:warehouseName  rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+ex:warehouseCity  rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+ex:warehouseLat   rdfs:domain ex:Warehouse ; rdfs:range xsd:decimal .
+ex:warehouseLng   rdfs:domain ex:Warehouse ; rdfs:range xsd:decimal .
+
+ex:carrierName    rdfs:domain ex:Carrier ; rdfs:range xsd:string .
+ex:carrierCode    rdfs:domain ex:Carrier ; rdfs:range xsd:string .
+
+ex:shipmentOf     rdfs:domain ex:Shipment ; rdfs:range ex:Order .
+ex:shipmentCarrier rdfs:domain ex:Shipment ; rdfs:range ex:Carrier .
+ex:trackingNo     rdfs:domain ex:Shipment ; rdfs:range xsd:string .
+ex:shipmentStatus rdfs:domain ex:Shipment ; rdfs:range xsd:string .
+ex:shipmentDate   rdfs:domain ex:Shipment ; rdfs:range xsd:dateTime .
+ex:estimatedArrival rdfs:domain ex:Shipment ; rdfs:range xsd:dateTime .
+ex:actualArrival    rdfs:domain ex:Shipment ; rdfs:range xsd:dateTime .
+
+ex:eventOf        rdfs:domain ex:TrackingEvent ; rdfs:range ex:Shipment .
+ex:eventType      rdfs:domain ex:TrackingEvent ; rdfs:range xsd:string .
+ex:eventLocation  rdfs:domain ex:TrackingEvent ; rdfs:range xsd:string .
+ex:eventLat       rdfs:domain ex:TrackingEvent ; rdfs:range xsd:decimal .
+ex:eventLng       rdfs:domain ex:TrackingEvent ; rdfs:range xsd:decimal .
+ex:eventTime      rdfs:domain ex:TrackingEvent ; rdfs:range xsd:dateTime .
+
+ex:exceptionOf    rdfs:domain ex:Exception ; rdfs:range ex:Shipment .
+ex:exceptionType  rdfs:domain ex:Exception ; rdfs:range xsd:string .
+ex:exceptionDesc  rdfs:domain ex:Exception ; rdfs:range xsd:string .
+ex:exceptionTime  rdfs:domain ex:Exception ; rdfs:range xsd:dateTime .
+ex:exceptionStatus rdfs:domain ex:Exception ; rdfs:range xsd:string .
+
+ex:customerName   rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:customerPhone  rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:customerAddress rdfs:domain ex:Customer ; rdfs:range xsd:string .
+
+# === 父子类 ===
+ex:AirShipment     rdfs:subClassOf ex:Shipment ; rdfs:label "空运"@zh .
+ex:GroundShipment  rdfs:subClassOf ex:Shipment ; rdfs:label "陆运"@zh .
+ex:SeaShipment     rdfs:subClassOf ex:Shipment ; rdfs:label "海运"@zh .
+ex:DamageException rdfs:subClassOf ex:Exception ; rdfs:label "破损"@zh .
+ex:DelayException  rdfs:subClassOf ex:Exception ; rdfs:label "延误"@zh .
+ex:LostException   rdfs:subClassOf ex:Exception ; rdfs:label "丢件"@zh .

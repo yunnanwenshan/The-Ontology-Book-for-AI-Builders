@@ -1,0 +1,67 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://logistics.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# 订单必须有订单号和重量
+ex:OrderShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Order ;
+    sh:property [
+        sh:path ex:orderNo ;
+        sh:minCount 1 ;
+        sh:pattern "^O\\d{10}$" ;
+    ] , [
+        sh:path ex:orderWeight ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1000 ;   # 单件不超过 1 吨
+    ] , [
+        sh:path ex:orderStatus ;
+        sh:in ("Created" "Picked" "Shipped" "Delivered" "Cancelled" "Returned") ;
+    ] .
+
+# 运单必须有 tracking 编号
+ex:ShipmentShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Shipment ;
+    sh:property [
+        sh:path ex:trackingNo ;
+        sh:minCount 1 ;
+        sh:pattern "^[A-Z]{2,3}\\d{10,12}$" ;
+    ] , [
+        sh:path ex:shipmentStatus ;
+        sh:in ("Created" "PickedUp" "InTransit" "OutForDelivery" "Delivered" "Returned" "Exception") ;
+    ] .
+
+# 客户必须有电话
+ex:CustomerShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Customer ;
+    sh:property [
+        sh:path ex:customerPhone ;
+        sh:minCount 1 ;
+        sh:pattern "^1[3-9]\\d{9}$" ;
+    ] .
+
+# 异常必须关联运单
+ex:ExceptionShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Exception ;
+    sh:property [
+        sh:path ex:exceptionOf ;
+        sh:minCount 1 ;
+        sh:class ex:Shipment ;
+    ] , [
+        sh:path ex:exceptionStatus ;
+        sh:in ("Open" "Investigating" "Resolved" "Closed") ;
+    ] .
+
+# 轨迹事件必须有时间和位置
+ex:EventShape
+    a sh:NodeShape ;
+    sh:targetClass ex:TrackingEvent ;
+    sh:property [
+        sh:path ex:eventType ;
+        sh:minCount 1 ;
+        sh:in ("Pickup" "Departure" "Arrival" "DepartureTransit" "ArrivalTransit" "OutForDelivery" "Delivered" "Return" "Exception") ;
+    ] .

@@ -1,0 +1,544 @@
+@prefix ex: <http://platform.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:CancelOrder a owl:Class ;
+    rdfs:label "取消订单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:act-001 a ex:ApproveOrder,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionOnOrder ex:ord-001 ;
+    ex:actionResult "Approved" ;
+    ex:actionTime "2026-07-01T09:30:00"^^xsd:dateTime .
+
+ex:act-002 a ex:ReserveInventory,
+        ex:action ;
+    ex:actionBy ex:emp-005 ;
+    ex:actionOnOrder ex:ord-001 ;
+    ex:actionResult "Reserved" ;
+    ex:actionTime "2026-07-01T09:45:00"^^xsd:dateTime .
+
+ex:act-003 a ex:CreateShipment,
+        ex:action ;
+    ex:actionBy ex:emp-006 ;
+    ex:actionOnOrder ex:ord-001 ;
+    ex:actionResult "SF1234567890" ;
+    ex:actionTime "2026-07-01T18:00:00"^^xsd:dateTime .
+
+ex:act-004 a ex:ApproveOrder,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionOnOrder ex:ord-002 ;
+    ex:actionResult "Approved" ;
+    ex:actionTime "2026-07-03T10:30:00"^^xsd:dateTime .
+
+ex:act-005 a ex:AssignCustomer,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionResult "华为 → 李销售" ;
+    ex:actionTime "2026-07-01T09:00:00"^^xsd:dateTime .
+
+ex:act-aip-150949875751 a ex:AssignCustomer,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionResult "美的 → E0001" ;
+    ex:actionTime "2026-07-09T15:09:49.875808"^^xsd:dateTime .
+
+ex:act-aip-151428644094 a ex:AssignCustomer,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionResult "美的 → E0001" ;
+    ex:actionTime "2026-07-09T15:14:28.644145"^^xsd:dateTime .
+
+ex:act-aip-151550907943 a ex:AssignCustomer,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionResult "美的 → E0001" ;
+    ex:actionTime "2026-07-09T15:15:50.907995"^^xsd:dateTime .
+
+ex:act-new-152614 a ex:ApproveOrder,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionOnOrder ex:ord-004 ;
+    ex:actionResult "Approved" ;
+    ex:actionTime "2026-07-09T15:26:14.238138"^^xsd:dateTime .
+
+ex:actionBy rdfs:domain ex:action ;
+    rdfs:range ex:Employee .
+
+ex:actionOnOrder rdfs:domain ex:action ;
+    rdfs:range ex:Order .
+
+ex:actionResult rdfs:domain ex:action ;
+    rdfs:range xsd:string .
+
+ex:actionTime rdfs:domain ex:action ;
+    rdfs:range xsd:dateTime .
+
+ex:customerAssignedTo rdfs:domain ex:Customer ;
+    rdfs:range ex:Employee ;
+    owl:inverseOf ex:employeeOwnsCustomer .
+
+ex:customerName rdfs:domain ex:Customer ;
+    rdfs:range xsd:string .
+
+ex:customerTier rdfs:domain ex:Customer ;
+    rdfs:range xsd:string .
+
+ex:emp-003 a ex:Employee ;
+    ex:employeeDepartment "客服部" ;
+    ex:employeeId "E0003" ;
+    ex:employeeName "张客服" ;
+    ex:employeeRole "CustomerService" .
+
+ex:emp-004 a ex:Employee ;
+    ex:employeeDepartment "财务部" ;
+    ex:employeeId "E0004" ;
+    ex:employeeName "赵财务" ;
+    ex:employeeRole "Finance" .
+
+ex:employeeDepartment rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:employeeName rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:employeeRole rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:inv-002 a ex:Invoice ;
+    ex:invoiceAmount 8999.00 ;
+    ex:invoiceNo "INV-2026-002" ;
+    ex:invoiceStatus "Issued" ;
+    ex:orderHasInvoice ex:ord-002 .
+
+ex:invoiceAmount rdfs:domain ex:Invoice ;
+    rdfs:range xsd:decimal .
+
+ex:invoiceHasPayment rdfs:domain ex:Invoice ;
+    rdfs:range ex:Payment ;
+    owl:inverseOf ex:paymentForInvoice .
+
+ex:invoiceNo rdfs:domain ex:Invoice ;
+    rdfs:range xsd:string .
+
+ex:invoiceStatus rdfs:domain ex:Invoice ;
+    rdfs:range xsd:string .
+
+ex:itemOfProduct rdfs:domain ex:OrderItem ;
+    rdfs:range ex:Product .
+
+ex:itemQuantity rdfs:domain ex:OrderItem ;
+    rdfs:range xsd:integer .
+
+ex:itemUnitPrice rdfs:domain ex:OrderItem ;
+    rdfs:range xsd:decimal .
+
+ex:ord-005 a ex:Order ;
+    ex:orderDate "2026-07-09T08:00:00"^^xsd:dateTime ;
+    ex:orderHandledBy ex:emp-002 ;
+    ex:orderHasCustomer ex:cust-004 ;
+    ex:orderNo "O0000000005" ;
+    ex:orderStatus "Placed" ;
+    ex:orderTotalAmount 100.00 .
+
+ex:orderDate rdfs:domain ex:Order ;
+    rdfs:range xsd:dateTime .
+
+ex:orderHandledBy rdfs:domain ex:Order ;
+    rdfs:range ex:Employee ;
+    owl:inverseOf ex:employeeHandlesOrder .
+
+ex:orderHasInvoice rdfs:domain ex:Order ;
+    rdfs:range ex:Invoice ;
+    owl:inverseOf ex:invoiceForOrder .
+
+ex:orderItemForProduct rdfs:domain ex:OrderItem ;
+    rdfs:range ex:Product ;
+    owl:inverseOf ex:productInOrders .
+
+ex:orderStatus rdfs:domain ex:Order ;
+    rdfs:range xsd:string .
+
+ex:orderTotalAmount rdfs:domain ex:Order ;
+    rdfs:range xsd:decimal .
+
+ex:pay-001 a ex:Payment ;
+    ex:paymentAmount 21997.00 ;
+    ex:paymentDate "2026-07-02T10:00:00"^^xsd:dateTime ;
+    ex:paymentForInvoice ex:inv-001 .
+
+ex:pay-002 a ex:Payment ;
+    ex:paymentAmount 25997.00 ;
+    ex:paymentDate "2026-07-06T11:00:00"^^xsd:dateTime ;
+    ex:paymentForInvoice ex:inv-003 .
+
+ex:paymentAmount rdfs:domain ex:Payment ;
+    rdfs:range xsd:decimal .
+
+ex:paymentDate rdfs:domain ex:Payment ;
+    rdfs:range xsd:dateTime .
+
+ex:productCategory rdfs:domain ex:Product ;
+    rdfs:range xsd:string .
+
+ex:productName rdfs:domain ex:Product ;
+    rdfs:range xsd:string .
+
+ex:productSku rdfs:domain ex:Product ;
+    rdfs:range xsd:string .
+
+ex:productUnitPrice rdfs:domain ex:Product ;
+    rdfs:range xsd:decimal .
+
+ex:ship-001 a ex:Shipment ;
+    ex:orderHasShipment ex:ord-001 ;
+    ex:shipmentDate "2026-07-01T18:00:00"^^xsd:dateTime ;
+    ex:shipmentStatus "Delivered" ;
+    ex:shipmentTrackingNo "SF1234567890" .
+
+ex:ship-002 a ex:Shipment ;
+    ex:orderHasShipment ex:ord-002 ;
+    ex:shipmentDate "2026-07-03T19:00:00"^^xsd:dateTime ;
+    ex:shipmentStatus "InTransit" ;
+    ex:shipmentTrackingNo "SF2345678901" .
+
+ex:ship-003 a ex:Shipment ;
+    ex:orderHasShipment ex:ord-003 ;
+    ex:shipmentDate "2026-07-05T22:00:00"^^xsd:dateTime ;
+    ex:shipmentStatus "Created" ;
+    ex:shipmentTrackingNo "SF3456789012" .
+
+ex:shipmentDate rdfs:domain ex:Shipment ;
+    rdfs:range xsd:dateTime .
+
+ex:shipmentStatus rdfs:domain ex:Shipment ;
+    rdfs:range xsd:string .
+
+ex:shipmentTrackingNo rdfs:domain ex:Shipment ;
+    rdfs:range xsd:string .
+
+ex:stock-001 a ex:InventoryItem ;
+    ex:stockAtWarehouse ex:wh-sh ;
+    ex:stockOfProduct ex:prod-iphone ;
+    ex:stockQuantity 100 ;
+    ex:stockReservedQty 20 .
+
+ex:stock-002 a ex:InventoryItem ;
+    ex:stockAtWarehouse ex:wh-sz ;
+    ex:stockOfProduct ex:prod-iphone ;
+    ex:stockQuantity 50 ;
+    ex:stockReservedQty 10 .
+
+ex:stock-003 a ex:InventoryItem ;
+    ex:stockAtWarehouse ex:wh-sh ;
+    ex:stockOfProduct ex:prod-ipad ;
+    ex:stockQuantity 30 ;
+    ex:stockReservedQty 9 .
+
+ex:stock-004 a ex:InventoryItem ;
+    ex:stockAtWarehouse ex:wh-sh ;
+    ex:stockOfProduct ex:prod-mac ;
+    ex:stockQuantity 10 ;
+    ex:stockReservedQty 3 .
+
+ex:stock-005 a ex:InventoryItem ;
+    ex:stockAtWarehouse ex:wh-sz ;
+    ex:stockOfProduct ex:prod-airpods ;
+    ex:stockQuantity 200 ;
+    ex:stockReservedQty 50 .
+
+ex:stock-006 a ex:InventoryItem ;
+    ex:stockAtWarehouse ex:wh-sz ;
+    ex:stockOfProduct ex:prod-mac ;
+    ex:stockQuantity 5 ;
+    ex:stockReservedQty 1 .
+
+ex:stockAtWarehouse rdfs:domain ex:InventoryItem ;
+    rdfs:range ex:Warehouse .
+
+ex:stockOfProduct rdfs:domain ex:InventoryItem ;
+    rdfs:range ex:Product .
+
+ex:stockQuantity rdfs:domain ex:InventoryItem ;
+    rdfs:range xsd:integer .
+
+ex:stockReservedQty rdfs:domain ex:InventoryItem ;
+    rdfs:range xsd:integer .
+
+ex:warehouseCity rdfs:domain ex:Warehouse ;
+    rdfs:range xsd:string .
+
+ex:warehouseCode rdfs:domain ex:Warehouse ;
+    rdfs:range xsd:string .
+
+ex:CreateShipment a owl:Class ;
+    rdfs:label "创建运单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:ReserveInventory a owl:Class ;
+    rdfs:label "分配库存"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:cust-001 a ex:Customer ;
+    ex:customerAssignedTo ex:emp-002 ;
+    ex:customerName "华为技术" ;
+    ex:customerTier "VIP" .
+
+ex:cust-002 a ex:Customer ;
+    ex:customerAssignedTo ex:emp-002 ;
+    ex:customerName "字节跳动" ;
+    ex:customerTier "VIP" .
+
+ex:cust-003 a ex:Customer ;
+    ex:customerAssignedTo ex:emp-001 ;
+    ex:customerName "美的集团" ;
+    ex:customerTier "Standard" .
+
+ex:customerHasOrder rdfs:domain ex:Customer ;
+    rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasCustomer .
+
+ex:emp-005 a ex:Employee ;
+    ex:employeeDepartment "仓储部" ;
+    ex:employeeId "E0005" ;
+    ex:employeeName "钱仓管" ;
+    ex:employeeRole "Warehouse" .
+
+ex:emp-006 a ex:Employee ;
+    ex:employeeDepartment "物流部" ;
+    ex:employeeId "E0006" ;
+    ex:employeeName "孙物流" ;
+    ex:employeeRole "Logistics" .
+
+ex:inv-001 a ex:Invoice ;
+    ex:invoiceAmount 21997.00 ;
+    ex:invoiceHasPayment [ ] ;
+    ex:invoiceNo "INV-2026-001" ;
+    ex:invoiceStatus "Paid" ;
+    ex:orderHasInvoice ex:ord-001 .
+
+ex:inv-003 a ex:Invoice ;
+    ex:invoiceAmount 25997.00 ;
+    ex:invoiceHasPayment [ ] ;
+    ex:invoiceNo "INV-2026-003" ;
+    ex:invoiceStatus "Paid" ;
+    ex:orderHasInvoice ex:ord-003 .
+
+ex:item-001 a ex:OrderItem ;
+    ex:itemQuantity 2 ;
+    ex:itemUnitPrice 6999.00 ;
+    ex:orderHasItem ex:ord-001 ;
+    ex:orderItemForProduct ex:prod-iphone .
+
+ex:item-002 a ex:OrderItem ;
+    ex:itemQuantity 4 ;
+    ex:itemUnitPrice 1999.00 ;
+    ex:orderHasItem ex:ord-001 ;
+    ex:orderItemForProduct ex:prod-airpods .
+
+ex:item-003 a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 8999.00 ;
+    ex:orderHasItem ex:ord-002 ;
+    ex:orderItemForProduct ex:prod-ipad .
+
+ex:item-004 a ex:OrderItem ;
+    ex:itemQuantity 2 ;
+    ex:itemUnitPrice 6999.00 ;
+    ex:orderHasItem ex:ord-003 ;
+    ex:orderItemForProduct ex:prod-iphone .
+
+ex:item-005 a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 15999.00 ;
+    ex:orderHasItem ex:ord-003 ;
+    ex:orderItemForProduct ex:prod-mac .
+
+ex:item-006 a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 1999.00 ;
+    ex:orderHasItem ex:ord-004 ;
+    ex:orderItemForProduct ex:prod-airpods .
+
+ex:itemOfOrder rdfs:domain ex:OrderItem ;
+    rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasItem .
+
+ex:orderHasCustomer rdfs:domain ex:Order ;
+    rdfs:range ex:Customer ;
+    owl:inverseOf ex:customerHasOrder .
+
+ex:orderHasItem rdfs:domain ex:Order ;
+    rdfs:range ex:OrderItem ;
+    owl:inverseOf ex:itemOfOrder .
+
+ex:orderHasShipment rdfs:domain ex:Order ;
+    rdfs:range ex:Shipment ;
+    owl:inverseOf ex:shipmentOfOrder .
+
+ex:shipmentOfOrder rdfs:domain ex:Shipment ;
+    rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasShipment .
+
+ex:cust-004 a ex:Customer ;
+    ex:customerAssignedTo ex:emp-001 ;
+    ex:customerName "新客户甲" ;
+    ex:customerTier "New" .
+
+ex:ord-004 a ex:Order ;
+    ex:orderDate "2026-07-08T09:00:00"^^xsd:dateTime ;
+    ex:orderHandledBy ex:emp-001 ;
+    ex:orderHasCustomer ex:cust-004 ;
+    ex:orderHasItem ex:item-006 ;
+    ex:orderNo "O0000000004" ;
+    ex:orderStatus "Paid" ;
+    ex:orderTotalAmount 1999.00 .
+
+ex:prod-ipad a ex:Product ;
+    ex:productCategory "平板" ;
+    ex:productName "iPad Pro" ;
+    ex:productSku "IP002" ;
+    ex:productUnitPrice 8999.00 .
+
+ex:ApproveOrder a owl:Class ;
+    rdfs:label "审核订单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:prod-airpods a ex:Product ;
+    ex:productCategory "耳机" ;
+    ex:productName "AirPods Pro" ;
+    ex:productSku "AP001" ;
+    ex:productUnitPrice 1999.00 .
+
+ex:prod-mac a ex:Product ;
+    ex:productCategory "电脑" ;
+    ex:productName "MacBook Pro" ;
+    ex:productSku "MAC01" ;
+    ex:productUnitPrice 15999.00 .
+
+ex:wh-sh a ex:Warehouse ;
+    ex:warehouseCity "上海" ;
+    ex:warehouseCode "WH-SHA" .
+
+ex:wh-sz a ex:Warehouse ;
+    ex:warehouseCity "深圳" ;
+    ex:warehouseCode "WH-SZX" .
+
+ex:AssignCustomer a owl:Class ;
+    rdfs:label "分配客户"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:employeeId rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:ord-002 a ex:Order ;
+    ex:orderDate "2026-07-03T11:00:00"^^xsd:dateTime ;
+    ex:orderHandledBy ex:emp-002 ;
+    ex:orderHasCustomer ex:cust-002 ;
+    ex:orderHasItem ex:item-003 ;
+    ex:orderNo "O0000000002" ;
+    ex:orderStatus "Shipped" ;
+    ex:orderTotalAmount 8999.00 .
+
+ex:ord-003 a ex:Order ;
+    ex:orderDate "2026-07-05T15:00:00"^^xsd:dateTime ;
+    ex:orderHandledBy ex:emp-001 ;
+    ex:orderHasCustomer ex:cust-003 ;
+    ex:orderHasItem ex:item-004,
+        ex:item-005 ;
+    ex:orderNo "O0000000003" ;
+    ex:orderStatus "Paid" ;
+    ex:orderTotalAmount 25997.00 .
+
+ex:orderNo rdfs:domain ex:Order ;
+    rdfs:range xsd:string .
+
+ex:prod-iphone a ex:Product ;
+    ex:productCategory "手机" ;
+    ex:productName "iPhone 15" ;
+    ex:productSku "IP001" ;
+    ex:productUnitPrice 6999.00 .
+
+ex:Payment a owl:Class ;
+    rdfs:label "付款"@zh .
+
+ex:Warehouse a owl:Class ;
+    rdfs:label "仓库"@zh .
+
+ex:emp-002 a ex:Employee ;
+    ex:employeeDepartment "销售部" ;
+    ex:employeeId "E0002" ;
+    ex:employeeName "李销售" ;
+    ex:employeeRole "Sales" .
+
+ex:ord-001 a ex:Order ;
+    ex:orderDate "2026-07-01T10:00:00"^^xsd:dateTime ;
+    ex:orderHandledBy ex:emp-002 ;
+    ex:orderHasCustomer ex:cust-001 ;
+    ex:orderHasItem ex:item-001,
+        ex:item-002 ;
+    ex:orderNo "O0000000001" ;
+    ex:orderStatus "Delivered" ;
+    ex:orderTotalAmount 21997.00 .
+
+ex:Invoice a owl:Class ;
+    rdfs:label "发票"@zh .
+
+ex:Shipment a owl:Class ;
+    rdfs:label "运单"@zh .
+
+ex:Customer a owl:Class ;
+    rdfs:label "客户"@zh .
+
+ex:InventoryItem a owl:Class ;
+    rdfs:label "库存项"@zh .
+
+ex:Product a owl:Class ;
+    rdfs:label "产品"@zh .
+
+ex:emp-001 a ex:Employee ;
+    ex:employeeDepartment "销售部" ;
+    ex:employeeId "E0001" ;
+    ex:employeeName "王经理" ;
+    ex:employeeRole "Manager" .
+
+ex:OrderItem a owl:Class ;
+    rdfs:label "订单项"@zh .
+
+ex:Employee a owl:Class ;
+    rdfs:label "员工"@zh ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:employeeId ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:employeeId ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:employeeId ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:employeeId ] .
+
+ex:action a owl:Class ;
+    rdfs:label "动作实例"@zh .
+
+ex:Order a owl:Class ;
+    rdfs:label "订单"@zh ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:orderNo ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:orderNo ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:orderNo ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:orderNo ] .
+

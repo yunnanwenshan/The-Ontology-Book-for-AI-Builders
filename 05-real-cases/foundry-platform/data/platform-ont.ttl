@@ -1,0 +1,160 @@
+@prefix ex: <http://platform.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================================
+#  对齐 Palantir Foundry Ontology 模型：
+#  - Object Type: 业务实体（员工/订单/产品/客户/...）
+#  - Link Type: 实体之间的关系（订单-包含-订单项）
+#  - Property Type: 实体的属性（title, primary key, type）
+#  - Action Type: 业务动作（审核订单、分配库存）
+#  - Function: 业务逻辑（Python 函数）
+# ============================================================
+
+# === Object Types（核心实体）===
+
+ex:Employee a owl:Class ; rdfs:label "员工"@zh ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ex:employeeId ;
+        owl:cardinality 1
+    ] .
+
+ex:Customer a owl:Class ; rdfs:label "客户"@zh .
+
+ex:Product a owl:Class ; rdfs:label "产品"@zh .
+
+ex:Warehouse a owl:Class ; rdfs:label "仓库"@zh .
+
+ex:InventoryItem a owl:Class ; rdfs:label "库存项"@zh .
+
+ex:Order a owl:Class ; rdfs:label "订单"@zh ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ex:orderNo ;
+        owl:cardinality 1
+    ] .
+
+ex:OrderItem a owl:Class ; rdfs:label "订单项"@zh .
+
+ex:Shipment a owl:Class ; rdfs:label "运单"@zh .
+
+ex:Invoice a owl:Class ; rdfs:label "发票"@zh .
+
+ex:Payment a owl:Class ; rdfs:label "付款"@zh .
+
+# === Property Types（属性）===
+
+# Employee
+ex:employeeId rdfs:domain ex:Employee ; rdfs:range xsd:string .
+ex:employeeName rdfs:domain ex:Employee ; rdfs:range xsd:string .
+ex:employeeRole rdfs:domain ex:Employee ; rdfs:range xsd:string .   # 销售/客服/财务/仓管/经理
+ex:employeeDepartment rdfs:domain ex:Employee ; rdfs:range xsd:string .
+
+# Customer
+ex:customerName rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:customerTier rdfs:domain ex:Customer ; rdfs:range xsd:string .   # VIP/Standard/New
+
+# Product
+ex:productSku rdfs:domain ex:Product ; rdfs:range xsd:string .
+ex:productName rdfs:domain ex:Product ; rdfs:range xsd:string .
+ex:productCategory rdfs:domain ex:Product ; rdfs:range xsd:string .
+ex:productUnitPrice rdfs:domain ex:Product ; rdfs:range xsd:decimal .
+
+# Warehouse
+ex:warehouseCode rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+ex:warehouseCity rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+
+# InventoryItem
+ex:stockOfProduct rdfs:domain ex:InventoryItem ; rdfs:range ex:Product .
+ex:stockAtWarehouse rdfs:domain ex:InventoryItem ; rdfs:range ex:Warehouse .
+ex:stockQuantity rdfs:domain ex:InventoryItem ; rdfs:range xsd:integer .
+ex:stockReservedQty rdfs:domain ex:InventoryItem ; rdfs:range xsd:integer .
+
+# Order
+ex:orderNo rdfs:domain ex:Order ; rdfs:range xsd:string .
+ex:orderDate rdfs:domain ex:Order ; rdfs:range xsd:dateTime .
+ex:orderTotalAmount rdfs:domain ex:Order ; rdfs:range xsd:decimal .
+ex:orderStatus rdfs:domain ex:Order ; rdfs:range xsd:string .    # Placed/Paid/Shipped/Delivered/Cancelled
+
+# OrderItem
+ex:itemOfOrder rdfs:domain ex:OrderItem ; rdfs:range ex:Order .
+ex:itemOfProduct rdfs:domain ex:OrderItem ; rdfs:range ex:Product .
+ex:itemQuantity rdfs:domain ex:OrderItem ; rdfs:range xsd:integer .
+ex:itemUnitPrice rdfs:domain ex:OrderItem ; rdfs:range xsd:decimal .
+
+# Shipment
+ex:shipmentTrackingNo rdfs:domain ex:Shipment ; rdfs:range xsd:string .
+ex:shipmentStatus rdfs:domain ex:Shipment ; rdfs:range xsd:string .   # Created/PickedUp/InTransit/Delivered
+ex:shipmentDate rdfs:domain ex:Shipment ; rdfs:range xsd:dateTime .
+
+# Invoice
+ex:invoiceNo rdfs:domain ex:Invoice ; rdfs:range xsd:string .
+ex:invoiceAmount rdfs:domain ex:Invoice ; rdfs:range xsd:decimal .
+ex:invoiceStatus rdfs:domain ex:Invoice ; rdfs:range xsd:string .   # Issued/Paid/Overdue
+
+# Payment
+ex:paymentAmount rdfs:domain ex:Payment ; rdfs:range xsd:decimal .
+ex:paymentDate rdfs:domain ex:Payment ; rdfs:range xsd:dateTime .
+
+# === Link Types（关系）===
+# Palantir Foundry 的 Link Type = RDF 的 ObjectProperty
+ex:orderHasCustomer rdfs:domain ex:Order ; rdfs:range ex:Customer ;
+    owl:inverseOf ex:customerHasOrder .
+ex:customerHasOrder rdfs:domain ex:Customer ; rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasCustomer .
+
+ex:orderHasItem rdfs:domain ex:Order ; rdfs:range ex:OrderItem ;
+    owl:inverseOf ex:itemOfOrder .
+ex:itemOfOrder rdfs:domain ex:OrderItem ; rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasItem .
+
+ex:orderItemForProduct rdfs:domain ex:OrderItem ; rdfs:range ex:Product ;
+    owl:inverseOf ex:productInOrders .
+
+ex:orderHasShipment rdfs:domain ex:Order ; rdfs:range ex:Shipment ;
+    owl:inverseOf ex:shipmentOfOrder .
+ex:shipmentOfOrder rdfs:domain ex:Shipment ; rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasShipment .
+
+ex:orderHasInvoice rdfs:domain ex:Order ; rdfs:range ex:Invoice ;
+    owl:inverseOf ex:invoiceForOrder .
+
+ex:invoiceHasPayment rdfs:domain ex:Invoice ; rdfs:range ex:Payment ;
+    owl:inverseOf ex:paymentForInvoice .
+
+ex:orderHandledBy rdfs:domain ex:Order ; rdfs:range ex:Employee ;
+    owl:inverseOf ex:employeeHandlesOrder .
+
+ex:customerAssignedTo rdfs:domain ex:Customer ; rdfs:range ex:Employee ;
+    owl:inverseOf ex:employeeOwnsCustomer .
+
+# === Action Types（业务动作，可被 AIP 调用）===
+
+# 1. 审核订单（销售经理）
+ex:ApproveOrder a owl:Class ; rdfs:label "审核订单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+# 2. 分配库存（仓库）
+ex:ReserveInventory a owl:Class ; rdfs:label "分配库存"@zh ;
+    rdfs:subClassOf ex:Action .
+
+# 3. 创建运单（物流）
+ex:CreateShipment a owl:Class ; rdfs:label "创建运单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+# 4. 取消订单（客服）
+ex:CancelOrder a owl:Class ; rdfs:label "取消订单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+# 5. 分配客户（销售）
+ex:AssignCustomer a owl:Class ; rdfs:label "分配客户"@zh ;
+    rdfs:subClassOf ex:Action .
+
+# Action 通用属性
+ex:action a owl:Class ; rdfs:label "动作实例"@zh .
+ex:actionOnOrder rdfs:domain ex:action ; rdfs:range ex:Order .
+ex:actionBy rdfs:domain ex:action ; rdfs:range ex:Employee .
+ex:actionTime rdfs:domain ex:action ; rdfs:range xsd:dateTime .
+ex:actionResult rdfs:domain ex:action ; rdfs:range xsd:string .

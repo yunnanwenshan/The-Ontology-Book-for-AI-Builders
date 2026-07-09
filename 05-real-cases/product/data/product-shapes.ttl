@@ -1,0 +1,44 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://shop.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SKU 必须有条形码
+ex:SKUShape
+    a sh:NodeShape ;
+    sh:targetClass ex:SKU ;
+    sh:property [
+        sh:path ex:barcode ;
+        sh:minCount 1 ;
+        sh:pattern "^[0-9]{8,13}$" ;
+    ] , [
+        sh:path ex:skuOf ;
+        sh:minCount 1 ;
+        sh:class ex:SPU ;
+    ] .
+
+# 库存不能为负
+ex:InventoryShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Inventory ;
+    sh:property [
+        sh:path ex:quantity ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+    ] , [
+        sh:path ex:safetyStock ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+    ] .
+
+# 价格必须 > 0
+ex:PriceShape
+    a sh:NodeShape ;
+    sh:targetClass ex:PriceList ;
+    sh:property [
+        sh:path ex:price ;
+        sh:datatype xsd:decimal ;
+        sh:minExclusive 0 ;
+    ] , [
+        sh:path ex:priceType ;
+        sh:in ("Retail" "Wholesale" "Promotional" "Member") ;
+    ] .

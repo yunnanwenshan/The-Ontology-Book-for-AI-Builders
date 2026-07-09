@@ -1,0 +1,102 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://platform.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === SHACL 规则 ===
+# 对应 Palantir Foundry 的 Object Validation
+
+# Order 必须有订单号 + 客户 + 至少 1 个 OrderItem
+ex:OrderShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Order ;
+    sh:property [
+        sh:path ex:orderNo ;
+        sh:minCount 1 ;
+        sh:pattern "^O\\d{10}$" ;
+    ] , [
+        sh:path ex:orderDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:dateTime ;
+    ] , [
+        sh:path ex:orderTotalAmount ;
+        sh:minExclusive 0 ;
+    ] , [
+        sh:path ex:orderStatus ;
+        sh:in ("Placed" "Paid" "Shipped" "Delivered" "Cancelled") ;
+    ] ;
+    sh:property [
+        sh:path ex:orderHasItem ;
+        sh:minCount 1 ;   # 至少 1 个 OrderItem
+    ] , [
+        sh:path ex:orderHasCustomer ;
+        sh:minCount 1 ;   # 至少 1 个 Customer
+    ] .
+
+# OrderItem 数量必须 > 0
+ex:OrderItemShape
+    a sh:NodeShape ;
+    sh:targetClass ex:OrderItem ;
+    sh:property [
+        sh:path ex:itemQuantity ;
+        sh:datatype xsd:integer ;
+        sh:minExclusive 0 ;
+    ] , [
+        sh:path ex:orderItemForProduct ;
+        sh:minCount 1 ;
+        sh:class ex:Product ;
+    ] .
+
+# 库存数量不能为负
+ex:InventoryShape
+    a sh:NodeShape ;
+    sh:targetClass ex:InventoryItem ;
+    sh:property [
+        sh:path ex:stockQuantity ;
+        sh:minInclusive 0 ;
+    ] , [
+        sh:path ex:stockReservedQty ;
+        sh:minInclusive 0 ;
+    ] .
+
+# 员工必须分部门
+ex:EmployeeShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Employee ;
+    sh:property [
+        sh:path ex:employeeRole ;
+        sh:minCount 1 ;
+        sh:in ("Sales" "CustomerService" "Finance" "Warehouse" "Manager" "Logistics") ;
+    ] .
+
+# 产品必须有 SKU
+ex:ProductShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Product ;
+    sh:property [
+        sh:path ex:productSku ;
+        sh:minCount 1 ;
+        sh:pattern "^[A-Z]{2,3}\\d{2,6}$" ;
+    ] .
+
+# 客户必须有等级
+ex:CustomerShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Customer ;
+    sh:property [
+        sh:path ex:customerTier ;
+        sh:minCount 1 ;
+        sh:in ("VIP" "Standard" "New") ;
+    ] .
+
+# 运单必须有 tracking
+ex:ShipmentShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Shipment ;
+    sh:property [
+        sh:path ex:shipmentTrackingNo ;
+        sh:minCount 1 ;
+        sh:pattern "^[A-Z]{2,3}\\d{10,12}$" ;
+    ] , [
+        sh:path ex:shipmentStatus ;
+        sh:in ("Created" "PickedUp" "InTransit" "Delivered") ;
+    ] .

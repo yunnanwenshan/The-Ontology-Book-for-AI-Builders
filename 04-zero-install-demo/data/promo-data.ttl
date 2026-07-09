@@ -1,0 +1,14 @@
+@prefix ex: <http://shop.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:promo-001 a ex:Promotion ;
+    ex:startDate "2026-05-25T00:00:00"^^xsd:dateTime ;
+    ex:endDate   "2026-06-18T23:59:59"^^xsd:dateTime ;
+    ex:discountRule ex:disc-001 .
+
+ex:disc-001 a ex:Discount ;
+    ex:minAmount 200 ;
+    ex:discountAmt 50 .
+
+ex:iphone-15 a ex:Product ;
+    ex:hasPromotion ex:promo-001 .

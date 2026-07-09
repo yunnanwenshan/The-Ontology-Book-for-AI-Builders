@@ -1,0 +1,39 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://hr.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:JobShape
+    a sh:NodeShape ;
+    sh:targetClass ex:JobPosting ;
+    sh:property [
+        sh:path ex:title ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+    ] , [
+        sh:path ex:salaryMin ;
+        sh:minInclusive 0 ;
+    ] , [
+        sh:path ex:salaryMax ;
+        sh:minInclusive 0 ;
+    ] ;
+    sh:property [
+        sh:path ex:salaryMax ;
+        sh:greaterThan ex:salaryMin ;
+    ] .
+
+ex:CandidateShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Candidate ;
+    sh:property [
+        sh:path ex:candidateEmail ;
+        sh:minCount 1 ;
+        sh:pattern ".+@.+\\..+" ;
+    ] .
+
+ex:ApplicationShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Application ;
+    sh:property [
+        sh:path ex:status ;
+        sh:in ("Applied" "Screening" "Interviewing" "OfferSent" "Hired" "Rejected") ;
+    ] .

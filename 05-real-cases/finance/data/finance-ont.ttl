@@ -1,0 +1,43 @@
+@prefix ex: <http://finance.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 核心类 ===
+ex:Vendor     a owl:Class ; rdfs:label "供应商"@zh .
+ex:Contract   a owl:Class ; rdfs:label "合同"@zh .
+ex:Invoice    a owl:Class ; rdfs:label "发票"@zh .
+ex:Payment    a owl:Class ; rdfs:label "付款"@zh .
+ex:Account    a owl:Class ; rdfs:label "科目"@zh .
+
+# === 子类 ===
+ex:ServiceContract    rdfs:subClassOf ex:Contract ; rdfs:label "服务合同"@zh .
+ex:PurchaseContract   rdfs:subClassOf ex:Contract ; rdfs:label "采购合同"@zh .
+
+# === 属性 ===
+ex:contractNo    rdfs:domain ex:Contract ; rdfs:range xsd:string .
+ex:vendor        rdfs:domain ex:Contract ; rdfs:range ex:Vendor .
+ex:contractAmt   rdfs:domain ex:Contract ; rdfs:range xsd:decimal .
+ex:signDate      rdfs:domain ex:Contract ; rdfs:range xsd:date .
+ex:expiryDate    rdfs:domain ex:Contract ; rdfs:range xsd:date .
+ex:status        rdfs:domain ex:Contract ; rdfs:range xsd:string .
+
+ex:vendorName    rdfs:domain ex:Vendor ; rdfs:range xsd:string .
+ex:taxId         rdfs:domain ex:Vendor ; rdfs:range xsd:string .
+
+ex:invoiceNo     rdfs:domain ex:Invoice ; rdfs:range xsd:string .
+ex:invoiceOf     rdfs:domain ex:Invoice ; rdfs:range ex:Contract .
+ex:invoiceDate   rdfs:domain ex:Invoice ; rdfs:range xsd:date .
+ex:invoiceAmt    rdfs:domain ex:Invoice ; rdfs:range xsd:decimal .
+ex:invoiceStatus rdfs:domain ex:Invoice ; rdfs:range xsd:string .
+
+ex:paymentOf     rdfs:domain ex:Payment ; rdfs:range ex:Invoice .
+ex:paymentDate   rdfs:domain ex:Payment ; rdfs:range xsd:date .
+ex:paymentAmt    rdfs:domain ex:Payment ; rdfs:range xsd:decimal .
+ex:paymentMethod rdfs:domain ex:Payment ; rdfs:range xsd:string .
+
+ex:accountCode   rdfs:domain ex:Account ; rdfs:range xsd:string .
+ex:accountName   rdfs:domain ex:Account ; rdfs:range xsd:string .
+ex:accountType   rdfs:domain ex:Account ; rdfs:range xsd:string .
+ex:postedTo      rdfs:domain ex:Payment ; rdfs:range ex:Account .
+ex:debitsTo      rdfs:domain ex:Invoice ; rdfs:range ex:Account .

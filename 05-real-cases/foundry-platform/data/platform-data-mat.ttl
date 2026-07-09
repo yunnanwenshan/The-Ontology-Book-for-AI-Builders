@@ -1,0 +1,319 @@
+@prefix ex: <http://platform.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ApproveOrder a owl:Class ;
+    rdfs:label "审核订单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:AssignCustomer a owl:Class ;
+    rdfs:label "分配客户"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:CancelOrder a owl:Class ;
+    rdfs:label "取消订单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:CreateShipment a owl:Class ;
+    rdfs:label "创建运单"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:ReserveInventory a owl:Class ;
+    rdfs:label "分配库存"@zh ;
+    rdfs:subClassOf ex:Action .
+
+ex:actionBy rdfs:domain ex:action ;
+    rdfs:range ex:Employee .
+
+ex:actionOnOrder rdfs:domain ex:action ;
+    rdfs:range ex:Order .
+
+ex:actionResult rdfs:domain ex:action ;
+    rdfs:range xsd:string .
+
+ex:actionTime rdfs:domain ex:action ;
+    rdfs:range xsd:dateTime .
+
+ex:customerAssignedTo rdfs:domain ex:Customer ;
+    rdfs:range ex:Employee ;
+    owl:inverseOf ex:employeeOwnsCustomer .
+
+ex:customerName rdfs:domain ex:Customer ;
+    rdfs:range xsd:string .
+
+ex:customerTier rdfs:domain ex:Customer ;
+    rdfs:range xsd:string .
+
+ex:employeeDepartment rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:employeeName rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:employeeRole rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:invoiceAmount rdfs:domain ex:Invoice ;
+    rdfs:range xsd:decimal .
+
+ex:invoiceHasPayment rdfs:domain ex:Invoice ;
+    rdfs:range ex:Payment ;
+    owl:inverseOf ex:paymentForInvoice .
+
+ex:invoiceNo rdfs:domain ex:Invoice ;
+    rdfs:range xsd:string .
+
+ex:invoiceStatus rdfs:domain ex:Invoice ;
+    rdfs:range xsd:string .
+
+ex:itemOfProduct rdfs:domain ex:OrderItem ;
+    rdfs:range ex:Product .
+
+ex:itemQuantity rdfs:domain ex:OrderItem ;
+    rdfs:range xsd:integer .
+
+ex:itemUnitPrice rdfs:domain ex:OrderItem ;
+    rdfs:range xsd:decimal .
+
+ex:orderDate rdfs:domain ex:Order ;
+    rdfs:range xsd:dateTime .
+
+ex:orderHandledBy rdfs:domain ex:Order ;
+    rdfs:range ex:Employee ;
+    owl:inverseOf ex:employeeHandlesOrder .
+
+ex:orderHasInvoice rdfs:domain ex:Order ;
+    rdfs:range ex:Invoice ;
+    owl:inverseOf ex:invoiceForOrder .
+
+ex:orderItemForProduct rdfs:domain ex:OrderItem ;
+    rdfs:range ex:Product ;
+    owl:inverseOf ex:productInOrders .
+
+ex:orderStatus rdfs:domain ex:Order ;
+    rdfs:range xsd:string .
+
+ex:orderTotalAmount rdfs:domain ex:Order ;
+    rdfs:range xsd:decimal .
+
+<http://platform.com/orderitem/1-AP001> a ex:OrderItem ;
+    ex:itemQuantity 4 ;
+    ex:itemUnitPrice 1999.0 ;
+    ex:orderHasItem <http://platform.com/order/1> ;
+    ex:orderItemForProduct <http://platform.com/product/AP001> .
+
+<http://platform.com/orderitem/1-IP001> a ex:OrderItem ;
+    ex:itemQuantity 2 ;
+    ex:itemUnitPrice 6999.0 ;
+    ex:orderHasItem <http://platform.com/order/1> ;
+    ex:orderItemForProduct <http://platform.com/product/IP001> .
+
+<http://platform.com/orderitem/2-IP002> a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 8999.0 ;
+    ex:orderHasItem <http://platform.com/order/2> ;
+    ex:orderItemForProduct <http://platform.com/product/IP002> .
+
+<http://platform.com/orderitem/3-IP001> a ex:OrderItem ;
+    ex:itemQuantity 2 ;
+    ex:itemUnitPrice 6999.0 ;
+    ex:orderHasItem <http://platform.com/order/3> ;
+    ex:orderItemForProduct <http://platform.com/product/IP001> .
+
+<http://platform.com/orderitem/3-MAC01> a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 15999.0 ;
+    ex:orderHasItem <http://platform.com/order/3> ;
+    ex:orderItemForProduct <http://platform.com/product/MAC01> .
+
+<http://platform.com/orderitem/4-AP001> a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 1999.0 ;
+    ex:orderHasItem <http://platform.com/order/4> ;
+    ex:orderItemForProduct <http://platform.com/product/AP001> .
+
+<http://platform.com/orderitem/99-IP001> a ex:OrderItem ;
+    ex:itemQuantity 1 ;
+    ex:itemUnitPrice 6999.0 ;
+    ex:orderHasItem <http://platform.com/order/99> ;
+    ex:orderItemForProduct <http://platform.com/product/IP001> .
+
+ex:paymentAmount rdfs:domain ex:Payment ;
+    rdfs:range xsd:decimal .
+
+ex:paymentDate rdfs:domain ex:Payment ;
+    rdfs:range xsd:dateTime .
+
+ex:productCategory rdfs:domain ex:Product ;
+    rdfs:range xsd:string .
+
+ex:productName rdfs:domain ex:Product ;
+    rdfs:range xsd:string .
+
+ex:productSku rdfs:domain ex:Product ;
+    rdfs:range xsd:string .
+
+ex:productUnitPrice rdfs:domain ex:Product ;
+    rdfs:range xsd:decimal .
+
+ex:shipmentDate rdfs:domain ex:Shipment ;
+    rdfs:range xsd:dateTime .
+
+ex:shipmentStatus rdfs:domain ex:Shipment ;
+    rdfs:range xsd:string .
+
+ex:shipmentTrackingNo rdfs:domain ex:Shipment ;
+    rdfs:range xsd:string .
+
+ex:stockAtWarehouse rdfs:domain ex:InventoryItem ;
+    rdfs:range ex:Warehouse .
+
+ex:stockOfProduct rdfs:domain ex:InventoryItem ;
+    rdfs:range ex:Product .
+
+ex:stockQuantity rdfs:domain ex:InventoryItem ;
+    rdfs:range xsd:integer .
+
+ex:stockReservedQty rdfs:domain ex:InventoryItem ;
+    rdfs:range xsd:integer .
+
+ex:warehouseCity rdfs:domain ex:Warehouse ;
+    rdfs:range xsd:string .
+
+ex:warehouseCode rdfs:domain ex:Warehouse ;
+    rdfs:range xsd:string .
+
+<http://platform.com/customer/1> a ex:Customer ;
+    ex:customerEmail "huawei@x.com"^^xsd:string ;
+    ex:customerName "华为技术"^^xsd:string ;
+    ex:customerTier "VIP"^^xsd:string .
+
+<http://platform.com/customer/2> a ex:Customer ;
+    ex:customerEmail "bytedance@x.com"^^xsd:string ;
+    ex:customerName "字节跳动"^^xsd:string ;
+    ex:customerTier "VIP"^^xsd:string .
+
+<http://platform.com/customer/3> a ex:Customer ;
+    ex:customerEmail "midea@x.com"^^xsd:string ;
+    ex:customerName "美的集团"^^xsd:string ;
+    ex:customerTier "Standard"^^xsd:string .
+
+<http://platform.com/customer/4> a ex:Customer ;
+    ex:customerEmail "new@x.com"^^xsd:string ;
+    ex:customerName "新客户甲"^^xsd:string ;
+    ex:customerTier "New"^^xsd:string .
+
+ex:customerHasOrder rdfs:domain ex:Customer ;
+    rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasCustomer .
+
+ex:employeeId rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:itemOfOrder rdfs:domain ex:OrderItem ;
+    rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasItem .
+
+<http://platform.com/order/2> a ex:Order ;
+    ex:orderDate "2026-07-03T11:00:00"^^xsd:dateTime ;
+    ex:orderHasCustomer <http://platform.com/customer/2> ;
+    ex:orderStatus "Shipped"^^xsd:string ;
+    ex:orderTotalAmount 8999.0 .
+
+<http://platform.com/order/4> a ex:Order ;
+    ex:orderDate "2026-07-08T09:00:00"^^xsd:dateTime ;
+    ex:orderHasCustomer <http://platform.com/customer/4> ;
+    ex:orderStatus "Placed"^^xsd:string ;
+    ex:orderTotalAmount 1999.0 .
+
+ex:orderHasCustomer rdfs:domain ex:Order ;
+    rdfs:range ex:Customer ;
+    owl:inverseOf ex:customerHasOrder .
+
+ex:orderHasItem rdfs:domain ex:Order ;
+    rdfs:range ex:OrderItem ;
+    owl:inverseOf ex:itemOfOrder .
+
+ex:orderHasShipment rdfs:domain ex:Order ;
+    rdfs:range ex:Shipment ;
+    owl:inverseOf ex:shipmentOfOrder .
+
+ex:orderNo rdfs:domain ex:Order ;
+    rdfs:range xsd:string .
+
+<http://platform.com/product/IP002> a ex:Product ;
+    ex:productCategory "平板"^^xsd:string ;
+    ex:productName "iPad Pro"^^xsd:string ;
+    ex:productUnitPrice 8999.0 .
+
+<http://platform.com/product/MAC01> a ex:Product ;
+    ex:productCategory "电脑"^^xsd:string ;
+    ex:productName "MacBook Pro"^^xsd:string ;
+    ex:productUnitPrice 15999.0 .
+
+ex:shipmentOfOrder rdfs:domain ex:Shipment ;
+    rdfs:range ex:Order ;
+    owl:inverseOf ex:orderHasShipment .
+
+<http://platform.com/order/1> a ex:Order ;
+    ex:orderDate "2026-07-01T10:00:00"^^xsd:dateTime ;
+    ex:orderHasCustomer <http://platform.com/customer/1> ;
+    ex:orderStatus "Delivered"^^xsd:string ;
+    ex:orderTotalAmount 21997.0 .
+
+<http://platform.com/order/3> a ex:Order ;
+    ex:orderDate "2026-07-05T15:00:00"^^xsd:dateTime ;
+    ex:orderHasCustomer <http://platform.com/customer/3> ;
+    ex:orderStatus "Paid"^^xsd:string ;
+    ex:orderTotalAmount 25997.0 .
+
+<http://platform.com/product/AP001> a ex:Product ;
+    ex:productCategory "耳机"^^xsd:string ;
+    ex:productName "AirPods Pro"^^xsd:string ;
+    ex:productUnitPrice 1999.0 .
+
+ex:Payment a owl:Class ;
+    rdfs:label "付款"@zh .
+
+ex:Warehouse a owl:Class ;
+    rdfs:label "仓库"@zh .
+
+<http://platform.com/product/IP001> a ex:Product ;
+    ex:productCategory "手机"^^xsd:string ;
+    ex:productName "iPhone 15"^^xsd:string ;
+    ex:productUnitPrice 6999.0 .
+
+ex:InventoryItem a owl:Class ;
+    rdfs:label "库存项"@zh .
+
+ex:action a owl:Class ;
+    rdfs:label "动作实例"@zh .
+
+ex:Invoice a owl:Class ;
+    rdfs:label "发票"@zh .
+
+ex:Shipment a owl:Class ;
+    rdfs:label "运单"@zh .
+
+ex:Employee a owl:Class ;
+    rdfs:label "员工"@zh ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:employeeId ] .
+
+ex:Customer a owl:Class ;
+    rdfs:label "客户"@zh .
+
+ex:Product a owl:Class ;
+    rdfs:label "产品"@zh .
+
+ex:OrderItem a owl:Class ;
+    rdfs:label "订单项"@zh .
+
+ex:Order a owl:Class ;
+    rdfs:label "订单"@zh ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:orderNo ] .
+

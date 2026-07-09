@@ -1,0 +1,29 @@
+@prefix ex: <http://hr.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# 4 个职位
+ex:job-001 a ex:Engineering ; ex:title "高级 Python 工程师" ; ex:salaryMin 35000 ; ex:salaryMax 60000 .
+ex:job-002 a ex:Engineering ; ex:title "前端开发"          ; ex:salaryMin 25000 ; ex:salaryMax 45000 .
+ex:job-003 a ex:Sales       ; ex:title "销售总监"          ; ex:salaryMin 50000 ; ex:salaryMax 80000 .
+ex:job-004 a ex:Management  ; ex:title "HR 经理"           ; ex:salaryMin 30000 ; ex:salaryMax 50000 .
+
+# 5 个候选人
+ex:cand-001 a ex:Candidate ; ex:candidateName "张三" ; ex:candidateEmail "zhang@x.com" .
+ex:cand-002 a ex:Candidate ; ex:candidateName "李四" ; ex:candidateEmail "li@x.com" .
+ex:cand-003 a ex:Candidate ; ex:candidateName "王五" ; ex:candidateEmail "wang@x.com" .
+ex:cand-004 a ex:Candidate ; ex:candidateName "赵六" ; ex:candidateEmail "zhao@x.com" .
+ex:cand-005 a ex:Candidate ; ex:candidateName "孙七" ; ex:candidateEmail "sun@x.com" .
+
+# 6 个投递
+ex:app-001 a ex:Application ; ex:appliedJob ex:job-001 ; ex:candidate ex:cand-001 ; ex:status "Interviewing" .
+ex:app-002 a ex:Application ; ex:appliedJob ex:job-001 ; ex:candidate ex:cand-002 ; ex:status "OfferSent" .
+ex:app-003 a ex:Application ; ex:appliedJob ex:job-002 ; ex:candidate ex:cand-003 ; ex:status "Screening" .
+ex:app-004 a ex:Application ; ex:appliedJob ex:job-003 ; ex:candidate ex:cand-004 ; ex:status "Interviewing" .
+ex:app-005 a ex:Application ; ex:appliedJob ex:job-004 ; ex:candidate ex:cand-005 ; ex:status "Hired" .
+ex:app-006 a ex:Application ; ex:appliedJob ex:job-003 ; ex:candidate ex:cand-001 ; ex:status "Rejected" .
+
+# 4 场面试
+ex:iv-001 a ex:Interview ; ex:interviewOf ex:app-001 ; ex:interviewer "王经理" ; ex:interviewDate "2026-06-15"^^xsd:date ; ex:interviewRound 1 ; ex:feedback "基础扎实" .
+ex:iv-002 a ex:Interview ; ex:interviewOf ex:app-001 ; ex:interviewer "李总监" ; ex:interviewDate "2026-06-22"^^xsd:date ; ex:interviewRound 2 ; ex:feedback "通过" .
+ex:iv-003 a ex:Interview ; ex:interviewOf ex:app-002 ; ex:interviewer "王经理" ; ex:interviewDate "2026-06-20"^^xsd:date ; ex:interviewRound 1 ; ex:feedback "OK" .
+ex:iv-004 a ex:Interview ; ex:interviewOf ex:app-004 ; ex:interviewer "陈总"   ; ex:interviewDate "2026-07-01"^^xsd:date ; ex:interviewRound 1 ; ex:feedback "候选" .

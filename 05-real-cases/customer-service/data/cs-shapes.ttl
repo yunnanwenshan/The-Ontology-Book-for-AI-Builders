@@ -1,0 +1,39 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://shop.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:CustomerShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Customer ;
+    sh:property [
+        sh:path ex:customerPhone ;
+        sh:pattern "^1[3-9]\\d{9}$" ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:OrderShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Order ;
+    sh:property [
+        sh:path ex:customer ;
+        sh:minCount 1 ;
+        sh:class ex:Customer ;
+    ] , [
+        sh:path ex:amount ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+    ] , [
+        sh:path ex:status ;
+        sh:in ("Placed" "Paid" "Shipped" "Delivered" "Cancelled") ;
+    ] .
+
+ex:TicketShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Ticket ;
+    sh:property [
+        sh:path ex:priority ;
+        sh:in ("Critical" "High" "Medium" "Low") ;
+    ] , [
+        sh:path ex:status ;
+        sh:in ("Open" "InProgress" "Resolved" "Closed") ;
+    ] .

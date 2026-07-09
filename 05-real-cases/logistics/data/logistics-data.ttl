@@ -1,0 +1,106 @@
+@prefix ex: <http://logistics.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 4 个仓库 ===
+ex:wh-shanghai a ex:Warehouse ; ex:warehouseCode "WH-SHA" ; ex:warehouseName "上海主仓" ; ex:warehouseCity "上海" ; ex:warehouseLat 31.23 ; ex:warehouseLng 121.47 .
+ex:wh-shenzhen a ex:Warehouse ; ex:warehouseCode "WH-SZX" ; ex:warehouseName "深圳南头仓" ; ex:warehouseCity "深圳" ; ex:warehouseLat 22.54 ; ex:warehouseLng 113.92 .
+ex:wh-beijing a ex:Warehouse ; ex:warehouseCode "WH-PEK" ; ex:warehouseName "北京顺义仓" ; ex:warehouseCity "北京" ; ex:warehouseLat 40.13 ; ex:warehouseLng 116.65 .
+ex:wh-chengdu a ex:Warehouse ; ex:warehouseCode "WH-CTU" ; ex:warehouseName "成都双流仓" ; ex:warehouseCity "成都" ; ex:warehouseLat 30.58 ; ex:warehouseLng 103.95 .
+
+# === 3 个承运商 ===
+ex:car-sf a ex:Carrier ; ex:carrierCode "SF" ; ex:carrierName "顺丰速运" .
+ex:car-yt a ex:Carrier ; ex:carrierCode "YT" ; ex:carrierName "圆通速递" .
+ex:car-zto a ex:Carrier ; ex:carrierCode "ZTO" ; ex:carrierName "中通快递" .
+
+# === 5 个客户 ===
+ex:cust-001 a ex:Customer ; ex:customerName "张三" ; ex:customerPhone "13800000001" ; ex:customerAddress "上海市浦东新区世纪大道 100 号" .
+ex:cust-002 a ex:Customer ; ex:customerName "李四" ; ex:customerPhone "13800000002" ; ex:customerAddress "深圳市南山区科技园路 1 号" .
+ex:cust-003 a ex:Customer ; ex:customerName "王五" ; ex:customerPhone "13800000003" ; ex:customerAddress "北京市朝阳区建国路 88 号" .
+ex:cust-004 a ex:Customer ; ex:customerName "赵六" ; ex:customerPhone "13800000004" ; ex:customerAddress "成都市武侯区天府大道 50 号" .
+ex:cust-005 a ex:Customer ; ex:customerName "孙七" ; ex:customerPhone "13800000005" ; ex:customerAddress "广州市天河区珠江路 30 号" .
+
+# === 8 个订单 ===
+ex:o-001 a ex:Order ; ex:orderNo "O0000000001" ; ex:orderCustomer ex:cust-001 ; ex:orderWarehouse ex:wh-shanghai ; ex:orderWeight 2.5 ; ex:orderDate "2026-07-01T10:00:00"^^xsd:dateTime ; ex:orderStatus "Delivered" .
+ex:o-002 a ex:Order ; ex:orderNo "O0000000002" ; ex:orderCustomer ex:cust-002 ; ex:orderWarehouse ex:wh-shenzhen ; ex:orderWeight 1.2 ; ex:orderDate "2026-07-02T11:00:00"^^xsd:dateTime ; ex:orderStatus "Delivered" .
+ex:o-003 a ex:Order ; ex:orderNo "O0000000003" ; ex:orderCustomer ex:cust-003 ; ex:orderWarehouse ex:wh-beijing ; ex:orderWeight 5.0 ; ex:orderDate "2026-07-03T09:00:00"^^xsd:dateTime ; ex:orderStatus "Shipped" .
+ex:o-004 a ex:Order ; ex:orderNo "O0000000004" ; ex:orderCustomer ex:cust-004 ; ex:orderWarehouse ex:wh-chengdu ; ex:orderWeight 3.8 ; ex:orderDate "2026-07-04T14:00:00"^^xsd:dateTime ; ex:orderStatus "Delivered" .
+ex:o-005 a ex:Order ; ex:orderNo "O0000000005" ; ex:orderCustomer ex:cust-005 ; ex:orderWarehouse ex:wh-shenzhen ; ex:orderWeight 8.5 ; ex:orderDate "2026-07-05T15:00:00"^^xsd:dateTime ; ex:orderStatus "Shipped" .
+ex:o-006 a ex:Order ; ex:orderNo "O0000000006" ; ex:orderCustomer ex:cust-001 ; ex:orderWarehouse ex:wh-shanghai ; ex:orderWeight 1.0 ; ex:orderDate "2026-07-06T16:00:00"^^xsd:dateTime ; ex:orderStatus "Delivered" .
+ex:o-007 a ex:Order ; ex:orderNo "O0000000007" ; ex:orderCustomer ex:cust-002 ; ex:orderWarehouse ex:wh-shenzhen ; ex:orderWeight 12.0 ; ex:orderDate "2026-07-07T17:00:00"^^xsd:dateTime ; ex:orderStatus "Shipped" .
+ex:o-008 a ex:Order ; ex:orderNo "O0000000008" ; ex:orderCustomer ex:cust-003 ; ex:orderWarehouse ex:wh-beijing ; ex:orderWeight 0.5 ; ex:orderDate "2026-07-08T18:00:00"^^xsd:dateTime ; ex:orderStatus "Created" .
+
+# === 8 个运单（8 订单各对应 1 运单）===
+ex:s-001 a ex:GroundShipment ; ex:shipmentOf ex:o-001 ; ex:shipmentCarrier ex:car-sf ;
+    ex:trackingNo "SF1234567890" ; ex:shipmentStatus "Delivered" ;
+    ex:shipmentDate "2026-07-01T18:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-03T12:00:00"^^xsd:dateTime ;
+    ex:actualArrival   "2026-07-03T10:30:00"^^xsd:dateTime .
+
+ex:s-002 a ex:GroundShipment ; ex:shipmentOf ex:o-002 ; ex:shipmentCarrier ex:car-yt ;
+    ex:trackingNo "YT2345678901" ; ex:shipmentStatus "Delivered" ;
+    ex:shipmentDate "2026-07-02T19:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-04T12:00:00"^^xsd:dateTime ;
+    ex:actualArrival   "2026-07-04T11:00:00"^^xsd:dateTime .
+
+ex:s-003 a ex:AirShipment ; ex:shipmentOf ex:o-003 ; ex:shipmentCarrier ex:car-sf ;
+    ex:trackingNo "SF3456789012" ; ex:shipmentStatus "InTransit" ;
+    ex:shipmentDate "2026-07-03T20:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-05T18:00:00"^^xsd:dateTime .
+
+ex:s-004 a ex:GroundShipment ; ex:shipmentOf ex:o-004 ; ex:shipmentCarrier ex:car-zto ;
+    ex:trackingNo "ZTO4567890123" ; ex:shipmentStatus "Delivered" ;
+    ex:shipmentDate "2026-07-04T16:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-07T18:00:00"^^xsd:dateTime ;
+    ex:actualArrival   "2026-07-09T09:00:00"^^xsd:dateTime .   # 延误 2 天
+
+ex:s-005 a ex:SeaShipment ; ex:shipmentOf ex:o-005 ; ex:shipmentCarrier ex:car-sf ;
+    ex:trackingNo "SF5678901234" ; ex:shipmentStatus "InTransit" ;
+    ex:shipmentDate "2026-07-05T22:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-15T18:00:00"^^xsd:dateTime .
+
+ex:s-006 a ex:GroundShipment ; ex:shipmentOf ex:o-006 ; ex:shipmentCarrier ex:car-yt ;
+    ex:trackingNo "YT6789012345" ; ex:shipmentStatus "Delivered" ;
+    ex:shipmentDate "2026-07-06T20:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-08T12:00:00"^^xsd:dateTime ;
+    ex:actualArrival   "2026-07-08T11:00:00"^^xsd:dateTime .
+
+ex:s-007 a ex:AirShipment ; ex:shipmentOf ex:o-007 ; ex:shipmentCarrier ex:car-sf ;
+    ex:trackingNo "SF7890123456" ; ex:shipmentStatus "Exception" ;
+    ex:shipmentDate "2026-07-07T22:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-09T18:00:00"^^xsd:dateTime .
+
+ex:s-008 a ex:GroundShipment ; ex:shipmentOf ex:o-008 ; ex:shipmentCarrier ex:car-yt ;
+    ex:trackingNo "YT8901234567" ; ex:shipmentStatus "PickedUp" ;
+    ex:shipmentDate "2026-07-08T22:00:00"^^xsd:dateTime ;
+    ex:estimatedArrival "2026-07-10T18:00:00"^^xsd:dateTime .
+
+# === 10 个轨迹事件（4 运单）===
+ex:ev-001 a ex:TrackingEvent ; ex:eventOf ex:s-001 ; ex:eventType "Pickup" ; ex:eventLocation "上海主仓" ; ex:eventTime "2026-07-01T18:00:00"^^xsd:dateTime .
+ex:ev-002 a ex:TrackingEvent ; ex:eventOf ex:s-001 ; ex:eventType "Arrival"  ; ex:eventLocation "上海浦东" ; ex:eventTime "2026-07-02T08:00:00"^^xsd:dateTime .
+ex:ev-003 a ex:TrackingEvent ; ex:eventOf ex:s-001 ; ex:eventType "Delivered"; ex:eventLocation "上海浦东客户" ; ex:eventTime "2026-07-03T10:30:00"^^xsd:dateTime .
+
+ex:ev-004 a ex:TrackingEvent ; ex:eventOf ex:s-003 ; ex:eventType "Pickup" ; ex:eventLocation "北京顺义仓" ; ex:eventTime "2026-07-03T20:00:00"^^xsd:dateTime .
+ex:ev-005 a ex:TrackingEvent ; ex:eventOf ex:s-003 ; ex:eventType "ArrivalTransit" ; ex:eventLocation "上海转运中心" ; ex:eventTime "2026-07-04T06:00:00"^^xsd:dateTime .
+ex:ev-006 a ex:TrackingEvent ; ex:eventOf ex:s-003 ; ex:eventType "DepartureTransit" ; ex:eventLocation "上海转运中心" ; ex:eventTime "2026-07-04T14:00:00"^^xsd:dateTime .
+
+ex:ev-007 a ex:TrackingEvent ; ex:eventOf ex:s-004 ; ex:eventType "Pickup" ; ex:eventLocation "成都双流仓" ; ex:eventTime "2026-07-04T16:00:00"^^xsd:dateTime .
+ex:ev-008 a ex:TrackingEvent ; ex:eventOf ex:s-004 ; ex:eventType "Delivered" ; ex:eventLocation "成都武侯客户" ; ex:eventTime "2026-07-09T09:00:00"^^xsd:dateTime .
+
+ex:ev-009 a ex:TrackingEvent ; ex:eventOf ex:s-007 ; ex:eventType "Pickup" ; ex:eventLocation "深圳南头仓" ; ex:eventTime "2026-07-07T22:00:00"^^xsd:dateTime .
+ex:ev-010 a ex:TrackingEvent ; ex:eventOf ex:s-007 ; ex:eventType "Exception" ; ex:eventLocation "广州白云机场" ; ex:eventTime "2026-07-08T14:00:00"^^xsd:dateTime .
+
+# === 3 个异常 ===
+ex:exc-001 a ex:DelayException ; ex:exceptionOf ex:s-004 ;
+    ex:exceptionType "延误" ; ex:exceptionDesc "天气原因导致延误 2 天" ;
+    ex:exceptionTime "2026-07-08T10:00:00"^^xsd:dateTime ;
+    ex:exceptionStatus "Resolved" .
+
+ex:exc-002 a ex:DamageException ; ex:exceptionOf ex:s-007 ;
+    ex:exceptionType "破损" ; ex:exceptionDesc "外包装破损 1 处" ;
+    ex:exceptionTime "2026-07-08T14:30:00"^^xsd:dateTime ;
+    ex:exceptionStatus "Open" .
+
+ex:exc-003 a ex:LostException ; ex:exceptionOf ex:s-007 ;
+    ex:exceptionType "丢件" ; ex:exceptionDesc "清关时少 1 件" ;
+    ex:exceptionTime "2026-07-08T15:00:00"^^xsd:dateTime ;
+    ex:exceptionStatus "Investigating" .

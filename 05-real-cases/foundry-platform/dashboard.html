@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Palantir Foundry 风格仪表盘</title>
+<style>
+  * { font-family: -apple-system, "Helvetica Neue", "PingFang SC", sans-serif; box-sizing: border-box; }
+  body { margin: 0; padding: 20px; background: #0f172a; color: #e2e8f0; }
+  h1 { color: #f8fafc; font-size: 24px; margin: 0 0 20px 0; }
+  h2 { color: #cbd5e1; font-size: 16px; margin: 30px 0 12px 0; text-transform: uppercase; letter-spacing: 1px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .kpi { background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6; }
+  .kpi .label { color: #94a3b8; font-size: 12px; text-transform: uppercase; }
+  .kpi .value { color: #f1f5f9; font-size: 28px; font-weight: 700; margin-top: 4px; }
+  .kpi .value.green { color: #10b981; }
+  .kpi .value.orange { color: #f59e0b; }
+  .kpi .value.red { color: #ef4444; }
+  table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #334155; color: #cbd5e1; font-weight: 600; font-size: 12px; text-transform: uppercase; }
+  tr:hover { background: #334155; }
+  .badge { padding: 4px 10px; border-radius: 12px; color: white; font-size: 11px; font-weight: 600; }
+  .timeline { background: #1e293b; padding: 20px; border-radius: 8px; border-left: 3px solid #10b981; }
+  .timeline .entry { display: flex; padding: 8px 0; border-bottom: 1px solid #334155; }
+  .timeline .time { width: 200px; color: #94a3b8; font-family: monospace; font-size: 12px; }
+  .timeline .result { color: #f1f5f9; font-weight: 600; }
+  .footer { color: #64748b; text-align: center; margin-top: 40px; font-size: 12px; }
+  .stat-box { background: #1e293b; padding: 12px; border-radius: 6px; text-align: center; }
+  .stat-box .num { font-size: 22px; color: #f1f5f9; font-weight: 700; }
+  .stat-box .name { color: #94a3b8; font-size: 11px; text-transform: uppercase; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .header .ts { color: #94a3b8; font-size: 12px; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 订单履约平台 (Foundry 风格)</h1>
+  <div class="ts">生成时间：2026-07-09 15:26:15</div>
+</div>
+
+<h2>📈 KPI 概览</h2>
+<div class="grid">
+  <div class="kpi">
+    <div class="label">💰 已付款发票总额</div>
+    <div class="value green">¥47,994</div>
+  </div>
+  <div class="kpi">
+    <div class="label">⏳ 待处理订单</div>
+    <div class="value orange">2 个</div>
+  </div>
+  <div class="kpi">
+    <div class="label">🚚 运输中订单</div>
+    <div class="value orange">1 个</div>
+  </div>
+  <div class="kpi">
+    <div class="label">⚠️ 风险发票</div>
+    <div class="value red">1 个</div>
+  </div>
+</div>
+
+<h2>📦 Object Type 分布</h2>
+<div class="grid">
+
+  <div class="stat-box">
+    <div class="num">6</div>
+    <div class="name">OrderItem</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">4</div>
+    <div class="name">Product</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">6</div>
+    <div class="name">InventoryItem</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">3</div>
+    <div class="name">Shipment</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">6</div>
+    <div class="name">Employee</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">5</div>
+    <div class="name">Order</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">3</div>
+    <div class="name">Invoice</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">2</div>
+    <div class="name">Warehouse</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">2</div>
+    <div class="name">Payment</div>
+  </div>
+
+  <div class="stat-box">
+    <div class="num">4</div>
+    <div class="name">Customer</div>
+  </div>
+
+</div>
+
+<h2>📋 订单履约全链路</h2>
+<table>
+<thead>
+<tr>
+  <th>订单号</th>
+  <th>客户</th>
+  <th>金额</th>
+  <th>订单状态</th>
+  <th>物流状态</th>
+  <th>物流单号</th>
+  <th>日期</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><code>O0000000005</code></td>
+  <td>新客户甲</td>
+  <td>¥100.00</td>
+  <td><span class="badge" style="background:#6b7280">Placed</span></td>
+  <td>—</td>
+  <td><code>—</code></td>
+  <td>2026-07-09</td>
+</tr>
+<tr>
+  <td><code>O0000000004</code></td>
+  <td>新客户甲</td>
+  <td>¥1,999.00</td>
+  <td><span class="badge" style="background:#6b7280">Placed</span></td>
+  <td>—</td>
+  <td><code>—</code></td>
+  <td>2026-07-08</td>
+</tr>
+<tr>
+  <td><code>O0000000003</code></td>
+  <td>美的集团</td>
+  <td>¥25,997.00</td>
+  <td><span class="badge" style="background:#6b7280">Paid</span></td>
+  <td>Created</td>
+  <td><code>SF3456789012</code></td>
+  <td>2026-07-05</td>
+</tr>
+<tr>
+  <td><code>O0000000002</code></td>
+  <td>字节跳动</td>
+  <td>¥8,999.00</td>
+  <td><span class="badge" style="background:#6b7280">Shipped</span></td>
+  <td>InTransit</td>
+  <td><code>SF2345678901</code></td>
+  <td>2026-07-03</td>
+</tr>
+<tr>
+  <td><code>O0000000001</code></td>
+  <td>华为技术</td>
+  <td>¥21,997.00</td>
+  <td><span class="badge" style="background:#6b7280">Delivered</span></td>
+  <td>Delivered</td>
+  <td><code>SF1234567890</code></td>
+  <td>2026-07-01</td>
+</tr>
+</tbody>
+</table>
+
+<h2>📜 Action 历史</h2>
+<div class="timeline">
+
+  <div class="entry">
+    <div class="time">2026-07-09T15:26:15</div>
+    <div class="result">美的 → E0001</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-09T15:15:50</div>
+    <div class="result">美的 → E0001</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-09T15:14:28</div>
+    <div class="result">美的 → E0001</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-09T15:09:49</div>
+    <div class="result">美的 → E0001</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-03T10:30:00</div>
+    <div class="result">Approved</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-01T18:00:00</div>
+    <div class="result">SF1234567890</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-006</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-01T09:45:00</div>
+    <div class="result">Reserved</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-005</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-01T09:30:00</div>
+    <div class="result">Approved</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+  <div class="entry">
+    <div class="time">2026-07-01T09:00:00</div>
+    <div class="result">华为 → 李销售</div>
+    <div style="color:#94a3b8; margin-left:20px;">by emp-001</div>
+  </div>
+</div>
+
+<div class="footer">
+  🎨 Palantir Foundry 风格仪表盘 · 由 RDF/rdflib + pyshacl + SPARQL 驱动
+</div>
+
+</body>
+</html>

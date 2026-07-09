@@ -1,0 +1,58 @@
+@prefix ex: <http://shop.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 客户 ===
+ex:cust-001 a ex:Customer ; ex:customerName "张三" ; ex:customerPhone "13800000001" .
+ex:cust-002 a ex:Customer ; ex:customerName "李四" ; ex:customerPhone "13800000002" .
+ex:cust-003 a ex:Customer ; ex:customerName "王五" ; ex:customerPhone "13800000003" .
+
+# === 商品 ===
+ex:p-iphone a ex:Product .
+ex:p-ipad a ex:Product .
+
+# === 订单 ===
+ex:o-1001 a ex:Order ; ex:customer ex:cust-001 ; ex:item ex:p-iphone ;
+    ex:amount 6999.00 ; ex:orderDate "2026-06-20T10:00:00"^^xsd:dateTime ; ex:status "Delivered" .
+ex:o-1002 a ex:Order ; ex:customer ex:cust-001 ; ex:item ex:p-ipad ;
+    ex:amount 8999.00 ; ex:orderDate "2026-07-05T14:30:00"^^xsd:dateTime ; ex:status "Shipped" .
+ex:o-1003 a ex:Order ; ex:customer ex:cust-002 ; ex:item ex:p-iphone ;
+    ex:amount 6999.00 ; ex:orderDate "2026-07-01T09:15:00"^^xsd:dateTime ; ex:status "Delivered" .
+ex:o-1004 a ex:Order ; ex:customer ex:cust-003 ; ex:item ex:p-ipad ;
+    ex:amount 8999.00 ; ex:orderDate "2026-07-08T16:00:00"^^xsd:dateTime ; ex:status "Paid" .
+
+# === 物流 ===
+ex:s-1 a ex:Shipment ;
+    ex:shipmentOf ex:o-1002 ;
+    ex:trackingNo "SF1234567890" ;
+    ex:carrier "顺丰" ;
+    ex:currentLocation "上海转运中心" ;
+    ex:lastUpdate "2026-07-09T08:00:00"^^xsd:dateTime .
+
+# === 退货 ===
+ex:r-1 a ex:Return ;
+    ex:returnOf ex:o-1001 ;
+    ex:requestedBy ex:cust-001 ;
+    ex:reason "商品有划痕" ;
+    ex:refundStatus "Pending" .
+
+# === 客服工单 ===
+ex:t-1 a ex:Ticket ;
+    ex:aboutCustomer ex:cust-001 ;
+    ex:subject "iPad 没收到" ;
+    ex:priority "High" ;
+    ex:status "Open" ;
+    ex:createdAt "2026-07-09T09:00:00"^^xsd:dateTime .
+
+ex:t-2 a ex:Ticket ;
+    ex:aboutCustomer ex:cust-002 ;
+    ex:subject "想换个颜色" ;
+    ex:priority "Low" ;
+    ex:status "Open" ;
+    ex:createdAt "2026-07-08T10:00:00"^^xsd:dateTime .
+
+ex:t-3 a ex:Ticket ;
+    ex:aboutCustomer ex:cust-003 ;
+    ex:subject "支付失败" ;
+    ex:priority "Critical" ;
+    ex:status "InProgress" ;
+    ex:createdAt "2026-07-09T10:30:00"^^xsd:dateTime .

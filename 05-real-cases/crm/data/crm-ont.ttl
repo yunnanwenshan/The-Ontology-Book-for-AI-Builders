@@ -1,0 +1,64 @@
+@prefix ex: <http://crm.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 核心类 ===
+ex:Customer    a owl:Class ; rdfs:label "客户"@zh .
+ex:Contact     a owl:Class ; rdfs:label "联系人"@zh .
+ex:Account     a owl:Class ; rdfs:label "客户公司"@zh .
+ex:Lead        a owl:Class ; rdfs:label "线索"@zh .
+ex:Opportunity a owl:Class ; rdfs:label "商机"@zh .
+ex:Activity    a owl:Class ; rdfs:label "活动"@zh .
+ex:SalesRep    a owl:Class ; rdfs:label "销售"@zh .
+ex:Product     a owl:Class ; rdfs:label "产品"@zh .
+
+# === 关系 ===
+ex:customerName  rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:customerPhone rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:customerEmail rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:industry      rdfs:domain ex:Customer ; rdfs:range xsd:string .
+
+ex:contactName    rdfs:domain ex:Contact ; rdfs:range xsd:string .
+ex:contactTitle   rdfs:domain ex:Contact ; rdfs:range xsd:string .
+ex:contactOf      rdfs:domain ex:Contact ; rdfs:range ex:Customer .
+ex:contactPhone   rdfs:domain ex:Contact ; rdfs:range xsd:string .
+
+ex:accountName    rdfs:domain ex:Account ; rdfs:range xsd:string .
+ex:accountSize    rdfs:domain ex:Account ; rdfs:range xsd:string .   # SMB/Mid/Enterprise
+ex:accountRevenue rdfs:domain ex:Account ; rdfs:range xsd:decimal .
+
+ex:leadName       rdfs:domain ex:Lead ; rdfs:range xsd:string .
+ex:leadSource     rdfs:domain ex:Lead ; rdfs:range xsd:string .
+ex:leadStatus     rdfs:domain ex:Lead ; rdfs:range xsd:string .
+ex:leadCreated    rdfs:domain ex:Lead ; rdfs:range xsd:dateTime .
+
+ex:opportunityName  rdfs:domain ex:Opportunity ; rdfs:range xsd:string .
+ex:opportunityAmt   rdfs:domain ex:Opportunity ; rdfs:range xsd:decimal .
+ex:opportunityStage rdfs:domain ex:Opportunity ; rdfs:range xsd:string .   # Lead/Qualified/Proposal/Negotiation/Won/Lost
+ex:opportunityForCustomer rdfs:domain ex:Opportunity ; rdfs:range ex:Customer .
+ex:opportunityRep   rdfs:domain ex:Opportunity ; rdfs:range ex:SalesRep .
+ex:opportunityProduct rdfs:domain ex:Opportunity ; rdfs:range ex:Product .
+ex:opportunityCloseDate rdfs:domain ex:Opportunity ; rdfs:range xsd:date .
+ex:opportunityCreated rdfs:domain ex:Opportunity ; rdfs:range xsd:dateTime .
+
+ex:activityType    rdfs:domain ex:Activity ; rdfs:range xsd:string .
+ex:activitySubject rdfs:domain ex:Activity ; rdfs:range xsd:string .
+ex:activityTime    rdfs:domain ex:Activity ; rdfs:range xsd:dateTime .
+ex:activityOf      rdfs:domain ex:Activity ; rdfs:range ex:Opportunity .
+ex:activityBy      rdfs:domain ex:Activity ; rdfs:range ex:SalesRep .
+ex:activityOutcome rdfs:domain ex:Activity ; rdfs:range xsd:string .
+
+ex:repName  rdfs:domain ex:SalesRep ; rdfs:range xsd:string .
+ex:repEmail rdfs:domain ex:SalesRep ; rdfs:range xsd:string .
+
+ex:productName  rdfs:domain ex:Product ; rdfs:range xsd:string .
+ex:productPrice rdfs:domain ex:Product ; rdfs:range xsd:decimal .
+
+# === 父子类（漏斗）===
+ex:NewLead       rdfs:subClassOf ex:Lead ; rdfs:label "新线索"@zh .
+ex:QualifiedLead rdfs:subClassOf ex:Lead ; rdfs:label "已验证线索"@zh .
+ex:HotLead       rdfs:subClassOf ex:Lead ; rdfs:label "高意向线索"@zh .
+
+ex:ClosedWon     rdfs:subClassOf ex:Opportunity ; rdfs:label "成交"@zh .
+ex:ClosedLost    rdfs:subClassOf ex:Opportunity ; rdfs:label "丢单"@zh .

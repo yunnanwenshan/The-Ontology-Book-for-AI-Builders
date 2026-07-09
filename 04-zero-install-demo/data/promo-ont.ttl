@@ -1,0 +1,15 @@
+@prefix ex: <http://shop.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Product    a owl:Class ; rdfs:label "商品"@zh .
+ex:Promotion  a owl:Class ; rdfs:label "促销活动"@zh .
+ex:Discount   a owl:Class ; rdfs:label "折扣规则"@zh .
+
+ex:hasPromotion rdfs:domain ex:Product ; rdfs:range ex:Promotion .
+ex:discountRule rdfs:domain ex:Promotion ; rdfs:range ex:Discount .
+ex:startDate    rdfs:domain ex:Promotion ; rdfs:range xsd:dateTime .
+ex:endDate      rdfs:domain ex:Promotion ; rdfs:range xsd:dateTime .
+ex:minAmount    rdfs:domain ex:Discount  ; rdfs:range xsd:decimal .
+ex:discountAmt  rdfs:domain ex:Discount  ; rdfs:range xsd:decimal .

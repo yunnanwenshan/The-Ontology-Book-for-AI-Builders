@@ -1,0 +1,61 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://finance.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 合同规则 ===
+ex:ContractShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Contract ;
+    sh:property [
+        sh:path ex:contractNo ;
+        sh:minCount 1 ;
+        sh:pattern "^C-\\d{4}-\\d{3}$" ;
+    ] , [
+        sh:path ex:contractAmt ;
+        sh:minInclusive 0 ;
+    ] , [
+        sh:path ex:status ;
+        sh:in ("Draft" "Active" "Expired" "Terminated") ;
+    ] ;
+    sh:property [
+        sh:path ex:expiryDate ;
+        sh:greaterThan ex:signDate ;
+    ] .
+
+# === 供应商必须有税号（合规要求）===
+ex:VendorShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Vendor ;
+    sh:property [
+        sh:path ex:taxId ;
+        sh:minCount 1 ;
+        sh:pattern "^[0-9A-Z]{15,20}$" ;
+    ] .
+
+# === 发票状态枚举 ===
+ex:InvoiceShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Invoice ;
+    sh:property [
+        sh:path ex:invoiceNo ;
+        sh:minCount 1 ;
+    ] , [
+        sh:path ex:invoiceAmt ;
+        sh:minInclusive 0 ;
+    ] , [
+        sh:path ex:invoiceStatus ;
+        sh:in ("Received" "Verified" "Approved" "Paid" "Rejected") ;
+    ] .
+
+# === 付款金额必须 > 0 ===
+ex:PaymentShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Payment ;
+    sh:property [
+        sh:path ex:paymentAmt ;
+        sh:datatype xsd:decimal ;
+        sh:minExclusive 0 ;
+    ] , [
+        sh:path ex:paymentMethod ;
+        sh:in ("Bank" "Check" "Cash" "Wire") ;
+    ] .

@@ -1,0 +1,52 @@
+@prefix ex: <http://hospital.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 核心类 ===
+ex:Patient    a owl:Class ; rdfs:label "患者"@zh .
+ex:Doctor     a owl:Class ; rdfs:label "医生"@zh .
+ex:Visit      a owl:Class ; rdfs:label "就诊"@zh .
+ex:Diagnosis  a owl:Class ; rdfs:label "诊断"@zh .
+ex:Prescription a owl:Class ; rdfs:label "处方"@zh .
+ex:Drug       a owl:Class ; rdfs:label "药品"@zh .
+ex:Department a owl:Class ; rdfs:label "科室"@zh .
+
+# === 关系 ===
+ex:patientName  rdfs:domain ex:Patient ; rdfs:range xsd:string .
+ex:patientId    rdfs:domain ex:Patient ; rdfs:range xsd:string .
+ex:patientDOB   rdfs:domain ex:Patient ; rdfs:range xsd:date .
+ex:patientGender rdfs:domain ex:Patient ; rdfs:range xsd:string .
+
+ex:doctorName   rdfs:domain ex:Doctor ; rdfs:range xsd:string .
+ex:licenseNo    rdfs:domain ex:Doctor ; rdfs:range xsd:string .
+ex:department   rdfs:domain ex:Doctor ; rdfs:range ex:Department .
+ex:doctorTitle  rdfs:domain ex:Doctor ; rdfs:range xsd:string .
+
+ex:visitOf      rdfs:domain ex:Visit ; rdfs:range ex:Patient .
+ex:visitDoctor  rdfs:domain ex:Visit ; rdfs:range ex:Doctor .
+ex:visitDate    rdfs:domain ex:Visit ; rdfs:range xsd:dateTime .
+ex:visitType    rdfs:domain ex:Visit ; rdfs:range xsd:string .
+ex:chiefComplaint rdfs:domain ex:Visit ; rdfs:range xsd:string .
+
+ex:diagnosisOf  rdfs:domain ex:Diagnosis ; rdfs:range ex:Visit .
+ex:icdCode      rdfs:domain ex:Diagnosis ; rdfs:range xsd:string .   # ICD-10 编码
+ex:diagnosisName rdfs:domain ex:Diagnosis ; rdfs:range xsd:string .
+ex:severity     rdfs:domain ex:Diagnosis ; rdfs:range xsd:string .
+
+ex:prescribedTo rdfs:domain ex:Prescription ; rdfs:range ex:Visit .
+ex:drug         rdfs:domain ex:Prescription ; rdfs:range ex:Drug .
+ex:dosage       rdfs:domain ex:Prescription ; rdfs:range xsd:string .
+ex:frequency    rdfs:domain ex:Prescription ; rdfs:range xsd:string .
+ex:duration     rdfs:domain ex:Prescription ; rdfs:range xsd:string .
+
+ex:drugName     rdfs:domain ex:Drug ; rdfs:range xsd:string .
+ex:drugCode     rdfs:domain ex:Drug ; rdfs:range xsd:string .
+ex:drugCategory rdfs:domain ex:Drug ; rdfs:range xsd:string .
+
+ex:deptName     rdfs:domain ex:Department ; rdfs:range xsd:string .
+
+# === 父子类 ===
+ex:OutpatientVisit rdfs:subClassOf ex:Visit ; rdfs:label "门诊就诊"@zh .
+ex:EmergencyVisit  rdfs:subClassOf ex:Visit ; rdfs:label "急诊就诊"@zh .
+ex:InpatientVisit  rdfs:subClassOf ex:Visit ; rdfs:label "住院就诊"@zh .

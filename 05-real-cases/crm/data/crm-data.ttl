@@ -1,0 +1,126 @@
+@prefix ex: <http://crm.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 3 个销售 ===
+ex:rep-001 a ex:SalesRep ; ex:repName "王经理" ; ex:repEmail "wang@crm.com" .
+ex:rep-002 a ex:SalesRep ; ex:repName "李总监" ; ex:repEmail "li@crm.com" .
+ex:rep-003 a ex:SalesRep ; ex:repName "张主管" ; ex:repEmail "zhang@crm.com" .
+
+# === 3 个产品 ===
+ex:prod-cloud a ex:Product ; ex:productName "CRM 云" ; ex:productPrice 120000.00 .
+ex:prod-bi a ex:Product ; ex:productName "商业智能 BI" ; ex:productPrice 80000.00 .
+ex:prod-erp a ex:Product ; ex:productName "ERP 套件" ; ex:productPrice 500000.00 .
+
+# === 6 个客户（含 1 个已签约）===
+ex:cust-001 a ex:Customer ; ex:customerName "华为技术" ; ex:customerPhone "13800000001" ; ex:industry "通信" .
+ex:cust-002 a ex:Customer ; ex:customerName "字节跳动" ; ex:customerPhone "13800000002" ; ex:industry "互联网" .
+ex:cust-003 a ex:Customer ; ex:customerName "招商银行" ; ex:customerPhone "13800000003" ; ex:industry "金融" .
+ex:cust-004 a ex:Customer ; ex:customerName "美的集团" ; ex:customerPhone "13800000004" ; ex:industry "制造" .
+ex:cust-005 a ex:Customer ; ex:customerName "上汽通用" ; ex:customerPhone "13800000005" ; ex:industry "汽车" .
+ex:cust-006 a ex:Customer ; ex:customerName "国家电网" ; ex:customerPhone "13800000006" ; ex:industry "能源" .
+
+# === 4 个联系人 ===
+ex:contact-001 a ex:Contact ; ex:contactName "王 CTO" ; ex:contactTitle "CTO" ; ex:contactOf ex:cust-001 ; ex:contactPhone "13900000001" .
+ex:contact-002 a ex:Contact ; ex:contactName "张总监" ; ex:contactTitle "技术总监" ; ex:contactOf ex:cust-002 ; ex:contactPhone "13900000002" .
+ex:contact-003 a ex:Contact ; ex:contactName "李 VP" ; ex:contactTitle "业务 VP" ; ex:contactOf ex:cust-003 ; ex:contactPhone "13900000003" .
+ex:contact-004 a ex:Contact ; ex:contactName "陈经理" ; ex:contactTitle "信息部经理" ; ex:contactOf ex:cust-004 ; ex:contactPhone "13900000004" .
+
+# === 5 个客户公司（Account）===
+ex:acc-001 a ex:Account ; ex:accountName "华为技术" ; ex:accountSize "Enterprise" ; ex:accountRevenue 1000000000.00 .
+ex:acc-002 a ex:Account ; ex:accountName "字节跳动" ; ex:accountSize "Enterprise" ; ex:accountRevenue 500000000.00 .
+ex:acc-003 a ex:Account ; ex:accountName "招商银行" ; ex:accountSize "Enterprise" ; ex:accountRevenue 200000000.00 .
+ex:acc-004 a ex:Account ; ex:accountName "美的集团" ; ex:accountSize "Mid" ; ex:accountRevenue 50000000.00 .
+ex:acc-005 a ex:Account ; ex:accountName "上汽通用" ; ex:accountSize "Mid" ; ex:accountRevenue 80000000.00 .
+
+# === 8 个线索 ===
+ex:lead-001 a ex:NewLead ; ex:leadName "比亚迪意向" ; ex:leadSource "Referral" ; ex:leadStatus "New" ; ex:leadCreated "2026-06-15T10:00:00"^^xsd:dateTime .
+ex:lead-002 a ex:NewLead ; ex:leadName "宁德时代询价" ; ex:leadSource "Website" ; ex:leadStatus "Contacted" ; ex:leadCreated "2026-06-20T11:00:00"^^xsd:dateTime .
+ex:lead-003 a ex:QualifiedLead ; ex:leadName "海尔集团演示" ; ex:leadSource "Event" ; ex:leadStatus "Qualified" ; ex:leadCreated "2026-06-25T14:00:00"^^xsd:dateTime .
+ex:lead-004 a ex:HotLead ; ex:leadName "联想集团" ; ex:leadSource "Referral" ; ex:leadStatus "Qualified" ; ex:leadCreated "2026-06-28T09:00:00"^^xsd:dateTime .
+ex:lead-005 a ex:HotLead ; ex:leadName "京东数科" ; ex:leadSource "Advertisement" ; ex:leadStatus "Qualified" ; ex:leadCreated "2026-07-01T15:00:00"^^xsd:dateTime .
+ex:lead-006 a ex:NewLead ; ex:leadName "百度智能云" ; ex:leadSource "Social Media" ; ex:leadStatus "New" ; ex:leadCreated "2026-07-05T16:00:00"^^xsd:dateTime .
+ex:lead-007 a ex:QualifiedLead ; ex:leadName "网易杭州" ; ex:leadSource "Cold Call" ; ex:leadStatus "Qualified" ; ex:leadCreated "2026-07-07T10:00:00"^^xsd:dateTime .
+ex:lead-008 a ex:NewLead ; ex:leadName "小米科技" ; ex:leadSource "Website" ; ex:leadStatus "Disqualified" ; ex:leadCreated "2026-07-08T11:00:00"^^xsd:dateTime .
+
+# === 8 个商机（漏斗分布）===
+ex:opp-001 a ex:Opportunity ; ex:opportunityName "招商银行 BI 项目" ;
+    ex:opportunityAmt 800000.00 ; ex:opportunityStage "Won" ;
+    ex:opportunityForCustomer ex:cust-003 ; ex:opportunityRep ex:rep-001 ;
+    ex:opportunityProduct ex:prod-bi ;
+    ex:opportunityCreated "2026-05-01T10:00:00"^^xsd:dateTime ;
+    ex:opportunityCloseDate "2026-07-01"^^xsd:date .
+
+ex:opp-002 a ex:Opportunity ; ex:opportunityName "美的 ERP" ;
+    ex:opportunityAmt 1500000.00 ; ex:opportunityStage "Negotiation" ;
+    ex:opportunityForCustomer ex:cust-004 ; ex:opportunityRep ex:rep-002 ;
+    ex:opportunityProduct ex:prod-erp ;
+    ex:opportunityCreated "2026-04-15T10:00:00"^^xsd:dateTime .
+
+ex:opp-003 a ex:Opportunity ; ex:opportunityName "上汽通用 CRM" ;
+    ex:opportunityAmt 600000.00 ; ex:opportunityStage "Proposal" ;
+    ex:opportunityForCustomer ex:cust-005 ; ex:opportunityRep ex:rep-001 ;
+    ex:opportunityProduct ex:prod-cloud ;
+    ex:opportunityCreated "2026-06-01T10:00:00"^^xsd:dateTime .
+
+ex:opp-004 a ex:Opportunity ; ex:opportunityName "华为云 CRM 续约" ;
+    ex:opportunityAmt 1200000.00 ; ex:opportunityStage "Qualified" ;
+    ex:opportunityForCustomer ex:cust-001 ; ex:opportunityRep ex:rep-001 ;
+    ex:opportunityProduct ex:prod-cloud ;
+    ex:opportunityCreated "2026-07-01T10:00:00"^^xsd:dateTime .
+
+ex:opp-005 a ex:Opportunity ; ex:opportunityName "字节 BI 试点" ;
+    ex:opportunityAmt 200000.00 ; ex:opportunityStage "Qualified" ;
+    ex:opportunityForCustomer ex:cust-002 ; ex:opportunityRep ex:rep-002 ;
+    ex:opportunityProduct ex:prod-bi ;
+    ex:opportunityCreated "2026-07-05T10:00:00"^^xsd:dateTime .
+
+ex:opp-006 a ex:Opportunity ; ex:opportunityName "国家电网 BI" ;
+    ex:opportunityAmt 3000000.00 ; ex:opportunityStage "Lost" ;
+    ex:opportunityForCustomer ex:cust-006 ; ex:opportunityRep ex:rep-003 ;
+    ex:opportunityProduct ex:prod-bi ;
+    ex:opportunityCreated "2026-03-01T10:00:00"^^xsd:dateTime .
+
+ex:opp-007 a ex:Opportunity ; ex:opportunityName "宁德时代云服务" ;
+    ex:opportunityAmt 400000.00 ; ex:opportunityStage "Lead" ;
+    ex:opportunityForCustomer ex:cust-002 ; ex:opportunityRep ex:rep-003 ;
+    ex:opportunityProduct ex:prod-cloud ;
+    ex:opportunityCreated "2026-07-08T10:00:00"^^xsd:dateTime .
+
+ex:opp-008 a ex:Opportunity ; ex:opportunityName "海尔 ERP 升级" ;
+    ex:opportunityAmt 2000000.00 ; ex:opportunityStage "Negotiation" ;
+    ex:opportunityForCustomer ex:cust-004 ; ex:opportunityRep ex:rep-002 ;
+    ex:opportunityProduct ex:prod-erp ;
+    ex:opportunityCreated "2026-06-10T10:00:00"^^xsd:dateTime .
+
+# === 8 个活动 ===
+ex:act-001 a ex:Activity ; ex:activityType "Call" ; ex:activitySubject "首次接洽" ;
+    ex:activityTime "2026-05-05T10:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-001 ; ex:activityBy ex:rep-001 ; ex:activityOutcome "Positive" .
+
+ex:act-002 a ex:Activity ; ex:activityType "Demo" ; ex:activitySubject "BI 演示" ;
+    ex:activityTime "2026-05-20T14:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-001 ; ex:activityBy ex:rep-001 ; ex:activityOutcome "Positive" .
+
+ex:act-003 a ex:Activity ; ex:activityType "Meeting" ; ex:activitySubject "商务谈判" ;
+    ex:activityTime "2026-06-25T15:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-001 ; ex:activityBy ex:rep-001 ; ex:activityOutcome "Positive" .
+
+ex:act-004 a ex:Activity ; ex:activityType "Demo" ; ex:activitySubject "ERP 演示" ;
+    ex:activityTime "2026-06-20T10:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-002 ; ex:activityBy ex:rep-002 ; ex:activityOutcome "Positive" .
+
+ex:act-005 a ex:Activity ; ex:activityType "Meeting" ; ex:activitySubject "方案提交讨论" ;
+    ex:activityTime "2026-07-01T11:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-003 ; ex:activityBy ex:rep-001 ; ex:activityOutcome "Pending" .
+
+ex:act-006 a ex:Activity ; ex:activityType "Call" ; ex:activitySubject "需求确认" ;
+    ex:activityTime "2026-07-03T16:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-004 ; ex:activityBy ex:rep-001 ; ex:activityOutcome "Positive" .
+
+ex:act-007 a ex:Activity ; ex:activityType "Follow-up" ; ex:activitySubject "跟进" ;
+    ex:activityTime "2026-07-08T09:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-008 ; ex:activityBy ex:rep-002 ; ex:activityOutcome "Pending" .
+
+ex:act-008 a ex:Activity ; ex:activityType "Email" ; ex:activitySubject "邮件确认" ;
+    ex:activityTime "2026-07-09T08:00:00"^^xsd:dateTime ;
+    ex:activityOf ex:opp-005 ; ex:activityBy ex:rep-002 ; ex:activityOutcome "Positive" .

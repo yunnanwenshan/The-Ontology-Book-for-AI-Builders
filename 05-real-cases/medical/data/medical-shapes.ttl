@@ -1,0 +1,62 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://hospital.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# 患者必须有 ID
+ex:PatientShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Patient ;
+    sh:property [
+        sh:path ex:patientId ;
+        sh:minCount 1 ;
+        sh:pattern "^P\\d{6}$" ;
+    ] , [
+        sh:path ex:patientGender ;
+        sh:in ("M" "F") ;
+    ] .
+
+# 医生必须有执业证号
+ex:DoctorShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Doctor ;
+    sh:property [
+        sh:path ex:licenseNo ;
+        sh:minCount 1 ;
+        sh:pattern "^\\d{17}[0-9X]$" ;   # 中国执业医师证 18 位
+    ] .
+
+# 诊断必须有 ICD-10 编码
+ex:DiagnosisShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Diagnosis ;
+    sh:property [
+        sh:path ex:icdCode ;
+        sh:minCount 1 ;
+        sh:pattern "^[A-Z]\\d{2}(\\.\\d{1,4})?$" ;
+    ] , [
+        sh:path ex:severity ;
+        sh:in ("Mild" "Moderate" "Severe" "Critical") ;
+    ] .
+
+# 处方必须有药品和剂量
+ex:PrescriptionShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Prescription ;
+    sh:property [
+        sh:path ex:drug ;
+        sh:minCount 1 ;
+        sh:class ex:Drug ;
+    ] , [
+        sh:path ex:dosage ;
+        sh:minCount 1 ;
+    ] .
+
+# 药品必须有国药准字
+ex:DrugShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Drug ;
+    sh:property [
+        sh:path ex:drugCode ;
+        sh:minCount 1 ;
+        sh:pattern "^国药准字[A-Z]\\d{8}$" ;
+    ] .

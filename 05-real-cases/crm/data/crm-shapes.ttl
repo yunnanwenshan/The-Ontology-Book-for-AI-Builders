@@ -1,0 +1,59 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://crm.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# 客户必须有名称和电话
+ex:CustomerShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Customer ;
+    sh:property [
+        sh:path ex:customerName ;
+        sh:minCount 1 ;
+    ] , [
+        sh:path ex:customerPhone ;
+        sh:pattern "^1[3-9]\\d{9}$" ;
+    ] .
+
+# 商机金额必须 > 0
+ex:OpportunityShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Opportunity ;
+    sh:property [
+        sh:path ex:opportunityAmt ;
+        sh:datatype xsd:decimal ;
+        sh:minExclusive 0 ;
+    ] , [
+        sh:path ex:opportunityStage ;
+        sh:in ("Lead" "Qualified" "Proposal" "Negotiation" "Won" "Lost") ;
+    ] .
+
+# 客户公司规模
+ex:AccountShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Account ;
+    sh:property [
+        sh:path ex:accountSize ;
+        sh:in ("SMB" "Mid" "Enterprise") ;
+    ] .
+
+# 线索状态
+ex:LeadShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Lead ;
+    sh:property [
+        sh:path ex:leadStatus ;
+        sh:in ("New" "Contacted" "Qualified" "Disqualified" "Converted") ;
+    ] , [
+        sh:path ex:leadSource ;
+        sh:in ("Website" "Referral" "Cold Call" "Event" "Advertisement" "Social Media") ;
+    ] .
+
+# 活动必须有时间和类型
+ex:ActivityShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Activity ;
+    sh:property [
+        sh:path ex:activityType ;
+        sh:minCount 1 ;
+        sh:in ("Call" "Email" "Meeting" "Demo" "Follow-up") ;
+    ] .

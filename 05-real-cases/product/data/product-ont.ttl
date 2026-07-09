@@ -1,0 +1,45 @@
+@prefix ex: <http://shop.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 核心类 ===
+ex:SPU        a owl:Class ; rdfs:label "SPU（商品单位）"@zh .
+ex:SKU        a owl:Class ; rdfs:label "SKU（库存单位）"@zh .
+ex:Category   a owl:Class ; rdfs:label "类目"@zh .
+ex:Brand      a owl:Class ; rdfs:label "品牌"@zh .
+ex:Warehouse  a owl:Class ; rdfs:label "仓库"@zh .
+ex:Inventory  a owl:Class ; rdfs:label "库存"@zh .
+ex:PriceList  a owl:Class ; rdfs:label "价表"@zh .
+
+# === 关系 ===
+ex:brand          rdfs:domain ex:SPU   ; rdfs:range ex:Brand .
+ex:category       rdfs:domain ex:SPU   ; rdfs:range ex:Category .
+ex:skuOf          rdfs:domain ex:SKU   ; rdfs:range ex:SPU .
+ex:skuName        rdfs:domain ex:SKU   ; rdfs:range xsd:string .
+ex:barcode        rdfs:domain ex:SKU   ; rdfs:range xsd:string .
+ex:skuSpec        rdfs:domain ex:SKU   ; rdfs:range xsd:string .   # 规格，如 "256G/银色"
+
+ex:warehouseName  rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+ex:warehouseCity  rdfs:domain ex:Warehouse ; rdfs:range xsd:string .
+
+ex:inventoryOf    rdfs:domain ex:Inventory ; rdfs:range ex:SKU .
+ex:storedAt       rdfs:domain ex:Inventory ; rdfs:range ex:Warehouse .
+ex:quantity       rdfs:domain ex:Inventory ; rdfs:range xsd:integer .
+ex:safetyStock    rdfs:domain ex:Inventory ; rdfs:range xsd:integer .
+ex:updatedAt      rdfs:domain ex:Inventory ; rdfs:range xsd:dateTime .
+
+ex:priceOf        rdfs:domain ex:PriceList ; rdfs:range ex:SKU .
+ex:priceCurrency  rdfs:domain ex:PriceList ; rdfs:range xsd:string .
+ex:price          rdfs:domain ex:PriceList ; rdfs:range xsd:decimal .
+ex:priceType      rdfs:domain ex:PriceList ; rdfs:range xsd:string .   # 零售/批发/活动
+ex:priceFrom      rdfs:domain ex:PriceList ; rdfs:range xsd:date .
+ex:priceTo        rdfs:domain ex:PriceList ; rdfs:range xsd:date .
+
+ex:brandName      rdfs:domain ex:Brand    ; rdfs:range xsd:string .
+ex:categoryName   rdfs:domain ex:Category ; rdfs:range xsd:string .
+ex:parentCategory rdfs:domain ex:Category ; rdfs:range ex:Category .
+
+# 父子类
+ex:Smartphone rdfs:subClassOf ex:SPU .
+ex:Tablet     rdfs:subClassOf ex:SPU .

@@ -1,0 +1,45 @@
+@prefix ex: <http://shop.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 核心类 ===
+ex:Customer a owl:Class ; rdfs:label "客户"@zh .
+ex:Order    a owl:Class ; rdfs:label "订单"@zh .
+ex:Shipment a owl:Class ; rdfs:label "物流"@zh .
+ex:Return   a owl:Class ; rdfs:label "退货"@zh .
+ex:Ticket   a owl:Class ; rdfs:label "客服工单"@zh .
+ex:Product  a owl:Class ; rdfs:label "商品"@zh .
+
+# === 状态机 ===
+ex:Placed     a owl:Class ; rdfs:label "已下单"@zh .
+ex:Paid       a owl:Class ; rdfs:label "已支付"@zh .
+ex:Shipped    a owl:Class ; rdfs:label "已发货"@zh .
+ex:Delivered  a owl:Class ; rdfs:label "已签收"@zh .
+ex:Cancelled  a owl:Class ; rdfs:label "已取消"@zh .
+
+# === 属性 ===
+ex:customer       rdfs:domain ex:Order   ; rdfs:range ex:Customer .
+ex:item           rdfs:domain ex:Order   ; rdfs:range ex:Product .
+ex:amount         rdfs:domain ex:Order   ; rdfs:range xsd:decimal .
+ex:orderDate      rdfs:domain ex:Order   ; rdfs:range xsd:dateTime .
+ex:status         rdfs:domain ex:Order   ; rdfs:range xsd:string .
+ex:customerName   rdfs:domain ex:Customer ; rdfs:range xsd:string .
+ex:customerPhone  rdfs:domain ex:Customer ; rdfs:range xsd:string .
+
+ex:shipmentOf     rdfs:domain ex:Shipment ; rdfs:range ex:Order .
+ex:trackingNo     rdfs:domain ex:Shipment ; rdfs:range xsd:string .
+ex:carrier        rdfs:domain ex:Shipment ; rdfs:range xsd:string .
+ex:currentLocation rdfs:domain ex:Shipment ; rdfs:range xsd:string .
+ex:lastUpdate     rdfs:domain ex:Shipment ; rdfs:range xsd:dateTime .
+
+ex:returnOf       rdfs:domain ex:Return ; rdfs:range ex:Order .
+ex:requestedBy    rdfs:domain ex:Return ; rdfs:range ex:Customer .
+ex:reason         rdfs:domain ex:Return ; rdfs:range xsd:string .
+ex:refundStatus   rdfs:domain ex:Return ; rdfs:range xsd:string .
+
+ex:aboutCustomer  rdfs:domain ex:Ticket ; rdfs:range ex:Customer .
+ex:subject        rdfs:domain ex:Ticket ; rdfs:range xsd:string .
+ex:priority       rdfs:domain ex:Ticket ; rdfs:range xsd:string .
+ex:status         rdfs:domain ex:Ticket ; rdfs:range xsd:string .
+ex:createdAt      rdfs:domain ex:Ticket ; rdfs:range xsd:dateTime .

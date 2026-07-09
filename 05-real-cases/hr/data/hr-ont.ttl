@@ -1,0 +1,30 @@
+@prefix ex: <http://hr.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 类 ===
+ex:JobPosting    a owl:Class ; rdfs:label "职位"@zh .
+ex:Candidate     a owl:Class ; rdfs:label "候选人"@zh .
+ex:Application   a owl:Class ; rdfs:label "投递"@zh .
+ex:Interview     a owl:Class ; rdfs:label "面试"@zh .
+
+ex:Engineering   rdfs:subClassOf ex:JobPosting ; rdfs:label "工程岗"@zh .
+ex:Sales         rdfs:subClassOf ex:JobPosting ; rdfs:label "销售岗"@zh .
+ex:Management    rdfs:subClassOf ex:JobPosting ; rdfs:label "管理岗"@zh .
+
+# === 属性 ===
+ex:title          rdfs:domain ex:JobPosting ; rdfs:range xsd:string .
+ex:department     rdfs:domain ex:JobPosting ; rdfs:range xsd:string .
+ex:salaryMin      rdfs:domain ex:JobPosting ; rdfs:range xsd:integer .
+ex:salaryMax      rdfs:domain ex:JobPosting ; rdfs:range xsd:integer .
+ex:status         rdfs:domain ex:Application ; rdfs:range xsd:string .
+ex:appliedJob     rdfs:domain ex:Application ; rdfs:range ex:JobPosting .
+ex:candidate      rdfs:domain ex:Application ; rdfs:range ex:Candidate .
+ex:candidateName  rdfs:domain ex:Candidate  ; rdfs:range xsd:string .
+ex:candidateEmail rdfs:domain ex:Candidate  ; rdfs:range xsd:string .
+ex:interviewOf    rdfs:domain ex:Interview  ; rdfs:range ex:Application .
+ex:interviewer    rdfs:domain ex:Interview  ; rdfs:range xsd:string .
+ex:interviewDate  rdfs:domain ex:Interview  ; rdfs:range xsd:date .
+ex:interviewRound rdfs:domain ex:Interview  ; rdfs:range xsd:integer .
+ex:feedback       rdfs:domain ex:Interview  ; rdfs:range xsd:string .

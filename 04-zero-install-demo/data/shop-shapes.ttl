@@ -1,0 +1,16 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/shop#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:OrderShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Order ;
+    sh:property [
+        sh:path ex:customer ;
+        sh:minCount 1 ;
+        sh:class ex:Customer ;
+    ] , [
+        sh:path ex:amount ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+    ] .

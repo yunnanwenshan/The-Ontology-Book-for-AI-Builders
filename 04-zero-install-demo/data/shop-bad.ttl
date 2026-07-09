@@ -1,0 +1,13 @@
+@prefix ex: <http://example.com/shop#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Alice a ex:Customer ; ex:name "Alice" .
+ex:iPhone a ex:Product ; ex:name "iPhone 15" ; ex:price 6999.00 .
+
+# 违规 1: 订单没 customer
+ex:o1 a ex:Order ;
+    ex:item ex:iPhone ; ex:amount 6999.00 .
+
+# 违规 2: 金额是负数
+ex:o2 a ex:Order ;
+    ex:customer ex:Alice ; ex:item ex:iPhone ; ex:amount -100.00 .

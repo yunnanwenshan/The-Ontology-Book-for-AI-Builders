@@ -1,0 +1,95 @@
+@prefix ex: <http://shop.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# === 品牌 ===
+ex:apple a ex:Brand ; ex:brandName "Apple" .
+ex:samsung a ex:Brand ; ex:brandName "三星" .
+ex:xiaomi a ex:Brand ; ex:brandName "小米" .
+
+# === 类目 ===
+ex:cat-electronics a ex:Category ; ex:categoryName "电子产品" .
+ex:cat-phone a ex:Category ; ex:categoryName "手机" ; ex:parentCategory ex:cat-electronics .
+ex:cat-tablet a ex:Category ; ex:categoryName "平板" ; ex:parentCategory ex:cat-electronics .
+
+# === 仓库 ===
+ex:wh-shanghai a ex:Warehouse ; ex:warehouseName "上海主仓" ; ex:warehouseCity "上海" .
+ex:wh-shenzhen a ex:Warehouse ; ex:warehouseName "深圳南头仓" ; ex:warehouseCity "深圳" .
+
+# === 3 个 SPU ===
+ex:spu-iphone15 a ex:Smartphone ; ex:brand ex:apple ; ex:category ex:cat-phone .
+ex:spu-galaxys24 a ex:Smartphone ; ex:brand ex:samsung ; ex:category ex:cat-phone .
+ex:spu-ipadpro a ex:Tablet ; ex:brand ex:apple ; ex:category ex:cat-tablet .
+
+# === 6 个 SKU（每个 SPU 两个规格）===
+ex:sku-iphone15-256-black a ex:SKU ; ex:skuOf ex:spu-iphone15 ;
+    ex:skuName "iPhone 15 256G 黑色" ; ex:skuSpec "256G/黑色" ; ex:barcode "6901234567890" .
+
+ex:sku-iphone15-512-white a ex:SKU ; ex:skuOf ex:spu-iphone15 ;
+    ex:skuName "iPhone 15 512G 白色" ; ex:skuSpec "512G/白色" ; ex:barcode "6901234567891" .
+
+ex:sku-galaxys24-256 a ex:SKU ; ex:skuOf ex:spu-galaxys24 ;
+    ex:skuName "Galaxy S24 256G" ; ex:skuSpec "256G" ; ex:barcode "6901234567892" .
+
+ex:sku-galaxys24-512 a ex:SKU ; ex:skuOf ex:spu-galaxys24 ;
+    ex:skuName "Galaxy S24 512G" ; ex:skuSpec "512G" ; ex:barcode "6901234567893" .
+
+ex:sku-ipadpro-1tb a ex:SKU ; ex:skuOf ex:spu-ipadpro ;
+    ex:skuName "iPad Pro 1TB" ; ex:skuSpec "1TB" ; ex:barcode "6901234567894" .
+
+ex:sku-ipadpro-2tb a ex:SKU ; ex:skuOf ex:spu-ipadpro ;
+    ex:skuName "iPad Pro 2TB" ; ex:skuSpec "2TB" ; ex:barcode "6901234567895" .
+
+# === 库存（10 条）===
+ex:inv-1 a ex:Inventory ; ex:inventoryOf ex:sku-iphone15-256-black ;
+    ex:storedAt ex:wh-shanghai ; ex:quantity 120 ; ex:safetyStock 50 ;
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+ex:inv-2 a ex:Inventory ; ex:inventoryOf ex:sku-iphone15-256-black ;
+    ex:storedAt ex:wh-shenzhen ; ex:quantity 30 ; ex:safetyStock 20 ;
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+ex:inv-3 a ex:Inventory ; ex:inventoryOf ex:sku-iphone15-512-white ;
+    ex:storedAt ex:wh-shanghai ; ex:quantity 5 ; ex:safetyStock 30 ;   # ⚠️ 低于安全库存
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+ex:inv-4 a ex:Inventory ; ex:inventoryOf ex:sku-galaxys24-256 ;
+    ex:storedAt ex:wh-shanghai ; ex:quantity 200 ; ex:safetyStock 80 ;
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+ex:inv-5 a ex:Inventory ; ex:inventoryOf ex:sku-galaxys24-512 ;
+    ex:storedAt ex:wh-shenzhen ; ex:quantity 15 ; ex:safetyStock 30 ;   # ⚠️
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+ex:inv-6 a ex:Inventory ; ex:inventoryOf ex:sku-ipadpro-1tb ;
+    ex:storedAt ex:wh-shanghai ; ex:quantity 80 ; ex:safetyStock 30 ;
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+ex:inv-7 a ex:Inventory ; ex:inventoryOf ex:sku-ipadpro-2tb ;
+    ex:storedAt ex:wh-shanghai ; ex:quantity 0 ; ex:safetyStock 10 ;   # ⚠️ 断货
+    ex:updatedAt "2026-07-09T10:00:00"^^xsd:dateTime .
+
+# === 价表（6 条）===
+ex:price-retail-iphone15-256 a ex:PriceList ;
+    ex:priceOf ex:sku-iphone15-256-black ;
+    ex:priceCurrency "CNY" ; ex:price 6999.00 ; ex:priceType "Retail" .
+
+ex:price-member-iphone15-256 a ex:PriceList ;
+    ex:priceOf ex:sku-iphone15-256-black ;
+    ex:priceCurrency "CNY" ; ex:price 6499.00 ; ex:priceType "Member" .
+
+ex:price-promo-iphone15-512 a ex:PriceList ;
+    ex:priceOf ex:sku-iphone15-512-white ;
+    ex:priceCurrency "CNY" ; ex:price 8499.00 ; ex:priceType "Promotional" ;
+    ex:priceFrom "2026-07-01"^^xsd:date ; ex:priceTo "2026-07-31"^^xsd:date .
+
+ex:price-retail-galaxys24-256 a ex:PriceList ;
+    ex:priceOf ex:sku-galaxys24-256 ;
+    ex:priceCurrency "CNY" ; ex:price 4999.00 ; ex:priceType "Retail" .
+
+ex:price-retail-galaxys24-512 a ex:PriceList ;
+    ex:priceOf ex:sku-galaxys24-512 ;
+    ex:priceCurrency "CNY" ; ex:price 5999.00 ; ex:priceType "Retail" .
+
+ex:price-retail-ipadpro-1tb a ex:PriceList ;
+    ex:priceOf ex:sku-ipadpro-1tb ;
+    ex:priceCurrency "CNY" ; ex:price 9999.00 ; ex:priceType "Retail" .
