@@ -149,3 +149,20 @@ python3 examples/1-first-rdf.py
 
 > **AI 没有本体 = 会说人话的算命先生**
 > **AI 有了本体 = 看过病历的医生**
+
+## 案例梯度（按难度）
+
+8 个场景从易到难：
+
+| 难度 | 案例 | 时间 |
+|------|------|------|
+| ⭐ 入门 | [HR 招聘](05-real-cases/hr/) | 30 分钟 |
+| ⭐ 入门 | [客服](05-real-cases/customer-service/) | 30 分钟 |
+| ⭐⭐ 中级 | [商品](05-real-cases/product/) | 1 小时 |
+| ⭐⭐ 中级 | [财务](05-real-cases/finance/) | 1 小时 |
+| ⭐⭐⭐ 高级 | [物流](05-real-cases/logistics/) | 1.5 小时 |
+| ⭐⭐⭐ 高级 | [CRM](05-real-cases/crm/) | 1.5 小时 |
+| ⭐⭐⭐ 高级 | [医疗](05-real-cases/medical/) | 1.5 小时 |
+| 🏆 集成 | [Foundry 平台](05-real-cases/foundry-platform/) | 2-3 小时 |
+
+**不知道选哪个？** 看 [05-real-cases/00-场景对比总表.md](../05-real-cases/00-场景对比总表.md) 的业务问题反查表。

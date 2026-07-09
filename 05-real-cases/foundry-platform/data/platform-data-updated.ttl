@@ -59,12 +59,18 @@ ex:act-aip-151550907943 a ex:AssignCustomer,
     ex:actionResult "美的 → E0001" ;
     ex:actionTime "2026-07-09T15:15:50.907995"^^xsd:dateTime .
 
-ex:act-new-152614 a ex:ApproveOrder,
+ex:act-aip-152615161986 a ex:AssignCustomer,
+        ex:action ;
+    ex:actionBy ex:emp-001 ;
+    ex:actionResult "美的 → E0001" ;
+    ex:actionTime "2026-07-09T15:26:15.162036"^^xsd:dateTime .
+
+ex:act-new-160301 a ex:ApproveOrder,
         ex:action ;
     ex:actionBy ex:emp-001 ;
     ex:actionOnOrder ex:ord-004 ;
     ex:actionResult "Approved" ;
-    ex:actionTime "2026-07-09T15:26:14.238138"^^xsd:dateTime .
+    ex:actionTime "2026-07-09T16:03:01.078229"^^xsd:dateTime .
 
 ex:actionBy rdfs:domain ex:action ;
     rdfs:range ex:Employee .
@@ -237,7 +243,7 @@ ex:stock-003 a ex:InventoryItem ;
     ex:stockAtWarehouse ex:wh-sh ;
     ex:stockOfProduct ex:prod-ipad ;
     ex:stockQuantity 30 ;
-    ex:stockReservedQty 9 .
+    ex:stockReservedQty 10 .
 
 ex:stock-004 a ex:InventoryItem ;
     ex:stockAtWarehouse ex:wh-sh ;
@@ -428,13 +434,6 @@ ex:wh-sz a ex:Warehouse ;
     ex:warehouseCity "深圳" ;
     ex:warehouseCode "WH-SZX" .
 
-ex:AssignCustomer a owl:Class ;
-    rdfs:label "分配客户"@zh ;
-    rdfs:subClassOf ex:Action .
-
-ex:employeeId rdfs:domain ex:Employee ;
-    rdfs:range xsd:string .
-
 ex:ord-002 a ex:Order ;
     ex:orderDate "2026-07-03T11:00:00"^^xsd:dateTime ;
     ex:orderHandledBy ex:emp-002 ;
@@ -454,14 +453,15 @@ ex:ord-003 a ex:Order ;
     ex:orderStatus "Paid" ;
     ex:orderTotalAmount 25997.00 .
 
-ex:orderNo rdfs:domain ex:Order ;
-    rdfs:range xsd:string .
-
 ex:prod-iphone a ex:Product ;
     ex:productCategory "手机" ;
     ex:productName "iPhone 15" ;
     ex:productSku "IP001" ;
     ex:productUnitPrice 6999.00 .
+
+ex:AssignCustomer a owl:Class ;
+    rdfs:label "分配客户"@zh ;
+    rdfs:subClassOf ex:Action .
 
 ex:Payment a owl:Class ;
     rdfs:label "付款"@zh .
@@ -474,6 +474,12 @@ ex:emp-002 a ex:Employee ;
     ex:employeeId "E0002" ;
     ex:employeeName "李销售" ;
     ex:employeeRole "Sales" .
+
+ex:employeeId rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:orderNo rdfs:domain ex:Order ;
+    rdfs:range xsd:string .
 
 ex:ord-001 a ex:Order ;
     ex:orderDate "2026-07-01T10:00:00"^^xsd:dateTime ;
@@ -500,18 +506,21 @@ ex:InventoryItem a owl:Class ;
 ex:Product a owl:Class ;
     rdfs:label "产品"@zh .
 
+ex:OrderItem a owl:Class ;
+    rdfs:label "订单项"@zh .
+
 ex:emp-001 a ex:Employee ;
     ex:employeeDepartment "销售部" ;
     ex:employeeId "E0001" ;
     ex:employeeName "王经理" ;
     ex:employeeRole "Manager" .
 
-ex:OrderItem a owl:Class ;
-    rdfs:label "订单项"@zh .
-
 ex:Employee a owl:Class ;
     rdfs:label "员工"@zh ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:employeeId ],
+        [ a owl:Restriction ;
             owl:cardinality 1 ;
             owl:onProperty ex:employeeId ],
         [ a owl:Restriction ;
@@ -530,6 +539,9 @@ ex:action a owl:Class ;
 ex:Order a owl:Class ;
     rdfs:label "订单"@zh ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty ex:orderNo ],
+        [ a owl:Restriction ;
             owl:cardinality 1 ;
             owl:onProperty ex:orderNo ],
         [ a owl:Restriction ;
